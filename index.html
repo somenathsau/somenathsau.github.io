@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Aspiring Data Analyst & Cloud Support Engineer</title>
+    <meta name="description"
+        content="Portfolio of a results-driven MCA graduate specializing in Data Analysis, Cloud Support, and Python automation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="stylesheet" href="resources/styles.css?v=21.0">
+</head>
+
+<body>
+
+
+
+
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Background Shapes (Global) -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo">portfolio<span class="accent">.{somenath.sau}</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact" class="btn-primary">Contact Me</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-content fade-up">
+            <div class="hero-text">
+                <p class="greeting">Hello, I'm</p>
+                <h1 class="hero-name gradient-text" id="heroName"></h1>
+                <h2 class="hero-title" id="heroRole"></h2>
+                <p class="hero-subtitle" id="heroSubtitle"></p>
+
+                <div class="skills-ticker" id="heroSkillsTicker">
+                    <!-- Dynamic Content -->
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="#" class="btn-secondary" id="heroResumeBtn" download>Download Resume</a>
+                </div>
+
+                <div class="hero-socials" id="heroSocials">
+                    <!-- Dynamic Social Icons -->
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <div class="hero-image-wrapper">
+                    <img src="" alt="Profile" id="heroImage" class="hero-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">About <span class="accent">Me</span></h2>
+            <div class="about-content">
+                <div class="about-text fade-up" id="aboutText">
+                    <!-- Dynamic Content -->
+                </div>
+                <div class="tech-grid" id="aboutTechGrid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider"></div>
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">Education</h2>
+            <div class="education-grid" id="educationGrid">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider"></div>
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">Projects</h2>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider"></div>
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">Experience</h2>
+            <div class="timeline" id="experienceTimeline">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider"></div>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">Technical Skills</h2>
+
+            <div id="skillsContainer">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider"></div>
+    <!-- Certifications -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title fade-up">Certifications</h2>
+            <div class="cert-grid" id="certGrid">
+                <!-- Dynamic Content -->
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <div class="section-divider"></div>
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title fade-up">Get In <span class="accent">Touch</span></h2>
+            <div class="contact-container">
+                <div class="contact-info fade-up">
+                    <h3>Let's Connect</h3>
+                    <p>Open to opportunities in Data Analysis and Cloud Support. Feel free to reach out via email or
+                        LinkedIn.</p>
+                    <div class="contact-links" id="contactLinks">
+                        <!-- Dynamic Content -->
+                    </div>
+
+                    <div class="resume-wrapper">
+                        <a href="#" class="btn-primary resume-btn" id="contactResumeBtn" download><i
+                                data-lucide="download"></i> Download Resume</a>
+                    </div>
+                </div>
+
+                <form class="contact-form glass-card fade-up">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 somenath. All rights reserved.</p>
+            <a href="#" class="back-to-top" id="backToTop"><i data-lucide="arrow-up"></i></a>
+        </div>
+    </footer>
+
+    <script src="resources/data.js?v=17.0"></script>
+    <script src="resources/script.js?v=17.0"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
