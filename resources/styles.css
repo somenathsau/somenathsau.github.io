@@ -1133,6 +1133,11 @@ body:hover .cursor-dot {
         /* Aggressively reduced */
     }
 
+    .scroll-arrows {
+        bottom: 50px;
+        /* Move arrows up on mobile */
+    }
+
     .navbar {
         position: fixed;
         top: 0;
