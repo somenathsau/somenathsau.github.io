@@ -1055,39 +1055,259 @@ body:hover .cursor-dot {
     color: white;
 }
 
+/* Tablet Styles (max-width: 1200px) */
+/* Tablet Styles (max-width: 1200px) */
+@media (max-width: 1200px) {
+    .navbar {
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .nav-container {
+        padding: 5px 15px;
+        width: 100%;
+        max-width: 100%;
+        gap: 5px;
+        /* Minimal gap */
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        /* Ensure logo and links spread */
+    }
+
+    .logo {
+        font-size: 1.1rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+        /* Don't shrink logo */
+    }
+
+    .nav-links {
+        gap: 5px;
+        flex-wrap: nowrap;
+        margin: 0;
+        padding: 0;
+        justify-content: flex-end;
+        width: auto;
+        flex-shrink: 1;
+        /* Allow links container to shrink if needed */
+        overflow: visible;
+        /* Show all content */
+    }
+
+    .nav-links li {
+        flex-shrink: 0;
+        /* Don't shrink individual li */
+    }
+
+    .nav-links a {
+        font-size: 0.8rem;
+        white-space: nowrap;
+        padding: 5px;
+    }
+
+    .nav-links li a.btn-primary {
+        padding: 5px 10px !important;
+        margin-left: 5px !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap;
+    }
+}
+
+/* Tighter Tablet Fix (iPad Air / Portrait Tablets) */
+@media (max-width: 900px) {
+    /* Logo is now short "Somenath.", so no need to hide parts */
+
+    .nav-links a {
+        font-size: 0.75rem;
+        padding: 3px;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
+    .hero-section {
+        padding-bottom: 80px;
+        padding-top: 100px;
+        /* Increased to clear fixed navbar */
     }
 
-    .hero-buttons {
-        flex-direction: column;
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        border-radius: 0;
+        background: rgba(8, 2, 2, 0.95) !important;
+        /* Dark background */
+        padding: 10px 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
 
-    .hero-content {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 50px;
-    }
-
-    .hero-text {
-        text-align: center;
+    .nav-container {
+        padding: 0 20px;
         width: 100%;
     }
 
-    .hero-image-wrapper {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 30px;
+    .logo {
+        font-size: 1.2rem;
     }
 
-    .hero-socials {
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
+        gap: 20px;
+    }
+
+    /* 1. Image on Top */
+    .hero-image-container {
+        order: 1;
+        width: 100%;
+        display: flex;
         justify-content: center;
+        margin-bottom: 10px;
+        /* Remove grid positioning */
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .hero-image-wrapper {
+        width: 160px;
+        height: 160px;
+        border-width: 3px;
+        margin: 0;
+    }
+
+    .hero-image-wrapper::before {
+        border-width: 2px;
+    }
+
+    /* 2. Text in Middle */
+    .hero-text {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        /* Remove grid positioning */
+        display: flex;
+    }
+
+    .greeting,
+    .hero-name,
+    .hero-title,
+    .hero-subtitle,
+    .skills-ticker {
+        /* Remove grid positioning */
+        grid-column: auto;
+        width: 100%;
+        justify-self: center;
+        text-align: center;
+        padding-left: 0;
+        /* Reset left alignment padding */
+    }
+
+    .greeting {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        order: 1;
+    }
+
+    .hero-name {
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+        order: 2;
+        padding-left: 0;
+    }
+
+    .hero-title {
+        font-size: 1.3rem;
+        min-height: 1.5em;
+        /* Prevent layout shift */
+        margin-bottom: 20px;
+        order: 3;
+        padding-left: 0;
+    }
+
+    /* 3. Buttons (Moved to after Title) */
+    .hero-buttons {
+        order: 4;
+        flex-direction: row;
+        /* Side by side */
+        gap: 15px;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 25px;
+        /* Remove grid positioning */
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+        max-width: 90%;
+        /* Match width */
+        padding: 0;
+        margin-bottom: 20px;
+        order: 5;
+        padding-left: 0;
     }
 
     .skills-ticker {
         justify-content: center;
+        margin-bottom: 20px;
+        order: 6;
+        font-size: 0.9rem;
+        max-width: 90%;
+        /* Match space side-wise */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* 4. Socials (Moved to bottom) */
+    .hero-socials {
+        order: 7;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+        gap: 20px;
+        /* Remove grid positioning */
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: auto;
+        /* Allow natural width */
+        min-width: 140px;
+    }
+
+    /* 4. Socials (Moved up) */
+    .hero-socials {
+        order: 6;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+        gap: 20px;
+        /* Remove grid positioning */
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .social-icon {
+        width: 50px;
+        /* Restore size */
+        height: 50px;
+        font-size: 1.2rem;
     }
 
     .nav-links {
@@ -1125,6 +1345,11 @@ body:hover .cursor-dot {
     }
 
     /* Mobile Menu Toggle Logic needed in JS to show links */
+    .cursor-dot {
+        display: none !important;
+    }
+
+    /* Hamburger Animation */
     .menu-toggle {
         display: block;
         cursor: pointer;
@@ -1136,6 +1361,23 @@ body:hover .cursor-dot {
         height: 3px;
         background: white;
         margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle .bar {
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     .nav-links.active {
@@ -1537,3 +1779,56 @@ body:hover .cursor-dot {
 }
 
 /* --- New Section Heading Style REMOVED to restore underline --- */
+
+/* Scroll Arrows Animation */
+.scroll-arrows {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.8;
+    z-index: 10;
+}
+
+.scroll-arrows span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-bottom: 3px solid var(--accent-cyan);
+    border-right: 3px solid var(--accent-cyan);
+    transform: rotate(45deg);
+    animation: scrollMethod 2s infinite;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-arrows span:nth-child(1) {
+    animation-delay: -0.4s;
+}
+
+.scroll-arrows span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.scroll-arrows span:nth-child(3) {
+    animation-delay: 0s;
+}
+
+@keyframes scrollMethod {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-10px, -10px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(10px, 10px);
+    }
+}
