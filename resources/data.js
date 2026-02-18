@@ -136,7 +136,7 @@ const portfolioData = {
         },
         {
             category: "LLM Training & Evaluation",
-            itemls: [
+            items: [
                 { name: "RLHF", icon: "git-merge" },
                 { name: "LLM Evaluation", icon: "check-circle" },
                 { name: "Prompt Engineering", icon: "message-square" },
@@ -189,6 +189,7 @@ const portfolioData = {
         }
     ]
 };
+
 
 
 
