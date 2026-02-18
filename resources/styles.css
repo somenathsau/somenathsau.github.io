@@ -140,6 +140,33 @@ body:hover .cursor-dot {
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative; /* For loader positioning */
+    overflow: hidden; /* To contain the loader */
+}
+
+/* Button Loading State */
+.btn-loading {
+    color: transparent !important; /* Hide text */
+    pointer-events: none; /* Prevent multiple clicks */
+}
+
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: btn-spin 0.8s infinite linear;
+}
+
+@keyframes btn-spin {
+    to { transform: rotate(360deg); }
 }
 
 .btn-primary {
