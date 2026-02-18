@@ -68,30 +68,30 @@ const portfolioData = {
             company: "CodeClause",
             duration: "Nov 2023 - Dec 2023",
             type: "Internship",
-            description: "Delivered data visualization dashboards for small businesses using Power BI and Excel. Automated data cleaning processes using Python scripts."
+            description: "Built ML models for Speech Emotion Recognition, Loan Risk Prediction, and conducted Uber ride data analysis, achieving 85%+ accuracy through feature engineering, EDA, and model optimization."
         },
         {
             role: "AI Contributor",
             company: "Outlier AI",
             duration: "Sep 2024 - May 2025",
             type: "Freelancing",
-            description: "Assisted in monitoring AWS EC2 instances and resolving L1 support tickets. Gained hands-on experience with Linux administration and troubleshooting."
+            description: "Completed 1,000+ RLHF & SFT tasks, improving LLM alignment and reasoning with 95%+ quality accuracy, enhancing training data precision and response consistency."
         }
     ],
 
     // Projects
     projects: [
         {
-            title: "Data Analysis Dashboard",
-            description: "Interactive dashboard visualizing sales trends and customer demographics using Power BI.",
-            techStack: ["Power BI", "Excel", "DAX"],
+            title: "Uber Data Analysis",
+            description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
+            techStack: ["Extract, Transform, Load (ETL)", "Big Data Analytics", "Statistical Data Analysis"],
             codeLink: "#",
             demoLink: "#"
         },
         {
-            title: "AWS Deployment Pipeline",
-            description: "Automated CI/CD pipeline for deploying a web application to AWS EC2 using GitHub Actions.",
-            techStack: ["AWS", "CICD", "Linux"],
+            title: "Speech Emotion Recognition",
+            description: "Developed a Speech Emotion Recognition model using audio feature extraction, achieving 88%+ classification accuracy.",
+            techStack: ["Data Processing", "Data Cleaning", "Model Making"],
             codeLink: "#",
             demoLink: "#"
         },
@@ -132,6 +132,16 @@ const portfolioData = {
                 { name: "VS Code", icon: "monitor" },
                 { name: "Git & GitHub", icon: "git-branch" },
                 { name: "Tableau", icon: "bar-chart-2" }
+            ]
+        },
+        {
+            category: "LLM Training & Evaluation",
+            itemls: [
+                { name: "RLHF", icon: "git-merge" },
+                { name: "LLM Evaluation", icon: "check-circle" },
+                { name: "Prompt Engineering", icon: "message-square" },
+                { name: "Response Ranking", icon: "arrow-up-down" },
+                { name: "Data Annotation", icon: "edit-3" }
             ]
         },
         {
@@ -179,6 +189,7 @@ const portfolioData = {
         }
     ]
 };
+
 
 
 
