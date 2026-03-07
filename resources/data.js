@@ -88,7 +88,7 @@ const portfolioData = {
             location: "Remote",
             duration: "Sep 2024 – May 2025",
             type: "Freelance",
-            description: "Completed 1,000+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended and structured prompts. Assessed outputs for instruction adherence, truthfulness, reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
+            description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended and structured prompts. Assessed outputs for instruction adherence, truthfulness, reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         }
     ],
 
@@ -98,17 +98,25 @@ const portfolioData = {
             title: "AWS EC2 Cloud Monitoring Tool",
             description: "This project monitors server resource usage including CPU, memory, and disk usage on an AWS EC2 instance.",
 			techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular"],
-            //image: "resources/media/uber_analysis.jpg",
+            image: "resources/media/AWS_monitoring.png",
             codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
-            //demoLink: "#"
+            demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
+        },
+		{
+            title: "Crime Data Analysis in India",
+            description: "Analyzed Indian crime statistics to identify patterns using statistical analysis and machine learning.",
+			techStack: ["Python", "Matplotlib", "Scikit-learn"],
+            image: "resources/media/crime_correlation_heatmap.png",
+            codeLink: "https://github.com/somenathsau/Crime_Report_in_India_2013",
+            demoLink: "https://nbviewer.org/github/somenathsau/Crime_Report_in_India_2013/blob/main/Crime_Report_Analysis_2013.ipynb"
         },
 		{
             title: "Uber Data Analysis",
             description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
             techStack: ["Python", "Numpy", "Pandas"],
-            image: "resources/media/uber_analysis.jpg",
+            image: "resources/media/Uber_Project.png",
             codeLink: "https://github.com/somenathsau/CodeClause-data-science-internship/tree/main/Project%203%20-%20Uber%20Data%20Analysis",
-            demoLink: "#"
+            demoLink: "https://nbviewer.org/github/somenathsau/CodeClause-data-science-internship/blob/main/Project%203%20-%20Uber%20Data%20Analysis/Uber%20data%20analysis.ipynb"
         },
         {
             title: "Speech Emotion Recognition",
