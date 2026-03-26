@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.477.0"></script>
 
     <link rel="stylesheet" href="resources/styles.css?v=29.0">
 </head>
@@ -32,7 +32,7 @@
         <div class="nav-container">
             <a href="#home" class="logo"><i data-lucide="code-xml"></i></a>
             <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -64,7 +64,7 @@
 
                 <div class="hero-buttons">
                     <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="#" class="btn-secondary" id="heroResumeBtn" download>Download Resume</a>
+                    <a href="#" class="btn-secondary" id="heroResumeBtn" target="_blank">View Resume</a>
                 </div>
 
                 <div class="hero-socials" id="heroSocials">
@@ -209,8 +209,8 @@
                     </div>
 
                     <div class="resume-wrapper">
-                        <a href="#" class="btn-primary resume-btn" id="contactResumeBtn" download><i
-                                data-lucide="download"></i> Download Resume</a>
+                        <a href="#" class="btn-primary resume-btn" id="contactResumeBtn" target="_blank"><i
+                                data-lucide="external-link"></i> View Resume</a>
                     </div>
                 </div>
 
@@ -260,8 +260,9 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
             <p>&copy; 2026 somenath. All rights reserved.</p>
+            <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Let's Connect</a>
             <a href="#home" class="back-to-top" id="backToTop"><i data-lucide="arrow-up"></i></a>
         </div>
     </footer>

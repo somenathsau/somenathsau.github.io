@@ -393,23 +393,64 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- SMOOTH SCROLL & CLEAN URLS ---
+    // --- SINGLE PAGE APPLICATION (SPA) LOGIC ---
+    const pageSections = ['home', 'about', 'projects', 'skills', 'experience', 'education', 'certifications', 'contact'];
+    const sectionElements = pageSections.map(id => document.getElementById(id)).filter(Boolean);
+
+    // Initial state: hide everything except 'home' and 'about'
+    let initialHash = window.location.hash.substring(1);
+    
+    if (!initialHash || initialHash === 'home' || initialHash === 'about') {
+        sectionElements.forEach(sec => {
+            if (sec.id !== 'home' && sec.id !== 'about') sec.classList.add('hidden-section');
+        });
+    } else if (pageSections.includes(initialHash)) {
+        sectionElements.forEach(sec => {
+            if (sec.id !== initialHash) sec.classList.add('hidden-section');
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Smooth Scroll
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-
-                // Update URL to show ONLY domain (remove hash and path)
-                history.replaceState(null, null, ' ');
+            const targetSectionId = targetId.substring(1);
+            
+            // If it's a "page" section, handle the SPA swap
+            if (pageSections.includes(targetSectionId)) {
+                // Hide all sections first
+                sectionElements.forEach(sec => sec.classList.add('hidden-section'));
+                
+                if (targetSectionId === 'home') {
+                    // Clicking home resets to Home + About
+                    document.getElementById('home').classList.remove('hidden-section');
+                    document.getElementById('about').classList.remove('hidden-section');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else if (targetSectionId === 'about') {
+                    // Clicking about also shows Home + About but scrolls to About
+                    document.getElementById('home').classList.remove('hidden-section');
+                    document.getElementById('about').classList.remove('hidden-section');
+                    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Show ONLY the target section (e.g., Projects, Skills)
+                    const targetElement = document.getElementById(targetSectionId);
+                    targetElement.classList.remove('hidden-section');
+                    
+                    // Since it's now the only section visible, scroll to the top of the page
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            } else {
+                 // Normal smooth scroll for other things (e.g., backToTop button)
+                 const targetElement = document.querySelector(targetId);
+                 if (targetElement) {
+                     targetElement.scrollIntoView({ behavior: 'smooth' });
+                 }
             }
+            
+            // Clean URL
+            history.replaceState(null, null, ' ');
         });
     });
 
