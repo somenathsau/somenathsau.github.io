@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="social-label">Email</span>
             </a>
         `;
+        lucide.createIcons()
     }
 
     // Render Hero Highlights (Replacing Ticker)
