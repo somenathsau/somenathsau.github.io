@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Somenath Sau</title>
+    <title>Somenath Sau | Portfolio</title>
     <link rel="icon" type="image/x-icon" href="resources/media/coding.png">
     <meta name="description"
         content="Portfolio of a results-driven MCA graduate specializing in Data Analysis, Cloud Support, and Python automation.">
@@ -46,6 +46,7 @@
             <div class="hero-text">
                 <p class="greeting">Hello, I'm</p>
                 <h1 class="hero-name gradient-text" id="heroName"></h1>
+                <p class="hero-bio fade-up" id="heroBio"></p>
                 <h2 class="hero-title" id="heroRole"></h2>
                 <p class="hero-subtitle" id="heroSubtitle"></p>
 
@@ -76,31 +77,12 @@
 
 
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- About Section Redesign -->
+    <section id="about" class="section about-redesign">
         <div class="container">
-            <h2 class="section-title fade-up"><i data-lucide="zap" class="title-icon"></i> About <span
-                    class="accent">Me</span></h2>
-            <div class="about-content">
-                <div class="about-text-column">
-                    <div class="about-text fade-up" id="aboutText">
-                        <!-- Dynamic Content -->
-                    </div>
-                </div>
-                <div class="about-image-column fade-up">
-                    <div class="about-image-wrapper">
-                        <div class="about-image-grid"></div>
-                        <img src="" alt="About Me" id="aboutImage" class="about-img">
-                    </div>
-                </div>
-            </div>
-            <!-- Tech Grid Moved Below or Integrated? Reference shows text left, image right. Tech stack not explicitly shown in reference but we should keep it maybe below text? -->
-            <!-- Let's keep tech grid below text in the left column for now, or just below everything if it doesn't fit the "text only" vibe. 
-                 The reference just has text. Let's put tech grid inside the left column below text. -->
-            <div class="tech-grid-wrapper fade-up">
-                <div class="tech-grid" id="aboutTechGrid">
-                    <!-- Dynamic Content -->
-                </div>
+            <h2 class="section-title fade-up">My <span class="accent">Expertise</span></h2>
+            <div id="knowledgeContainer" class="knowledge-container">
+                <!-- Dynamic Content: Knowledge Rows -->
             </div>
         </div>
     </section>
@@ -251,9 +233,9 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div class="container footer-container">
             <p>&copy; 2026 somenath. All rights reserved.</p>
-            <a href="#contact" class="btn-primary" style="padding: 8px 20px; font-size: 0.9rem;">Let's Connect</a>
+            <a href="#contact" class="btn-primary footer-connect-btn">Let's Connect</a>
             <a href="#home" class="back-to-top" id="backToTop"><i data-lucide="arrow-up"></i></a>
         </div>
     </footer>

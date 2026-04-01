@@ -4,13 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Render Hero Section
     const greetingEl = document.querySelector('.greeting');
-    if (greetingEl) greetingEl.innerHTML = "Hey there!, I'm-";
+    if (greetingEl) greetingEl.innerHTML = "Hello, I'm";
 
     document.getElementById('heroName').textContent = portfolioData.name;
 
-    // Combine Role and Subtitle for the "Software Engineer. A passionate..." effect
-    // We will use heroRole for the Bold Title and heroSubtitle for the description
-    // Assuming portfolioData.role is the Title and .subtitle is the description.
+    const heroBioEl = document.getElementById('heroBio');
+    if (heroBioEl) heroBioEl.textContent = portfolioData.bio;
+
+    /* COMMENTED OUT PER USER REQUEST: ROLE & SUBTITLE
     const heroRoleEl = document.getElementById('heroRole');
     const heroSubtitleEl = document.getElementById('heroSubtitle');
 
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     typeWriter();
 
     heroSubtitleEl.textContent = portfolioData.subtitle;
+    */
 
     // Hero Image Removed
 
@@ -73,71 +75,87 @@ document.addEventListener('DOMContentLoaded', () => {
     heroSkillsContainer.className = 'hero-highlights'; // Change class
     heroSkillsContainer.innerHTML = ''; // Clear
 
+    /* COMMENTED OUT PER USER REQUEST: HERO HIGHLIGHTS
     portfolioData.heroHighlights.forEach(highlight => {
         const item = document.createElement('div');
         item.classList.add('highlight-item');
         item.innerHTML = highlight; // Contains emojis
         heroSkillsContainer.appendChild(item);
     });
+    */
 
-    // 2. Render About Section
-    // 2. Render About Section
-    const aboutTextContainer = document.getElementById('aboutText');
-    portfolioData.about.description.forEach(para => {
-        const p = document.createElement('p');
-        p.innerHTML = para; // Use innerHTML to render highlights
-        aboutTextContainer.appendChild(p);
-    });
+    // 2. Render About Section (Redesigned)
+    const knowledgeContainer = document.getElementById('knowledgeContainer');
+    if (knowledgeContainer && portfolioData.about.domains) {
+        knowledgeContainer.innerHTML = ''; // Clear
+        portfolioData.about.domains.forEach((domain, index) => {
+            const row = document.createElement('div');
+            row.classList.add('knowledge-row', 'fade-up');
+            // If you want alternating illustrations similar to the reference, 
+            // you can uncomment the next line:
+            if (index % 2 !== 0) row.classList.add('reverse');
 
-    const aboutImage = document.getElementById('aboutImage');
-    if (aboutImage) {
-        aboutImage.src = portfolioData.about.aboutImage;
+            const techIconsHtml = domain.techIcons.map(icon => `<i data-lucide="${icon}"></i>`).join('');
+            const bulletsHtml = domain.bullets.map(bullet => `<li>${bullet}</li>`).join('');
+
+            row.innerHTML = `
+                <div class="row-illustration">
+                    <img src="${domain.illustration}" alt="${domain.title}">
+                </div>
+                <div class="row-content">
+                    <h3>${domain.title}</h3>
+                    <div class="domain-tech-icons">
+                        ${techIconsHtml}
+                    </div>
+                    <ul class="row-bullets">
+                        ${bulletsHtml}
+                    </ul>
+                </div>
+            `;
+            knowledgeContainer.appendChild(row);
+        });
+        // Re-run lucide icons for the new elements
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
-
-    const aboutTechGrid = document.getElementById('aboutTechGrid');
-    portfolioData.about.techStack.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('tech-item');
-        div.innerHTML = `<i data-lucide="${item.icon}"></i> ${item.name}`;
-        aboutTechGrid.appendChild(div);
-    });
 
     // 3. Render Education Section
     const educationGrid = document.getElementById('educationGrid');
     portfolioData.education.forEach((edu, index) => {
-        const card = document.createElement('div');
-        card.classList.add('glass-card', 'education-card', 'fade-up');
-        card.style.transitionDelay = `${index * 0.1}s`;
+        const row = document.createElement('div');
+        row.classList.add('edu-row', 'fade-up');
+        row.style.transitionDelay = `${index * 0.1}s`;
 
-        // Build details array
-        const details = [];
-        // Year with class for bold + fixed color
-        details.push(`<span class="edu-year">${edu.year}</span>`);
+        const logoHtml = edu.logo 
+            ? `<img src="${edu.logo}" alt="logo" class="edu-logo-img">`
+            : `<div class="edu-logo-placeholder"><i data-lucide="graduation-cap"></i></div>`;
 
-        // Grade with class for hover protection (keeping inline style for base, but adding class)
-        if (edu.grade) details.push(`<span class="edu-grade" style="color: var(--accent-cyan); font-weight: 600;">${edu.grade}</span>`);
+        const descHtml = edu.description ? `<li><span class="bullet-icon">⚡</span> ${edu.description}</li>` : '';
+        const gradeHtml = edu.grade ? `<li><span class="bullet-icon">⚡</span> ${edu.grade}</li>` : '';
 
-        // Join with separator
-        const separator = `<span style="color: var(--text-secondary); margin: 0 8px; opacity: 0.6;">|</span>`;
-        const detailsHtml = details.join(separator);
+        const visitBtnHtml = edu.credentialLink ? `<div style="text-align: right; margin-top: 15px;"><a href="${edu.credentialLink}" target="_blank" class="edu-btn">Visit Website</a></div>` : '';
 
-        // Credential Link (New Line)
-        const credentialHtml = edu.credentialLink ?
-            `<div style="margin-top: 2px; margin-bottom: 8px;"><a href="${edu.credentialLink}" class="credential-link-inline" target="_blank"><i data-lucide="external-link"></i> View Certificate</a></div>` : '';
-
-        card.innerHTML = `
-            <div class="education-header">
-                <div class="card-icon"><i data-lucide="graduation-cap"></i></div>
-                <h3 class="education-title-header">${edu.title}</h3>
+        row.innerHTML = `
+            <div class="edu-logo-container">
+                ${logoHtml}
             </div>
-            <p class="card-subtitle uni-name">${edu.institution}</p>
-            <p class="card-subtitle" style="display: flex; align-items: center; flex-wrap: wrap; margin-bottom: 2px;">
-                ${detailsHtml}
-            </p>
-            ${credentialHtml}
-            <p class="card-desc">${edu.description}</p>
+            <div class="edu-card-new">
+                <div class="edu-card-header">
+                    <div class="edu-top-row">
+                        <h3>${edu.institution}</h3>
+                        <span>${edu.year}</span>
+                    </div>
+                    <h4>${edu.title}</h4>
+                </div>
+                <div class="edu-card-body">
+                    <ul class="edu-bullets">
+                        ${descHtml}
+                        ${gradeHtml}
+                    </ul>
+                    ${visitBtnHtml}
+                </div>
+            </div>
         `;
-        educationGrid.appendChild(card);
+        educationGrid.appendChild(row);
     });
 
     // 4. Render Experience Section
@@ -172,13 +190,36 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = document.createElement('div');
             item.classList.add('timeline-item', 'fade-up');
 
+            const metricsHtml = exp.metrics ? exp.metrics.map(m => `
+                <div class="exp-stat-box">
+                    <span class="stat-val">${m.val}</span>
+                    <span class="stat-label">${m.label}</span>
+                </div>
+            `).join('') : '';
+
+            const tagsHtml = exp.techStack ? exp.techStack.map(t => `
+                <span class="exp-tag">${t}</span>
+            `).join('') : '';
+
             item.innerHTML = `
                 <div class="timeline-dot"></div>
                 <div class="timeline-content glass-card">
-                    <h3 class="exp-role">${exp.role} <span class="exp-type">(${exp.type})</span></h3>
-                    <p class="exp-company">${exp.company} | ${exp.location || 'Remote'}</p>
-                    <p class="exp-duration">${exp.duration}</p>
+                    <div class="exp-header">
+                        <h3 class="exp-role">${exp.role}</h3>
+                        <span class="exp-type-badge">${exp.type}</span>
+                    </div>
+                    <p class="exp-subheader">${exp.company} | ${exp.location || 'Remote'}</p>
+                    <span class="exp-duration">${exp.duration}</span>
+                    
+                    <div class="exp-metrics">
+                        ${metricsHtml}
+                    </div>
+
                     <p class="exp-desc">${exp.description}</p>
+                    
+                    <div class="exp-tags">
+                        ${tagsHtml}
+                    </div>
                 </div>
             `;
             experienceTimeline.appendChild(item);

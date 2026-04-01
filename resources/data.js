@@ -7,6 +7,8 @@ const portfolioData = {
     resumeLink: "resources/media/somenathCV.pdf",
     email: "somenathsau@gmail.com",
 
+    bio: "MCA Graduate with expertise in Cloud Support, Data Analysis, and AI Evaluation. Passionate about building scalable systems and uncovering insights from data.",
+
     // Typing Effect Skills
     typingSkills: ["Cloud Engineer", "Data Analyst"],
 
@@ -36,6 +38,43 @@ const portfolioData = {
             "When I'm not coding I play games with my friends, watch some show on Netflix, or if the weather's good, play Badminton! 🏸 or cricket! 🏏"
         ],
         aboutImage: "resources/media/Somenath-1.png",
+
+        // New Domain Rows for redesign
+        domains: [
+            {
+                title: "Data Analyst",
+                illustration: "resources/media/data-analyst.png",
+                techIcons: ["database", "table", "bar-chart-2", "layout", "code"],
+                bullets: [
+                    "Cleaning and analyzing large scale datasets (Uber, Crime data).",
+                    "Automating reporting with Python and SQL.",
+                    "Creating interactive dashboards using Power BI and Excel.",
+                    "Statistical analysis for trend identification and decision support."
+                ]
+            },
+            {
+                title: "AI & LLM Engineer",
+                illustration: "resources/media/ai-domain.png",
+                techIcons: ["brain", "message-square", "shield-check", "edit-3", "cpu"],
+                bullets: [
+                    "Completing 500+ RLHF and SFT evaluation tasks for LLMs.",
+                    "Assessing truthfulness, reasoning quality, and safety compliance.",
+                    "Developing SER models using audio feature extraction.",
+                    "Optimizing prompt engineering strategies for better LLM responses."
+                ]
+            },
+            {
+                title: "Cloud Practitioner",
+                illustration: "resources/media/cloud-domain.png",
+                techIcons: ["cloud", "terminal", "wifi", "shield", "server"],
+                bullets: [
+                    "Configuring and monitoring AWS services (EC2, S3, CloudWatch).",
+                    "Automating server metrics tracking using Bash and Cron jobs.",
+                    "Managed basic networking (VPC, Security Groups) for cloud resources.",
+                    "Skilled in Linux administration and system resource optimization."
+                ]
+            }
+        ],
         techStack: [
             { name: "SQL", icon: "database" },
             { name: "Python", icon: "code" },
@@ -52,7 +91,8 @@ const portfolioData = {
             year: "2022 - 2024",
             grade: "CGPA: 7.83", /* Update with actual score */
             description: "Specializing in Data Science and Cloud Computing. Graduated with honors.",
-            credentialLink: "https://drive.google.com/file/d/1TSnZ40uAztN65L_6KxdvZ3E9p1kb20nx/view?usp=drive_link"
+            logo: "resources/media/kiit-logo.png", // Add your logo file path here
+            credentialLink: "https://kiit.ac.in/"
         },
         {
             title: "Bachelor of Computer Applications (BCA)",
@@ -60,15 +100,16 @@ const portfolioData = {
             year: "2018 - 2021",
             grade: "CGPA: 7.47", /* Update with actual score */
             description: "Major in Computer Science. Foundational knowledge in programming and database management.",
-            credentialLink: "https://drive.google.com/file/d/176k0TkTn23BIiwMioxoJQnHkLW51Ow8-/view?usp=drive_link"
+            logo: "resources/media/trident-logo.png", // Add your logo file path here
+            credentialLink: "https://tact.ac.in/"
         },
         {
             title: "Higher Secondary (10+2) Science",
             institution: "Sai +2 Science College, Takatpur",
             year: "2016 - 2018",
-            grade: "Result: Pass", /* Update with actual score */
             description: "Major in Physics, Chemistry and Mathematics",
-            //credentialLink: "#"
+            logo: "resources/media/sai-logo.png", // Add your logo file path here
+            credentialLink: "https://saihss.in/"
         }
     ],
 
@@ -80,6 +121,11 @@ const portfolioData = {
             location: "Remote",
             duration: "Nov 2023 – Dec 2023",
             type: "Internship",
+            metrics: [
+                { val: "85%+", label: "Accuracy" },
+                { val: "2", label: "ML Models" }
+            ],
+            techStack: ["Python", "Scikit-learn", "EDA", "ML Models"],
             description: "Developed ML models for Speech Emotion Recognition and Loan Risk Prediction, and performed large-scale Uber ride data analysis. Achieved 85%+ accuracy through feature engineering, EDA, and model optimization."
         },
         {
@@ -88,6 +134,11 @@ const portfolioData = {
             location: "Remote",
             duration: "Sep 2024 – May 2025",
             type: "Freelance",
+            metrics: [
+                { val: "500+", label: "Tasks done" },
+                { val: "95%", label: "Accuracy" }
+            ],
+            techStack: ["RLHF", "LLM Eval", "Prompt Eng.", "SFT"],
             description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended and structured prompts. Assessed outputs for instruction adherence, truthfulness, reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         }
     ],
@@ -97,28 +148,28 @@ const portfolioData = {
         {
             title: "AWS EC2 Cloud Monitoring Tool",
             description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage including CPU, memory, and disk metrics. Implemented Bash scripts and scheduled cron jobs to automate system monitoring and integrated CloudWatch logs and alerts for real-time performance tracking.",
-			techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular"],
+            techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular"],
             image: "resources/media/AWS_monitoring.png",
             codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
             demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
         },
-		{
+        {
             title: "Crime Data Analysis in India",
             description: "Analyzed crime datasets using data cleaning, exploratory data analysis (EDA), and visualization techniques to identify trends and patterns in criminal activities. Developed charts and visual reports in Excel to highlight crime distribution, frequency, and category-wise insights.",
-			techStack: ["Python", "Matplotlib", "Scikit-learn"],
+            techStack: ["Python", "Matplotlib", "Scikit-learn"],
             image: "resources/media/crime_correlation_heatmap.png",
             codeLink: "https://github.com/somenathsau/Crime_Report_in_India_2013",
             demoLink: "https://nbviewer.org/github/somenathsau/Crime_Report_in_India_2013/blob/main/Crime_Report_Analysis_2013.ipynb"
         },
-		{
+        {
             title: "AI-Assisted Portfolio Website",
             description: "Developed a responsive developer portfolio using AI-assisted development (Vibe Coding). Implemented an automated contact workflow integrating Google Forms and Google Sheets to capture submissions and trigger email notifications.",
-			techStack: ["AI-Assisted Dev", "Automation", "Vibe Coding"],
+            techStack: ["AI-Assisted Dev", "Automation", "Vibe Coding"],
             image: "resources/media/portfolio-home.png",
             codeLink: "https://github.com/somenathsau/somenathsau.github.io",
             demoLink: "https://somenathsau.github.io"
         },
-		{
+        {
             title: "Uber Data Analysis",
             description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
             techStack: ["Python", "Numpy", "Pandas"],
@@ -134,7 +185,7 @@ const portfolioData = {
             codeLink: "#",
             demoLink: "#"
         }*/
-        
+
     ],
 
     // Skills Section
