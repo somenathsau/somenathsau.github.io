@@ -126,27 +126,31 @@ document.addEventListener('DOMContentLoaded', () => {
         row.style.transitionDelay = `${index * 0.1}s`;
 
         const logoHtml = edu.logo 
-            ? `<img src="${edu.logo}" alt="logo" class="edu-logo-img">`
-            : `<div class="edu-logo-placeholder"><i data-lucide="graduation-cap"></i></div>`;
+            ? `<img src="${edu.logo}" alt="${edu.institution}" class="edu-logo-img">`
+            : `<i data-lucide="graduation-cap"></i>`;
 
         const descHtml = edu.description ? `<li><span class="bullet-icon">⚡</span> ${edu.description}</li>` : '';
         const gradeHtml = edu.grade ? `<li><span class="bullet-icon">⚡</span> ${edu.grade}</li>` : '';
 
-        const visitBtnHtml = edu.credentialLink ? `<div style="text-align: right; margin-top: 15px;"><a href="${edu.credentialLink}" target="_blank" class="edu-btn">Visit Website</a></div>` : '';
+        const visitBtnHtml = edu.credentialLink 
+            ? `<div class="edu-footer"><a href="${edu.credentialLink}" target="_blank" class="edu-visit-btn">Visit Website</a></div>` 
+            : '';
 
         row.innerHTML = `
-            <div class="edu-logo-container">
-                ${logoHtml}
-            </div>
-            <div class="edu-card-new">
-                <div class="edu-card-header">
-                    <div class="edu-top-row">
-                        <h3>${edu.institution}</h3>
-                        <span>${edu.year}</span>
+            <div class="edu-card-split">
+                <div class="edu-left-panel">
+                    <div class="edu-logo-circle">
+                        ${logoHtml}
                     </div>
-                    <h4>${edu.title}</h4>
+                    <div class="edu-short-name">${edu.shortName}</div>
                 </div>
-                <div class="edu-card-body">
+                <div class="edu-right-content">
+                    <div class="edu-right-header">
+                        <h3 class="edu-institution-full">${edu.institution}</h3>
+                        <span class="edu-date-pill">${edu.year}</span>
+                    </div>
+                    <h4 class="edu-degree-subtitle">${edu.title}</h4>
+                    <div class="edu-content-divider"></div>
                     <ul class="edu-bullets">
                         ${descHtml}
                         ${gradeHtml}
@@ -229,65 +233,91 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Render Projects Section
 
     const projectsGrid = document.getElementById('projectsGrid');
-    portfolioData.projects.forEach((project, index) => {
-        const card = document.createElement('div');
-        card.classList.add('project-card', 'glass-card', 'fade-up');
-        card.style.transitionDelay = `${index * 0.1}s`;
+    if (projectsGrid) {
+        // Change grid to rows container class
+        projectsGrid.className = 'projects-rows';
+        projectsGrid.innerHTML = ''; // Clear initial content
+        
+        portfolioData.projects.forEach((project, index) => {
+            const row = document.createElement('div');
+            row.classList.add('project-row', 'fade-up');
+            row.style.transitionDelay = `${index * 0.1}s`;
 
-        const techStackHTML = project.techStack.map(tech => `<span>${tech}</span>`).join('');
+            const techPillsHtml = project.techStack.map(tech => `<span class="project-tech-tag">${tech}</span>`).join('');
 
-        card.innerHTML = `
-            ${project.image ? `<div class="project-img-wrapper"><img src="${project.image}" alt="${project.title}" class="project-img"></div>` : ''}
-            <div class="project-content">
-                <div class="project-header">
+            const catSlug = project.category.toLowerCase().replace(/\s+/g, '-');
+
+            row.innerHTML = `
+                <div class="project-image-box">
+                    <img src="${project.image}" alt="${project.title}" class="project-img">
+                </div>
+                <div class="project-details-box">
+                    ${project.category ? `<span class="project-category-tag cat-${catSlug}">${project.category}</span>` : ''}
                     <h3 class="project-title">${project.title}</h3>
+                    <div class="project-tech-tags">
+                        ${techPillsHtml}
+                    </div>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-actions">
+                        <a href="${project.codeLink}" class="btn-code" target="_blank">
+                            <i data-lucide="github"></i> Code
+                        </a>
+                        <a href="${project.demoLink}" class="btn-demo" target="_blank">
+                            <i data-lucide="external-link"></i> Live Demo
+                        </a>
+                    </div>
                 </div>
-                <div class="tech-stack">${techStackHTML}</div>
-                <p class="project-desc">${project.description}</p>
-                <div class="project-links">
-                    <a href="${project.codeLink}" class="project-link-item" target="_blank"><i data-lucide="github"></i> Code</a>
-                    <a href="${project.demoLink}" class="project-link-item" target="_blank"><i data-lucide="external-link"></i> Demo</a>
-                </div>
-            </div>
-        `;
-        projectsGrid.appendChild(card);
-    });
+            `;
+            projectsGrid.appendChild(row);
+        });
+    }
 
     // 6. Render Skills Section
     const skillsContainer = document.getElementById('skillsContainer');
-    portfolioData.skills.forEach(category => {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('skills-category', 'fade-up');
+    if (skillsContainer) {
+        skillsContainer.innerHTML = ''; // Clear initial content
+        portfolioData.skills.forEach(category => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('skills-horizontal-row', 'fade-up');
 
-        const itemsHTML = category.items.map(item => `
-            <li class="tree-skill-item">
-                <span class="skill-content">
-                    <i data-lucide="${item.icon}"></i> ${item.name}
-                </span>
-            </li>
-        `).join('');
+            const itemsHTML = category.items.map(item => `
+                <li class="horizontal-skill-item">
+                    <span class="skill-pill">
+                        <i data-lucide="${item.icon}"></i> ${item.name}
+                    </span>
+                </li>
+            `).join('');
 
-        categoryDiv.innerHTML = `
-            <h3 class="tree-category-title">${category.category}</h3>
-            <ul class="tree-skills-list">${itemsHTML}</ul>
-        `;
-        skillsContainer.appendChild(categoryDiv);
-    });
+            categoryDiv.innerHTML = `
+                <div class="skills-category-info">
+                    <h3 class="skills-category-name">${category.category}</h3>
+                    <span class="skills-separator">|-</span>
+                </div>
+                <ul class="skills-horizontal-list">${itemsHTML}</ul>
+            `;
+            skillsContainer.appendChild(categoryDiv);
+        });
+    }
 
     // 7. Render Certifications Section
     const certGrid = document.getElementById('certGrid');
     portfolioData.certifications.forEach((cert, index) => {
         const card = document.createElement('div');
-        card.classList.add('glass-card', 'cert-card', 'fade-up');
+        card.classList.add('cert-card-refined', 'fade-up');
         card.style.transitionDelay = `${index * 0.1}s`;
 
         card.innerHTML = `
-            <div class="cert-icon"><i data-lucide="award"></i></div>
-            <div class="cert-info">
-                <h3>${cert.title}</h3>
-                <p>${cert.issuer} • ${cert.year}</p>
-                <a href="${cert.credentialLink}" class="credential-link"><i data-lucide="external-link"></i> View Credential</a>
+            <div class="cert-top-row">
+                <div class="cert-icon-box">
+                    <i data-lucide="medal"></i>
+                </div>
+                <span class="cert-date-pill">${cert.year}</span>
             </div>
+            <h3 class="cert-title-refined">${cert.title}</h3>
+            <p class="cert-issuer-refined">${cert.issuer}</p>
+            <a href="${cert.credentialLink}" class="cert-action-link" target="_blank">
+                View Credential <i data-lucide="arrow-up-right"></i>
+            </a>
         `;
         certGrid.appendChild(card);
     });

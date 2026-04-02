@@ -88,6 +88,7 @@ const portfolioData = {
         {
             title: "Master of Computer Applications (MCA)",
             institution: "KIIT University, BBSR",
+            shortName: "KIIT",
             year: "2022 - 2024",
             grade: "CGPA: 7.83", /* Update with actual score */
             description: "Specializing in Data Science and Cloud Computing. Graduated with honors.",
@@ -97,6 +98,7 @@ const portfolioData = {
         {
             title: "Bachelor of Computer Applications (BCA)",
             institution: "Trident Academy of Creative Technology, BBSR",
+            shortName: "TACT",
             year: "2018 - 2021",
             grade: "CGPA: 7.47", /* Update with actual score */
             description: "Major in Computer Science. Foundational knowledge in programming and database management.",
@@ -106,6 +108,7 @@ const portfolioData = {
         {
             title: "Higher Secondary (10+2) Science",
             institution: "Sai +2 Science College, Takatpur",
+            shortName: "Sai +2",
             year: "2016 - 2018",
             description: "Major in Physics, Chemistry and Mathematics",
             logo: "resources/media/sai-logo.png", // Add your logo file path here
@@ -146,37 +149,41 @@ const portfolioData = {
     // Projects
     projects: [
         {
-            title: "AWS EC2 Cloud Monitoring Tool",
-            description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage including CPU, memory, and disk metrics. Implemented Bash scripts and scheduled cron jobs to automate system monitoring and integrated CloudWatch logs and alerts for real-time performance tracking.",
-            techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular"],
-            image: "resources/media/AWS_monitoring.png",
-            codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
-            demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
-        },
-        {
             title: "Crime Data Analysis in India",
             description: "Analyzed crime datasets using data cleaning, exploratory data analysis (EDA), and visualization techniques to identify trends and patterns in criminal activities. Developed charts and visual reports in Excel to highlight crime distribution, frequency, and category-wise insights.",
             techStack: ["Python", "Matplotlib", "Scikit-learn"],
+            category: "Data Analysis",
             image: "resources/media/crime_correlation_heatmap.png",
             codeLink: "https://github.com/somenathsau/Crime_Report_in_India_2013",
             demoLink: "https://nbviewer.org/github/somenathsau/Crime_Report_in_India_2013/blob/main/Crime_Report_Analysis_2013.ipynb"
         },
         {
+            title: "Uber Data Analysis",
+            description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
+            techStack: ["Python", "Numpy", "Pandas"],
+            category: "Data Analysis",
+            image: "resources/media/Uber_Project.png",
+            codeLink: "https://github.com/somenathsau/CodeClause-data-science-internship/tree/main/Project%203%20-%20Uber%20Data%20Analysis",
+            demoLink: "https://nbviewer.org/github/somenathsau/CodeClause-data-science-internship/blob/main/Project%203%20-%20Uber%20Data%20Analysis/Uber%20data%20analysis.ipynb"
+        },
+        {
             title: "AI-Assisted Portfolio Website",
             description: "Developed a responsive developer portfolio using AI-assisted development (Vibe Coding). Implemented an automated contact workflow integrating Google Forms and Google Sheets to capture submissions and trigger email notifications.",
             techStack: ["AI-Assisted Dev", "Automation", "Vibe Coding"],
+            category: "AI",
             image: "resources/media/portfolio-home.png",
             codeLink: "https://github.com/somenathsau/somenathsau.github.io",
             demoLink: "https://somenathsau.github.io"
         },
         {
-            title: "Uber Data Analysis",
-            description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
-            techStack: ["Python", "Numpy", "Pandas"],
-            image: "resources/media/Uber_Project.png",
-            codeLink: "https://github.com/somenathsau/CodeClause-data-science-internship/tree/main/Project%203%20-%20Uber%20Data%20Analysis",
-            demoLink: "https://nbviewer.org/github/somenathsau/CodeClause-data-science-internship/blob/main/Project%203%20-%20Uber%20Data%20Analysis/Uber%20data%20analysis.ipynb"
-        },
+            title: "AWS EC2 Cloud Monitoring Tool",
+            description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage including CPU, memory, and disk metrics. Implemented Bash scripts and scheduled cron jobs to automate system monitoring and integrated CloudWatch logs and alerts for real-time performance tracking.",
+            techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular"],
+            category: "Cloud",
+            image: "resources/media/AWS_monitoring.png",
+            codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
+            demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
+        }
         /*{
             title: "Speech Emotion Recognition",
             description: "Developed a Speech Emotion Recognition model using audio feature extraction, achieving 88%+ classification accuracy.",

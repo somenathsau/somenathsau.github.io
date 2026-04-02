@@ -875,39 +875,11 @@ body {
     }
 }
 
-/* New Education Card Design */
+/* Education Layout Cleanup */
 .education-grid {
     display: flex;
     flex-direction: column;
     gap: 40px;
-}
-
-.edu-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    width: 100%;
-}
-
-.edu-logo-container {
-    flex-shrink: 0;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: var(--bg-color); /* Match theme background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Strong shadow */
-    border: 2px solid var(--accent-cyan); /* Neon green border for brand popup */
-    overflow: hidden;
-}
-
-.edu-logo-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Keeps the whole logo visible */
-    border-radius: 50%; /* Ensures the image itself follows the circle */
 }
 
 .edu-logo-placeholder {
@@ -921,87 +893,135 @@ body {
 }
 
 .edu-logo-placeholder svg {
-    width: 90px; /* Increased from 60px to fill the 150px container better */
-    height: 90px;
+    width: 30px; /* Smaller for footer */
+    height: 30px;
     stroke-width: 1.5;
 }
 
-.edu-card-new {
-    flex: 1;
+.edu-card-split {
+    display: flex;
+    background-color: #13001f; /* Single dark background */
+    border: 0.5px solid rgba(168, 85, 247, 0.4); /* Subtle purple border */
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
 }
 
-.edu-card-new:hover {
+.edu-card-split:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(168, 85, 247, 0.15);
-    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.6);
 }
 
-.edu-card-header {
-    background: rgba(168, 85, 247, 0.08); /* Light purple tint like the freelance badge */
-    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
-    padding: 20px 25px 15px;
-    color: var(--accent-cyan); /* Brand Purple text */
+/* Left Panel - Logo & Short Name */
+.edu-left-panel {
+    flex: 0 0 100px; /* Exactly enough for logo + short name padding */
+    background-color: #1e0a35; /* Slightly lighter dark background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+    border-right: 1px solid rgba(168, 85, 247, 0.2); /* Subtle divider */
+    text-align: center;
 }
 
-.edu-top-row {
+.edu-logo-circle {
+    width: 65px;
+    height: 65px;
+    background: #ffffff; /* White background for the logo circle */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 2px solid rgba(168, 85, 247, 0.3);
+    overflow: hidden;
+}
+
+.edu-logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.edu-logo-circle i {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+}
+
+.edu-short-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Right Content Area */
+.edu-right-content {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.edu-right-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: flex-start;
     margin-bottom: 8px;
-    gap: 15px;
 }
 
-.edu-top-row h3 {
-    margin: 0;
-    font-size: 1.35rem;
+.edu-institution-full {
+    font-size: 1.3rem;
     font-weight: 700;
-    line-height: 1.3;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
 }
 
-.edu-top-row span {
-    font-size: 0.95rem;
+.edu-date-pill {
+    font-size: 0.8rem;
     font-weight: 600;
-    color: var(--accent-cyan); /* Brand Purple year text */
-    opacity: 0.8;
+    color: var(--accent-cyan);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    background: rgba(168, 85, 247, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
     white-space: nowrap;
 }
 
-.edu-card-header h4 {
-    margin: 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-primary); /* Lighter subtitle */
-    opacity: 0.9;
+.edu-degree-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(168, 85, 247, 0.8); /* Muted purple */
+    margin-bottom: 12px;
 }
 
-.edu-card-body {
-    background-color: #ffffff; /* White body like previous */
-    padding: 25px;
-    color: #333333; /* Dark text for readability */
+.edu-content-divider {
+    height: 1px;
+    background: linear-gradient(90deg, rgba(168, 85, 247, 0.3), transparent);
+    margin-bottom: 15px;
 }
 
 .edu-bullets {
     list-style: none;
     padding: 0;
     margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
 .edu-bullets li {
     position: relative;
     padding-left: 28px;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    line-height: 1.5;
-}
-
-.edu-bullets li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .edu-bullets li .bullet-icon {
@@ -1009,29 +1029,57 @@ body {
     left: 0;
     top: 0;
     font-size: 1.1rem;
-    color: var(--accent-cyan); /* Keep neon green bullet */
+    color: var(--accent-cyan);
 }
 
-.edu-btn {
+.edu-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edu-visit-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--accent-cyan);
-    color: #000000;
-    padding: 8px 20px;
-    border-radius: 4px; /* Back to original rectangle-ish/small radius */
+    background-color: #1a1025; /* Darker filled */
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid rgba(168, 85, 247, 0.5);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
 }
 
-.edu-btn:hover {
+.edu-visit-btn:hover {
+    background-color: #2D1B69; /* Branding purple on hover */
+    border-color: rgba(168, 85, 247, 0.8);
     transform: translateY(-2px);
-    background-color: #6b21a8; /* Darker purple on hover */
-    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .edu-card-split {
+        flex-direction: column;
+    }
+    
+    .edu-left-panel {
+        flex: auto;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+        padding: 20px;
+    }
+    
+    .edu-right-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .edu-date-pill {
+        align-self: flex-start;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1260,52 +1308,191 @@ body {
 
 /* Projects Grid */
 /* Project Card Layout Refinement */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.project-card {
+/* Projects Redesign: Alternating Rows */
+.projects-rows {
     display: flex;
     flex-direction: column;
-    padding: 0 !important;
-    /* Edge-to-edge image */
-    gap: 0;
-    /* No gap between image and content wrapper */
+    gap: 0; /* Gap handled by padding and separators */
 }
 
-/* Image */
-.project-img-wrapper {
-    width: 100%;
-    height: 200px;
-    /* Taller image */
-    border-radius: 0;
-    /* Relies on card overflow:hidden */
+.project-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1); /* Subtle divider */
+}
+
+.project-row:last-child {
+    border-bottom: none;
+}
+
+.project-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Image Box */
+.project-image-box {
+    flex: 0 0 45%;
+    height: 320px; /* Fixed height for absolute uniformity across all cards */
+    border-radius: 12px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    /* Separator */
-    flex-shrink: 0;
-}
-
-.project-content {
-    padding: 25px;
-    /* Internal padding for content */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    height: 100%;
+    /* Removed box-shadow for open layout feel */
 }
 
 .project-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
 }
 
-.project-card:hover .project-img {
+.project-row:hover .project-img {
     transform: scale(1.05);
+}
+
+/* Content Box */
+.project-details-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.project-category-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    width: fit-content;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Category Specific Colors */
+.cat-cloud {
+    color: #a855f7; /* Brand Purple */
+    border: 2px solid rgba(168, 85, 247, 0.4);
+    background: rgba(168, 85, 247, 0.1);
+}
+
+.cat-data-analysis {
+    color: #06b6d4; /* Cyan */
+    border: 2px solid rgba(6, 182, 212, 0.4);
+    background: rgba(6, 182, 212, 0.1);
+}
+
+.cat-ai {
+    color: #ec4899; /* Pink/Magenta */
+    border: 2px solid rgba(236, 72, 153, 0.4);
+    background: rgba(236, 72, 153, 0.1);
+}
+
+.project-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0;
+}
+
+.project-tech-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent-cyan);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.05);
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Increased from 2 to 4 lines */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Action Buttons */
+.project-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-code {
+    padding: 10px 22px;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    background: transparent;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-code:hover {
+    background: rgba(168, 85, 247, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn-demo {
+    padding: 10px 22px;
+    background-color: var(--accent-cyan);
+    color: #ffffff;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+.btn-demo:hover {
+    background-color: #9333ea; /* Darker purple */
+    border-color: #9333ea;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+}
+
+@media (max-width: 900px) {
+    .project-row, .project-row:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 0;
+    }
+    
+    .project-image-box {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 200px;
+    }
+    
+    .project-title {
+        font-size: 1.5rem;
+    }
 }
 
 /* Header: Title Only */
@@ -1416,30 +1603,95 @@ body {
     transform: scale(1.05);
 }
 
-/* Certifications */
+/* Refined Certifications Section */
 .cert-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
 }
 
-.cert-card {
+.cert-card-refined {
+    background-color: #13001f; /* Matches Education card background */
+    border: 0.5px solid rgba(168, 85, 247, 0.3);
+    border-radius: 12px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-card-refined:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(168, 85, 247, 0.1);
+    border-color: rgba(168, 85, 247, 0.6);
+}
+
+.cert-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.cert-icon-box {
+    width: 44px;
+    height: 44px;
+    background-color: #1e0a35; /* Matches Education sidebar */
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
+    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
-.cert-icon {
-    font-size: 2.5rem;
-    color: gold;
+.cert-icon-box i {
+    font-size: 1.4rem;
+    color: #ffd700; /* Gold medal color */
 }
 
-.cert-info h3 {
+.cert-date-pill {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    background: rgba(168, 85, 247, 0.05);
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.cert-title-refined {
     font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    line-height: 1.3;
 }
 
-.cert-info p {
-    color: var(--text-secondary);
+.cert-issuer-refined {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(168, 85, 247, 0.8); /* Muted purple */
+    margin-bottom: 18px;
+}
+
+.cert-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: auto;
+    transition: all 0.3s ease;
+}
+
+.cert-action-link:hover {
+    gap: 12px;
+    opacity: 0.8;
+}
+
+.cert-action-link i {
     font-size: 0.9rem;
 }
 
@@ -2153,85 +2405,94 @@ body {
     }
 }
 
-/* --- Skills Tree Layout (L-Bracket Style) --- */
-
-.skills-category {
-    margin-bottom: 40px;
-    display: block;
-    /* Stack vertically for tree view */
-    text-align: left;
-    padding-left: 20px;
-    /* Offset from container edge */
+/* Skills Section Redesign: Horizontal One-Line Style */
+.skills-horizontal-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Center vertically for a cleaner row */
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1);
 }
 
-.tree-category-title {
-    font-size: 1.6rem;
-    color: var(--accent-cyan);
-    margin-bottom: 15px;
-    font-weight: 700;
+.skills-horizontal-row:last-child {
+    border-bottom: none;
+}
+
+.skills-category-info {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
+    min-width: 250px; /* Consistent width for category names to align separators */
 }
 
-.tree-skills-list {
-    list-style: none;
-    padding-left: 20px;
+.skills-category-name {
     margin: 0;
-    border-left: 2px solid var(--glass-border);
-    /* Main vertical trunk */
-    position: relative;
-    margin-left: 10px;
-    /* Align with title */
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.tree-skill-item {
-    position: relative;
-    padding-left: 30px;
-    /* Space for the horizontal arm */
-    margin-bottom: 15px;
+.skills-separator {
+    color: var(--accent-cyan);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.skills-horizontal-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.horizontal-skill-item {
     display: flex;
     align-items: center;
 }
 
-/* The Horizontal Arm (L-Shape) */
-.tree-skill-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 25px;
-    height: 2px;
-    background: var(--glass-border);
-    transform: translateY(-50%);
-}
-
-/* Connector Dot */
-.tree-skill-item::after {
-    content: '';
-    position: absolute;
-    left: -5px;
-    /* On the main vertical line */
-    top: 50%;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-cyan);
-    border-radius: 50%;
-    transform: translateY(-50%);
-    box-shadow: 0 0 5px var(--accent-cyan);
-}
-
-.skill-content {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    padding: 8px 16px;
-    border-radius: 20px;
+.skill-pill {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
     transition: all 0.3s ease;
-    cursor: default;
+}
+
+.skill-pill i {
+    font-size: 1rem;
+    color: var(--accent-cyan);
+}
+
+@media (max-width: 768px) {
+    .skills-horizontal-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .skills-category-info {
+        min-width: 100%;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    .skills-horizontal-list {
+        padding-left: 15px;
+    }
 }
 
 .skill-content:hover {
