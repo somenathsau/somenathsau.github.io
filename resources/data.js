@@ -7,10 +7,7 @@ const portfolioData = {
     resumeLink: "resources/media/somenathCV.pdf",
     email: "somenathsau@gmail.com",
 
-    bio: "MCA Graduate with expertise in Cloud Support, Data Analysis, and AI Evaluation. Passionate about building scalable systems and uncovering insights from data.",
-
-    // Typing Effect Skills
-    typingSkills: ["Cloud Engineer", "Data Analyst"],
+    bio: "Passionate about merging <span class='hl-cyan'>Data Analysis</span> with <span class='hl-purple'>Gen AI</span> to turn complex information into <span class='hl-blue'>intelligent action</span>. I believe the future of data isn't just about 'what happened,' but about '<span class='hl-cyan'>what can be generated next</span>.'<br><br>My path here was paved by <span class='hl-purple'>pure curiosity</span>. As a constant browser of the tech world, I spent years hunting for <span class='hl-blue'>new ideas</span> and <span class='hl-cyan'>digital trends</span>. That spark for discovery naturally evolved into a career in <span class='hl-purple'>Data Analytics</span>, where I now use that same <span class='hl-blue'>investigative mindset</span> to find <span class='hl-cyan'>stories and patterns</span> hidden within data.",
 
     // Social Links
     socialLinks: {
@@ -19,26 +16,9 @@ const portfolioData = {
         email: "mailto:somenathsau@gmail.com"
     },
 
-    // Hero Highlights
-    heroHighlights: [
-        "🌐 Cloud Engineer",
-        "📊 Data Analyst"
-    ],
-
-    // Hero Skills Ticker (Deprecated/Fallback)
-    heroSkills: ["SQL", "Python", "AWS", "Excel", "Power BI", "Linux"],
 
     // About Me
     about: {
-        description: [
-            "Hey! I'm <span class='highlight'>Somenath Sau</span>, I've been close to a computer since an early age, and been passionate about it ever since.",
-            "I am a <span class='highlight'>Data & Cloud Enthusiast</span> and I really liked to crafting seamless digital experiences, from <span class='highlight'>Data Analysis</span> to <span class='highlight'>Cloud Infrastructure</span>. I do programming in various <span class='highlight'>Languages</span> and technologies.",
-            "\"I bring a comprehensive approach to building scalable and efficient systems\" and had the privilege to worked in a <span class='highlight'>Recruitment Company</span> and a <span class='highlight'>SaaS Company</span>.",
-            "I'm interested in building something awesome with code and currently focused on <span class='highlight'>Data Science</span>, <span class='highlight'>Cloud Computing</span> and <span class='highlight'>AI</span>.",
-            "When I'm not coding I play games with my friends, watch some show on Netflix, or if the weather's good, play Badminton! 🏸 or cricket! 🏏"
-        ],
-        aboutImage: "resources/media/Somenath-1.png",
-
         // New Domain Rows for redesign
         domains: [
             {

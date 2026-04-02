@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('heroName').textContent = portfolioData.name;
 
     const heroBioEl = document.getElementById('heroBio');
-    if (heroBioEl) heroBioEl.textContent = portfolioData.bio;
+    if (heroBioEl) heroBioEl.innerHTML = portfolioData.bio;
 
     /* COMMENTED OUT PER USER REQUEST: ROLE & SUBTITLE
     const heroRoleEl = document.getElementById('heroRole');
@@ -39,7 +39,15 @@ document.addEventListener('DOMContentLoaded', () => {
     heroSubtitleEl.textContent = portfolioData.subtitle;
     */
 
-    // Hero Image Removed
+    // 2. Render Hero Image
+    const heroImageContainer = document.getElementById('heroImageContainer');
+    if (heroImageContainer && portfolioData.heroImage) {
+        heroImageContainer.innerHTML = `
+            <div class="hero-image-wrapper">
+                <img src="${portfolioData.heroImage}" alt="${portfolioData.name}">
+            </div>
+        `;
+    }
 
     // Update both resume buttons
     const heroResumeBtn = document.getElementById('heroResumeBtn');
@@ -308,15 +316,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         card.innerHTML = `
             <div class="cert-top-row">
-                <div class="cert-icon-box">
-                    <i data-lucide="medal"></i>
-                </div>
+                <div class="cert-purple-icon">🎖️</div>
                 <span class="cert-date-pill">${cert.year}</span>
             </div>
-            <h3 class="cert-title-refined">${cert.title}</h3>
-            <p class="cert-issuer-refined">${cert.issuer}</p>
+            <div class="cert-middle-content">
+                <h3 class="cert-title-refined">${cert.title}</h3>
+                <p class="cert-issuer-refined">${cert.issuer}</p>
+            </div>
             <a href="${cert.credentialLink}" class="cert-action-link" target="_blank">
-                View Credential <i data-lucide="arrow-up-right"></i>
+                ↗ View Credential
             </a>
         `;
         certGrid.appendChild(card);
@@ -331,6 +339,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="${linkedin}" class="contact-link"><i data-lucide="linkedin"></i> LinkedIn Profile</a>
         <a href="${github}" class="contact-link"><i data-lucide="github"></i> GitHub Profile</a>
     `;
+
+    // Render Footer Socials
+    const footerSocials = document.getElementById('footerSocials');
+    if (footerSocials) {
+        footerSocials.innerHTML = `
+            <a href="${linkedin}" target="_blank" class="footer-social-link linkedin" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+            <a href="${github}" target="_blank" class="footer-social-link github" title="GitHub"><i data-lucide="github"></i></a>
+            <a href="${email}" class="footer-social-link email" title="Email"><i data-lucide="mail"></i></a>
+        `;
+    }
 
     // Initialize Icons AFTER dynamic content is added
     lucide.createIcons();
