@@ -374,32 +374,50 @@ body {
     z-index: 1;
 }
 
+/* Desktop Hero Grid */
 .hero-text {
     display: grid;
     grid-template-columns: 1fr 400px;
     grid-template-areas:
-        "greeting image"
-        "name image"
-        "image-placeholder image"
+        "header image"
         "bio image"
-        "highlights image"
         "buttons image"
-        "socials image";
+        "actions image";
     align-items: center;
-    gap: 0 60px;
+    gap: 12px 60px;
     width: 100%;
     text-align: left;
     position: relative;
     z-index: 2;
 }
 
-.greeting { grid-area: greeting; }
-.hero-name { grid-area: name; }
+.hero-header-info { grid-area: header; }
+.hero-visuals-wrapper {
+    display: contents; /* Children image/actions act as grid items */
+}
+
 .hero-image-container { grid-area: image; }
 .hero-bio { grid-area: bio; }
 .hero-highlights { grid-area: highlights; }
-.hero-buttons { grid-area: buttons; }
-.hero-socials { grid-area: socials; }
+.hero-buttons-container { grid-area: buttons; }
+.hero-actions-wrapper { 
+    grid-area: actions;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-buttons-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.hero-btn-projects, .hero-btn-resume {
+    width: fit-content;
+    border-radius: 50px;
+}
 
 /* Greeting */
 .greeting {
@@ -408,7 +426,6 @@ body {
     font-weight: 600;
     margin-bottom: 10px;
     display: block;
-    /* Normal body font, not code font */
     font-family: var(--font-primary);
     letter-spacing: 0.5px;
 }
@@ -416,7 +433,7 @@ body {
 .hero-name {
     font-size: 4.5rem; /* Reduced from 5rem to fit single line */
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     line-height: 1.1;
     color: #ffffff;
     /* Solid White */
@@ -464,8 +481,8 @@ body {
     font-size: 1.25rem;
     color: var(--text-secondary);
     max-width: 750px;
-    margin-top: 5px;
-    margin-bottom: 25px;
+    margin-top: 0;
+    margin-bottom: 12px;
     /* Reduced from 35px */
     line-height: 1.7;
     font-weight: 500;
@@ -630,9 +647,9 @@ body {
 
 .hero-image-wrapper {
     position: relative;
-    width: 380px;
-    height: 380px;
-    border-radius: 50%;
+    width: 300px;
+    height: 420px;
+    border-radius: 150px;
     border: 1px solid var(--accent-cyan);
     box-shadow: 0 0 8px rgba(168, 85, 247, 0.08); /* Tighter, softer glow */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -643,7 +660,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 150px;
 }
 
 .hero-image-wrapper:hover {
@@ -2132,101 +2149,178 @@ body {
     }
 
     .hero-text {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        grid-template-areas:
+            "header header"
+            "image actions"
+            "bio bio";
         align-items: center;
         text-align: center;
         width: 100%;
-        gap: 0;
+        gap: 20px 15px;
+    }
+
+    .hero-header-info { 
+        grid-area: header; 
+        text-align: center;
     }
 
     .hero-image-container {
-        order: 0; /* Follow natural flow after Name */
-        justify-content: center;
-        margin: 20px 0;
+        grid-area: image;
+        margin: 0;
+        justify-content: flex-end;
     }
 
     .hero-image-wrapper {
-        width: 220px;
-        height: 220px;
+        width: 160px;
+        height: 240px;
+        border-radius: 80px;
         border: 1px solid var(--accent-cyan);
     }
 
+    .hero-text {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "visuals visuals"
+            "bio bio"
+            "buttons buttons";
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        gap: 15px 10px;
+    }
+
+    .hero-header-info { 
+        grid-area: header; 
+        text-align: center;
+    }
+
+    .hero-visuals-wrapper {
+        grid-area: visuals;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        width: 100%;
+        margin: 15px 0;
+    }
+
+    .hero-image-container {
+        grid-column: 2;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .hero-image-wrapper {
+        width: 150px;
+        height: 220px;
+        border-radius: 75px;
+        border: 1px solid var(--accent-cyan);
+    }
+
+    .hero-actions-wrapper {
+        grid-column: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+        margin-left: 12px;
+    }
+
+    .hero-buttons-container {
+        grid-area: buttons;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Standard Pill Style for buttons on mobile - as requested "as earlier" */
+    .hero-btn-projects, 
+    .hero-btn-resume {
+        padding: 10px 20px !important;
+        border-radius: 50px !important;
+        font-size: 0.9rem !important;
+        min-width: 140px !important;
+        text-align: center;
+        margin: 0 !important;
+    }
+
+    .hero-btn-projects::before,
+    .hero-btn-resume::before {
+        display: none !important; /* Remove speech bubble point on mobile */
+    }
+
+    .hero-btn-projects {
+        background: var(--accent-cyan) !important;
+        color: black !important;
+    }
+
+    .hero-btn-resume {
+        background: transparent !important;
+        border: 2px solid var(--accent-cyan) !important;
+        color: var(--text-primary) !important;
+    }
+
+    .hero-btn-resume::before {
+        background: var(--bg-color);
+        border: 2px solid var(--accent-cyan);
+        border-right: none;
+        left: -17px;
+    }
+
     .hero-name {
-        font-size: 2.8rem;
-        margin-bottom: 10px;
+        font-size: 2.5rem;
+        margin-bottom: 5px;
     }
 
     .hero-bio {
+        grid-area: bio;
         margin-top: 10px;
+        font-size: 1rem;
+        text-align: center;
     }
 
-    .greeting,
-    .hero-name,
-    .hero-bio,
-    .hero-highlights,
-    .hero-buttons,
+    /* Social Icons in Vertical Column in Center */
     .hero-socials {
-        text-align: center;
+        display: flex;
+        flex-direction: column;
         align-items: center;
+        gap: 10px;
+        margin: 0;
+        width: fit-content;
         justify-content: center;
     }
 
-    .hero-title {
-        font-size: 1.3rem;
-        min-height: 1.5em;
-        margin-bottom: 4px;
-        /* Tight — groups visually with subtitle below */
-        order: 3;
-        padding-left: 0;
+    /* Hide labels on mobile socials */
+    .social-label {
+        display: none;
     }
 
-    /* Hero element order on mobile:
-       greeting(1) > name(2) > title(3) > subtitle(4) > highlights(5) > buttons(6) > socials(7) */
-    .hero-subtitle {
-        font-size: 0.95rem;
-        max-width: 90%;
+    .social-pill {
+        width: 40px;
+        height: 40px;
         padding: 0;
-        margin: 0 auto 15px;
-        /* Override base left-align margins */
-        text-align: center;
-        order: 4;
-    }
-
-    .skills-ticker,
-    .hero-highlights {
+        border-radius: 50%;
         justify-content: center;
-        margin-bottom: 20px;
-        order: 5;
-        font-size: 0.9rem;
-        max-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        align-items: center;
     }
 
-    /* Buttons after highlights */
-    .hero-buttons {
-        order: 6;
-        flex-direction: row;
-        gap: 15px;
+    .social-pill .icon-container {
         width: 100%;
-        justify-content: center;
-        margin-bottom: 25px;
-        grid-column: auto;
-        grid-row: auto;
+        height: 100%;
+        background: transparent; /* Clean circle */
     }
 
-    /* Socials at the bottom */
-    .hero-socials {
-        order: 7;
-        justify-content: center;
-        margin-top: 0;
-        margin-bottom: 20px;
-        gap: 12px;
-        grid-column: auto;
-        grid-row: auto;
-        flex-wrap: wrap;
-    }
+    /* Override dynamic background in JS for clean circles if needed */
+    .social-pill.linkedin .icon-container { background: #0077b5; }
+    .social-pill.github .icon-container { background: #24292e; }
+    .social-pill.email .icon-container { background: #ea4335; }
 
     /* Mobile social pills — icon only, true circle */
     .social-pill {
