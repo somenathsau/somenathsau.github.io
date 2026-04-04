@@ -42,9 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Hero Image
     const heroImageContainer = document.getElementById('heroImageContainer');
     if (heroImageContainer && portfolioData.heroImage) {
+        const heroImageSmall = portfolioData.heroImage.replace('.webp', '-small.webp');
         heroImageContainer.innerHTML = `
             <div class="hero-image-wrapper">
-                <img src="${portfolioData.heroImage}" alt="${portfolioData.name}">
+                <img src="${portfolioData.heroImage}" 
+                     srcset="${heroImageSmall} 600w, ${portfolioData.heroImage} 1200w"
+                     sizes="(max-width: 768px) 300px, 400px"
+                     alt="${portfolioData.name}" 
+                     width="300" height="420"
+                     fetchpriority="high">
             </div>
         `;
     }
@@ -108,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             row.innerHTML = `
                 <div class="row-illustration">
-                    <img src="${domain.illustration}" alt="${domain.title}">
+                    <img src="${domain.illustration}" alt="${domain.title}" loading="lazy" width="400" height="300">
                 </div>
                 <div class="row-content">
                     <h3>${domain.title}</h3>
@@ -134,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         row.style.transitionDelay = `${index * 0.1}s`;
 
         const logoHtml = edu.logo 
-            ? `<img src="${edu.logo}" alt="${edu.institution}" class="edu-logo-img">`
+            ? `<img src="${edu.logo}" alt="${edu.institution}" class="edu-logo-img" loading="lazy" width="40" height="40">`
             : `<i data-lucide="graduation-cap"></i>`;
 
         const descHtml = edu.description ? `<li><span class="bullet-icon">⚡</span> ${edu.description}</li>` : '';
@@ -257,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             row.innerHTML = `
                 <div class="project-image-box">
-                    <img src="${project.image}" alt="${project.title}" class="project-img">
+                    <img src="${project.image}" alt="${project.title}" class="project-img" loading="lazy" width="500" height="300">
                 </div>
                 <div class="project-details-box">
                     ${project.category ? `<span class="project-category-tag cat-${catSlug}">${project.category}</span>` : ''}

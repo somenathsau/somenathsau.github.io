@@ -3,8 +3,8 @@ const portfolioData = {
     name: "SOMENATH SAU",
     role: "Cloud & Data Professional",
     subtitle: "Focused on cloud infrastructure, analytics, and problem-solving.",
-    heroImage: "resources/media/Somenath_Sau.jpg",
-    resumeLink: "resources/media/somenathCV.pdf",
+    heroImage: "resources/assets/hero/Somenath_Sau.webp",
+    resumeLink: "resources/assets/docs/somenathCV.pdf",
     email: "somenathsau@gmail.com",
 
     bio: "Passionate about merging <span class='hl-cyan'>Data Analysis</span> with <span class='hl-purple'>Gen AI</span> to turn complex information into <span class='hl-blue'>intelligent action</span>. I believe the future of data isn't just about 'what happened,' but about '<span class='hl-cyan'>what can be generated next</span>.'<br><br>My journey began with a <span class='hl-purple'>curiosity to explore</span> new things on the internet. While discovering <span class='hl-cyan'>ideas and trends</span>, I found myself drawn to <span class='hl-blue'>data</span> and how it tells stories. That curiosity gradually led me into <span class='hl-purple'>Data Analytics</span>, where I now enjoy <span class='hl-blue'>uncovering patterns and insights</span>.",
@@ -23,7 +23,7 @@ const portfolioData = {
         domains: [
             {
                 title: "Data Analyst",
-                illustration: "resources/media/data-analyst.png",
+                illustration: "resources/assets/images/data_analyst_expertise.png",
                 techIcons: ["database", "table", "bar-chart-2", "layout", "code"],
                 bullets: [
                     "Cleaning and analyzing large scale datasets (Uber, Crime data).",
@@ -34,7 +34,7 @@ const portfolioData = {
             },
             {
                 title: "AI & LLM Engineer",
-                illustration: "resources/media/ai-domain.png",
+                illustration: "resources/assets/images/ai_llm_engineer_expertise.png",
                 techIcons: ["brain", "message-square", "shield-check", "edit-3", "cpu"],
                 bullets: [
                     "Completing 500+ RLHF and SFT evaluation tasks for LLMs.",
@@ -45,7 +45,7 @@ const portfolioData = {
             },
             {
                 title: "Cloud Practitioner",
-                illustration: "resources/media/cloud-domain.png",
+                illustration: "resources/assets/images/cloud_practitioner_expertise.png",
                 techIcons: ["cloud", "terminal", "wifi", "shield", "server"],
                 bullets: [
                     "Configuring and monitoring AWS services (EC2, S3, CloudWatch).",
@@ -72,7 +72,7 @@ const portfolioData = {
             year: "2022 - 2024",
             grade: "CGPA: 7.83", /* Update with actual score */
             description: "Specializing in Data Science and Cloud Computing. Graduated with honors.",
-            logo: "resources/media/kiit-logo.png", // Add your logo file path here
+            logo: "resources/assets/icons/kiit-logo.webp", // Add your logo file path here
             credentialLink: "https://kiit.ac.in/"
         },
         {
@@ -82,7 +82,7 @@ const portfolioData = {
             year: "2018 - 2021",
             grade: "CGPA: 7.47", /* Update with actual score */
             description: "Major in Computer Science. Foundational knowledge in programming and database management.",
-            logo: "resources/media/trident-logo.png", // Add your logo file path here
+            logo: "resources/assets/icons/trident-logo.webp", // Add your logo file path here
             credentialLink: "https://tact.ac.in/"
         },
         {
@@ -91,7 +91,7 @@ const portfolioData = {
             shortName: "Sai +2",
             year: "2016 - 2018",
             description: "Major in Physics, Chemistry and Mathematics",
-            logo: "resources/media/sai-logo.png", // Add your logo file path here
+            logo: "resources/assets/icons/sai-logo.webp", // Add your logo file path here
             credentialLink: "https://saihss.in/"
         }
     ],
@@ -133,7 +133,7 @@ const portfolioData = {
             description: "Analyzed crime datasets using data cleaning, exploratory data analysis (EDA), and visualization techniques to identify trends and patterns in criminal activities. Developed charts and visual reports in Excel to highlight crime distribution, frequency, and category-wise insights.",
             techStack: ["Python", "Matplotlib", "Scikit-learn"],
             category: "Data Analysis",
-            image: "resources/media/crime_correlation_heatmap.png",
+            image: "resources/assets/images/crime_correlation_heatmap.webp",
             codeLink: "https://github.com/somenathsau/Crime_Report_in_India_2013",
             demoLink: "https://nbviewer.org/github/somenathsau/Crime_Report_in_India_2013/blob/main/Crime_Report_Analysis_2013.ipynb"
         },
@@ -142,7 +142,7 @@ const portfolioData = {
             description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
             techStack: ["Python", "Numpy", "Pandas"],
             category: "Data Analysis",
-            image: "resources/media/Uber_Project.png",
+            image: "resources/assets/images/Uber_Project.webp",
             codeLink: "https://github.com/somenathsau/CodeClause-data-science-internship/tree/main/Project%203%20-%20Uber%20Data%20Analysis",
             demoLink: "https://nbviewer.org/github/somenathsau/CodeClause-data-science-internship/blob/main/Project%203%20-%20Uber%20Data%20Analysis/Uber%20data%20analysis.ipynb"
         },
@@ -151,7 +151,7 @@ const portfolioData = {
             description: "Developed a responsive developer portfolio using AI-assisted development (Vibe Coding). Implemented an automated contact workflow integrating Google Forms and Google Sheets to capture submissions and trigger email notifications.",
             techStack: ["AI-Assisted Dev", "Automation", "Vibe Coding"],
             category: "AI",
-            image: "resources/media/portfolio-home.png",
+            image: "resources/assets/images/portfolio-home.webp",
             codeLink: "https://github.com/somenathsau/somenathsau.github.io",
             demoLink: "https://somenathsau.github.io"
         },
@@ -160,7 +160,7 @@ const portfolioData = {
             description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage including CPU, memory, and disk metrics. Implemented Bash scripts and scheduled cron jobs to automate system monitoring and integrated CloudWatch logs and alerts for real-time performance tracking.",
             techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular"],
             category: "Cloud",
-            image: "resources/media/AWS_monitoring.png",
+            image: "resources/assets/images/AWS_monitoring.webp",
             codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
             demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
         }
@@ -168,7 +168,7 @@ const portfolioData = {
             title: "Speech Emotion Recognition",
             description: "Developed a Speech Emotion Recognition model using audio feature extraction, achieving 88%+ classification accuracy.",
             techStack: ["Python", "Matplotlib", "PyAudio"],
-            image: "resources/media/speech_emotion.jpg",
+            image: "resources/assets/images/speech_emotion.jpg",
             codeLink: "#",
             demoLink: "#"
         }*/
