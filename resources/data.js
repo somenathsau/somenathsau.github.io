@@ -19,39 +19,28 @@ const portfolioData = {
 
     // About Me
     about: {
-        // New Domain Rows for redesign
         domains: [
             {
                 title: "Data Analyst",
                 illustration: "resources/assets/images/data_analyst_expertise.png",
                 techIcons: ["database", "table", "bar-chart-2", "layout", "code"],
                 bullets: [
-                    "Cleaning and analyzing large scale datasets (Uber, Crime data).",
-                    "Automating reporting with Python and SQL.",
-                    "Creating interactive dashboards using Power BI and Excel.",
-                    "Statistical analysis for trend identification and decision support."
+                    "Performed data cleaning and exploratory analysis on real-world datasets.",
+                    "Automated data processing and reporting using Python and SQL.",
+                    "Built interactive dashboards for data visualization and insights.",
+                    "Applied statistical techniques to identify trends and support decision-making."
                 ]
             },
             {
-                title: "AI & LLM Engineer",
+                title: "Generative AI & Prompting",
                 illustration: "resources/assets/images/ai_llm_engineer_expertise.png",
-                techIcons: ["brain", "message-square", "shield-check", "edit-3", "cpu"],
+                techIcons: ["brain", "message-square", "shield-check", "edit-3", "check-circle"],
                 bullets: [
-                    "Completing 500+ RLHF and SFT evaluation tasks for LLMs.",
-                    "Assessing truthfulness, reasoning quality, and safety compliance.",
-                    "Developing SER models using audio feature extraction.",
-                    "Optimizing prompt engineering strategies for better LLM responses."
-                ]
-            },
-            {
-                title: "Cloud Practitioner",
-                illustration: "resources/assets/images/cloud_practitioner_expertise.png",
-                techIcons: ["cloud", "terminal", "wifi", "shield", "server"],
-                bullets: [
-                    "Configuring and monitoring AWS services (EC2, S3, CloudWatch).",
-                    "Automating server metrics tracking using Bash and Cron jobs.",
-                    "Managed basic networking (VPC, Security Groups) for cloud resources.",
-                    "Skilled in Linux administration and system resource optimization."
+                    "Completed 500+ RLHF and SFT evaluation tasks for LLM outputs.",
+                    "Evaluated responses on truthfulness, reasoning, safety, and instruction adherence.",
+                    "Performed side-by-side (SxS) comparisons and provided structured feedback.",
+                    "Applied prompt engineering to improve response quality and consistency.",
+                    "Identified failure patterns and suggested improvements for model responses."
                 ]
             }
         ],
