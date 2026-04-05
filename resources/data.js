@@ -45,10 +45,10 @@ const portfolioData = {
             }
         ],
         techStack: [
-            { name: "SQL", icon: "database" },
-            { name: "Python", icon: "code" },
-            { name: "AWS", icon: "cloud" },
-            { name: "Power BI", icon: "bar-chart-2" }
+            { name: "🗄 SQL" },
+            { name: "🐍 Python" },
+            { name: "☁️ AWS" },
+            { name: "📊 Power BI" }
         ]
     },
 
@@ -167,59 +167,45 @@ const portfolioData = {
     // Skills Section
     skills: [
         {
-            category: "Cloud & Infrastructure",
-            items: [
-                { name: "AWS (EC2, S3, IAM)", icon: "cloud" },
-                { name: "Linux", icon: "terminal" },
-                { name: "Basic Networking(VPC, Security Groups)", icon: "wifi" },
-            ]
-        },
-        {
             category: "Data Analytics",
+            tier: "primary",
             items: [
-                { name: "Excel", icon: "table" },
-                { name: "Power BI", icon: "bar-chart" },
-                { name: "Pandas", icon: "layout" },
-                { name: "Matplotlib", icon: "layout" },
+                { name: "🐍 Python" },
+                { name: "🗄 SQL" },
+                { name: "🐼 Pandas" },
+                { name: "📈 Excel" },
+                { name: "📊 Power BI" },
+                { name: "📉 Matplotlib" }
             ]
         },
         {
-            category: "Programming and Databases",
+            category: "Generative AI",
+            tier: "competitive",
             items: [
-                { name: "Python", icon: "code" },
-                { name: "SQL", icon: "database" },
-                { name: "HTML 5", icon: "code" },
-                { name: "CSS 3", icon: "code" },
-                { name: "MySQL", icon: "database" },
-                { name: "JavaScript", icon: "code" },
+                { name: "🤖 RLHF Evaluation" },
+                { name: "🧠 Prompt Engineering" },
+                { name: "🎯 Response Evaluation" },
+                { name: "🛡️ Safety Review" }
             ]
         },
         {
-            category: "LLM Evaluation & Annotation",
+            category: "Tools & Technologies",
+            tier: "supporting",
             items: [
-                { name: "RLHF Annotation", icon: "edit-3" },
-                { name: "Prompt Engineering", icon: "message-square" },
-                { name: "Response Evaluation", icon: "check-circle" },
-                { name: "Safety Review", icon: "shield-check" }
+                { name: "🌿 Git & GitHub" },
+                { name: "📓 Jupyter Notebook" },
+                { name: "💻 VS Code" },
+                { name: "🐬 MySQL" }
             ]
         },
         {
-            category: "Tools & Version Control",
+            category: "Additional Skills",
+            tier: "basic",
             items: [
-                { name: "VS Code", icon: "monitor" },
-                { name: "Git & GitHub", icon: "git-branch" },
-                { name: "Jupyter Notebook", icon: "notebook" },
+                { name: "🌐 HTML 5" },
+                { name: "🎨 CSS 3" }
             ]
         }
-        // {
-        //     category: "Soft Skills",
-        //     items: [
-        //         { name: "Communication", icon: "message-circle" },
-        //         { name: "Problem Solving", icon: "puzzle" },
-        //         { name: "Team Leadership", icon: "users" },
-        //         { name: "Adaptability", icon: "refresh-cw" }
-        //     ]
-        // }
     ],
 
     // Certifications

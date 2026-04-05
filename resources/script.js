@@ -286,31 +286,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Render Skills Section
+    // 6. Render Skills Section (Redesigned with Hierarchy)
     const skillsContainer = document.getElementById('skillsContainer');
     if (skillsContainer) {
         skillsContainer.innerHTML = ''; // Clear initial content
-        portfolioData.skills.forEach(category => {
-            const categoryDiv = document.createElement('div');
-            categoryDiv.classList.add('skills-horizontal-row', 'fade-up');
+        
+        const redesignWrapper = document.createElement('div');
+        redesignWrapper.classList.add('skills-redesign-container');
 
-            const itemsHTML = category.items.map(item => `
-                <li class="horizontal-skill-item">
-                    <span class="skill-pill">
-                        <i data-lucide="${item.icon}"></i> ${item.name}
-                    </span>
-                </li>
-            `).join('');
+        portfolioData.skills.forEach(tier => {
+            const tierBlock = document.createElement('div');
+            tierBlock.classList.add('skill-tier-block', `tier-${tier.tier}`, 'fade-up');
 
-            categoryDiv.innerHTML = `
-                <div class="skills-category-info">
-                    <h3 class="skills-category-name">${category.category}</h3>
-                    <span class="skills-separator">|-</span>
-                </div>
-                <ul class="skills-horizontal-list">${itemsHTML}</ul>
-            `;
-            skillsContainer.appendChild(categoryDiv);
+            const tierTitle = document.createElement('div');
+            tierTitle.classList.add('skill-tier-title');
+            tierTitle.textContent = tier.category;
+            tierBlock.appendChild(tierTitle);
+
+            const itemsGrid = document.createElement('div');
+            itemsGrid.classList.add('skill-items-grid');
+
+            tier.items.forEach(item => {
+                const itemEl = document.createElement('div');
+                
+                if (tier.tier === 'primary') {
+                    itemEl.classList.add('skill-card-primary');
+                    itemEl.innerHTML = `
+                        <span class="skill-name">${item.name}</span>
+                    `;
+                } else if (tier.tier === 'competitive') {
+                    itemEl.classList.add('skill-pill-competitive');
+                    itemEl.innerHTML = `
+                        <span class="skill-name">${item.name}</span>
+                    `;
+                } else if (tier.tier === 'supporting') {
+                    itemEl.classList.add('skill-pill-supporting');
+                    itemEl.innerHTML = `
+                        <span class="skill-name">${item.name}</span>
+                    `;
+                } else {
+                    itemEl.classList.add('skill-pill-basic');
+                    itemEl.innerHTML = `
+                        <span class="skill-name">${item.name}</span>
+                    `;
+                }
+                itemsGrid.appendChild(itemEl);
+            });
+
+            tierBlock.appendChild(itemsGrid);
+            redesignWrapper.appendChild(tierBlock);
         });
+
+        skillsContainer.appendChild(redesignWrapper);
+        
+        // Re-run lucide icons for the new elements
+        if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     // 7. Render Certifications Section
