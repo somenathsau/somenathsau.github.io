@@ -1276,7 +1276,7 @@ body {
 /* Timeline */
 .timeline {
     position: relative;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
@@ -1323,11 +1323,13 @@ body {
     left: -8px;
 }
 
-.timeline-item:nth-child(odd) .glass-card {
+.timeline-item:odd .glass-card {
     margin-right: 0;
 }
 
-/* Reset default if any */
+.timeline-content.glass-card {
+    padding: 20px;
+}
 
 /* Experience Card Typography */
 .exp-header {
@@ -1367,7 +1369,7 @@ body {
     color: rgba(255, 255, 255, 0.45);
     /* Muted/Tertiary */
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     display: block;
 }
 
@@ -1375,27 +1377,27 @@ body {
 .exp-metrics {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .exp-stat-box {
     background: rgba(255, 255, 255, 0.03);
-    padding: 12px;
+    padding: 6px 10px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stat-val {
     display: block;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--accent-cyan);
     line-height: 1.2;
 }
 
 .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1405,7 +1407,7 @@ body {
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     text-align: left;
 }
 

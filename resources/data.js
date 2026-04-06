@@ -97,8 +97,8 @@ const portfolioData = {
                 { val: "85%+", label: "Accuracy" },
                 { val: "2", label: "ML Models" }
             ],
-            techStack: ["Python", "Scikit-learn", "EDA", "ML Models"],
-            description: "Developed ML models for Speech Emotion Recognition and Loan Risk Prediction, and performed large-scale Uber ride data analysis. Achieved 85%+ accuracy through feature engineering, EDA, and model optimization."
+            techStack: ["Python", "Scikit-learn", "Numpy", "Pandas", "Exploratory Data Analysis"],
+            description: "Developed machine learning models for Speech Emotion Recognition and Loan Risk Prediction, and conducted large-scale Uber ride data analysis. Improved model performance through feature engineering, exploratory data analysis (EDA), and optimization, achieving 85%+ accuracy."
         },
         {
             role: "AI Contributor",
@@ -110,7 +110,7 @@ const portfolioData = {
                 { val: "500+", label: "Tasks done" },
                 { val: "95%", label: "Accuracy" }
             ],
-            techStack: ["RLHF", "LLM Eval", "Prompt Eng.", "SFT"],
+            techStack: ["RLHF", "SFT Annotation", "Response Evaluation", "AI safety", "Prompt Engineering", "LLM Assessment"],
             description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended and structured prompts. Assessed outputs for instruction adherence, truthfulness, reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         }
     ],
