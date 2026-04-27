@@ -314,8 +314,14 @@ body {
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
     width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
 }
 
 /* FIX: Specific Navbar Link Button Sizing */
@@ -2974,14 +2980,13 @@ body {
     }
 }
 
-/* SPA Dynamic Page Management */
-.hidden-section {
-    display: none !important;
-}
-
-/* Hide section dividers globally when using SPA pages to prevent empty gaps */
+/* Section Dividers */
 .section-divider {
-    display: none !important;
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, var(--glass-border), transparent);
+    margin: 40px 0;
 }
 
 /* Footer Layout & Mobile Centering */
@@ -3006,14 +3011,7 @@ body {
         gap: 20px;
     }
 
-    /* Force all sections and dividers to be visible for single-page scrolling on mobile */
-    .hidden-section {
-        display: flex !important; /* Most sections use flex */
-    }
-    
-    section.hidden-section {
-        display: flex !important;
-    }
+    /* Force sections to be visible on mobile */
 
     .section-divider {
         display: block !important;

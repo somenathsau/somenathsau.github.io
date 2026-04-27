@@ -519,44 +519,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- SINGLE PAGE APPLICATION (SPA) LOGIC ---
+    // --- SINGLE PAGE SCROLL SPY LOGIC ---
     const pageSections = ['home', 'about', 'projects', 'skills', 'experience', 'education', 'certifications', 'contact'];
     const sectionElements = pageSections.map(id => document.getElementById(id)).filter(Boolean);
+    const navLinksList = document.querySelectorAll('.nav-links a[href^="#"]');
 
-    // Helper to detect mobile view
-    const isMobileView = () => window.innerWidth <= 768;
-
-    // Initial state
-    let initialHash = window.location.hash.substring(1);
-    
-    const initializeVisibility = () => {
-        if (isMobileView()) {
-            // Show ALL sections on mobile
-            sectionElements.forEach(sec => sec.classList.remove('hidden-section'));
-            if (initialHash && pageSections.includes(initialHash)) {
-                setTimeout(() => {
-                    const target = document.getElementById(initialHash);
-                    if (target) target.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            }
-        } else {
-            // Initial state for Desktop: hide everything except 'home' and 'about'
-            if (!initialHash || initialHash === 'home' || initialHash === 'about') {
-                sectionElements.forEach(sec => {
-                    if (sec.id !== 'home' && sec.id !== 'about') sec.classList.add('hidden-section');
-                    else sec.classList.remove('hidden-section');
-                });
-            } else if (pageSections.includes(initialHash)) {
-                sectionElements.forEach(sec => {
-                    if (sec.id !== initialHash) sec.classList.add('hidden-section');
-                    else sec.classList.remove('hidden-section');
-                });
-            }
-        }
+    // Scroll Spy Observer
+    const spyOptions = {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px', // Trigger when section crosses middle of viewport
+        threshold: 0
     };
 
-    initializeVisibility();
+    const scrollSpyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.id;
+                navLinksList.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, spyOptions);
 
+    sectionElements.forEach(sec => scrollSpyObserver.observe(sec));
+
+    // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -566,50 +557,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetSectionId = targetId.substring(1);
             const targetElement = document.getElementById(targetSectionId);
             
-            if (pageSections.includes(targetSectionId)) {
-                if (isMobileView()) {
-                    // Mobile: Just scroll to the section
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                } else {
-                    // Desktop: Hide all and show target (SPA behavior)
-                    sectionElements.forEach(sec => sec.classList.add('hidden-section'));
-                    
-                    if (targetSectionId === 'home') {
-                        document.getElementById('home').classList.remove('hidden-section');
-                        document.getElementById('about').classList.remove('hidden-section');
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    } else if (targetSectionId === 'about') {
-                        document.getElementById('home').classList.remove('hidden-section');
-                        document.getElementById('about').classList.remove('hidden-section');
-                        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        if (targetElement) {
-                            targetElement.classList.remove('hidden-section');
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                    }
-                }
-            } else {
-                 // Normal smooth scroll for other things (e.g., backToTop button)
-                 if (targetElement) {
-                     targetElement.scrollIntoView({ behavior: 'smooth' });
-                 }
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
             
             // Clean URL
             history.replaceState(null, null, ' ');
         });
-    });
-
-    // Optional: Handle window resize to switch between modes
-    let lastWidth = window.innerWidth;
-    window.addEventListener('resize', () => {
-        if ((lastWidth > 768 && window.innerWidth <= 768) || (lastWidth <= 768 && window.innerWidth > 768)) {
-            initializeVisibility();
-        }
-        lastWidth = window.innerWidth;
     });
 
 });
