@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroRoleDisplay = document.getElementById('heroRoleDisplay');
     if (heroRoleDisplay) heroRoleDisplay.textContent = portfolioData.role;
 
+    const heroMicroline = document.getElementById('heroMicroline');
+    if (heroMicroline && portfolioData.microline) {
+        heroMicroline.textContent = portfolioData.microline;
+    }
+
     const heroBioEl = document.getElementById('heroBio');
     if (heroBioEl) heroBioEl.innerHTML = portfolioData.bio;
 

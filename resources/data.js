@@ -1,13 +1,16 @@
 const portfolioData = {
     // Personal Details
     name: "SOMENATH SAU",
-    role: "Data Analyst | Python • SQL • Power BI",
-    subtitle: "Focused on cloud infrastructure, analytics, and problem-solving.",
+    role: "Data Analyst @ Landmine Soft",
+    microline: "2+ years experience | Dashboarding | Automation | Gen AI",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
-    resumeLink: "resources/assets/docs/Somenath-Sau-dataAnalyst.pdf",
+    resumeLink: "resources/assets/docs/Somenath-Sau-DataAnalyst.pdf",
     email: "mailto:somenathsau@gmail.com",
 
-    bio: "Aspiring Data Analyst specializing in Python, SQL, and Power BI, focused on transforming raw data into actionable business insights. Exploring <span class='hl-accent'>Gen AI</span> to enhance analytical workflows and decision-making.<br><br>I enjoy uncovering patterns, building dashboards, and delivering insights that support better business decisions.",
+    bio: "✔ Transform complex data into insights that improve reporting efficiency. " +
+        "<br>✔ Build automated dashboards using Python, SQL, and Power BI. " +
+        "<br>✔ Streamline analytical workflows using Gen AI. " +
+        "<br>✔ Identify trends to support faster and smarter business decisions. ",
 
     // Social Links
     socialLinks: {
@@ -102,7 +105,9 @@ const portfolioData = {
                 { val: "2", label: "ML Models" }
             ],
             techStack: ["Python", "Scikit-learn", "Numpy", "Pandas", "Exploratory Data Analysis"],
-            description: "Developed machine learning models for Speech Emotion Recognition and Loan Risk Prediction, and conducted large-scale Uber ride data analysis. Improved model performance through feature engineering, exploratory data analysis (EDA), and optimization, achieving 85%+ accuracy."
+            description: "Developed machine learning models for Speech Emotion Recognition and Loan Risk Prediction, " +
+                "and conducted large-scale Uber ride data analysis. Improved model performance through feature " +
+                "engineering, exploratory data analysis (EDA), and optimization, achieving 85%+ accuracy."
         },
         {
             role: "AI Contributor",
@@ -115,7 +120,9 @@ const portfolioData = {
                 { val: "95%", label: "Accuracy" }
             ],
             techStack: ["RLHF", "SFT Annotation", "Response Evaluation", "AI safety", "Prompt Engineering", "LLM Assessment"],
-            description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended and structured prompts. Assessed outputs for instruction adherence, truthfulness, reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
+            description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended " +
+                "and structured prompts. Assessed outputs for instruction adherence, truthfulness, " +
+                "reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         },
         {
             role: "Junior Data Analyst",
@@ -128,7 +135,10 @@ const portfolioData = {
                 { val: "1M+", label: "Records analyzed" }
             ],
             techStack: ["Python", "SQL", "Power BI", "Excel", "Pandas", "NumPy", "Data Cleaning", "Data Visualization"],
-            description: "Analyzed large datasets using Python (Pandas, NumPy) and SQL to extract actionable insights. Built interactive Power BI dashboards and automated reporting processes, reducing manual effort by 30%. Performed data cleaning, transformation, and exploratory data analysis (EDA) to support business decision-making."
+            description: "Analyzed large datasets using Python (Pandas, NumPy) and SQL to extract actionable insights. " +
+                "Built interactive Power BI dashboards and automated reporting processes, reducing manual " +
+                "effort by 30%. Performed data cleaning, transformation, and exploratory data analysis (EDA) " +
+                "to support business decision-making."
         },
         {
             role: "Data Analyst",
@@ -141,7 +151,10 @@ const portfolioData = {
                 { val: "1M+", label: "Records analyzed" }
             ],
             techStack: ["Python", "SQL", "Power BI", "Excel", "Pandas", "NumPy", "Data Cleaning", "Data Visualization"],
-            description: "Analyzed large datasets using Python (Pandas, NumPy) and SQL to extract actionable insights. Built interactive Power BI dashboards and automated reporting processes, reducing manual effort by 30%. Performed data cleaning, transformation, and exploratory data analysis (EDA) to support business decision-making."
+            description: "Analyzed large datasets using Python (Pandas, NumPy) and SQL to extract actionable insights. " +
+                "Built interactive Power BI dashboards and automated reporting processes, reducing manual " +
+                "effort by 30%. Performed data cleaning, transformation, and exploratory data analysis (EDA) " +
+                "to support business decision-making."
         }
     ],
 

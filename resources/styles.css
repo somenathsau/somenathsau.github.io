@@ -501,12 +501,22 @@ section:nth-of-type(even) {
 }
 
 .hero-role {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     color: var(--accent-blue);
     font-weight: 600;
     margin-top: 10px;
     letter-spacing: 0.5px;
     font-family: var(--font-primary);
+}
+
+.hero-microline {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .hero-title {
@@ -545,7 +555,7 @@ section:nth-of-type(even) {
 }
 
 .hero-bio {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--text-secondary);
     max-width: 750px;
     margin-top: 0;
@@ -2339,8 +2349,14 @@ section:nth-of-type(even) {
     }
 
     .hero-role {
-        font-size: 1.15rem;
+        font-size: 1.3rem;
         margin-top: 5px;
+    }
+
+    .hero-microline {
+        font-size: 0.85rem;
+        margin-top: 2px;
+        margin-bottom: 10px;
     }
 
     .hero-image-container {
@@ -2376,8 +2392,14 @@ section:nth-of-type(even) {
     }
 
     .hero-role {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         margin-top: 5px;
+    }
+
+    .hero-microline {
+        font-size: 0.85rem;
+        margin-top: 2px;
+        margin-bottom: 10px;
     }
 
     .hero-visuals-wrapper {
@@ -2465,7 +2487,7 @@ section:nth-of-type(even) {
     .hero-bio {
         grid-area: bio;
         margin-top: 10px;
-        font-size: 1rem;
+        font-size: 0.95rem;
         text-align: center;
     }
 
@@ -3128,11 +3150,14 @@ section:nth-of-type(even) {
     display: block;
     width: 15px;
     height: 15px;
+    background: transparent !important;
+    border-top: none;
+    border-left: none;
     border-bottom: 3px solid var(--accent-blue);
     border-right: 3px solid var(--accent-blue);
     transform: rotate(45deg);
     animation: scrollMethod 2s infinite;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
 }
 
 .scroll-arrows span:nth-child(1) {
