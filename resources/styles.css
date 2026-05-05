@@ -1387,7 +1387,6 @@ section:nth-of-type(even) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(245, 158, 11, 0.3); /* Underline for Title row */
     padding-bottom: 4px; /* Reduced padding */
     margin-bottom: 4px; /* Reduced margin */
 }

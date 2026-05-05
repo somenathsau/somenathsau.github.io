@@ -125,26 +125,24 @@ const portfolioData = {
                 "reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         },
         {
-            role: "Junior Data Analyst",
+            role: "Data Analyst Intern",
             company: "Landmine Soft",
             location: "Hyderabad, India",
-            duration: "Sep 2024 – Oct 2025",
-            type: "Full Time",
+            duration: "May 2024 – Oct 2024",
+            type: "Internship",
             metrics: [
-                { val: "10+", label: "Dashboards built" },
-                { val: "1M+", label: "Records analyzed" }
+                { val: "5+", label: "Ad-hoc reports delivered" },
+                { val: "20%", label: "Reduction in query runtime" }
             ],
             techStack: ["Python", "SQL", "Power BI", "Excel", "Pandas", "NumPy", "Data Cleaning", "Data Visualization"],
-            description: "Analyzed large datasets using Python (Pandas, NumPy) and SQL to extract actionable insights. " +
-                "Built interactive Power BI dashboards and automated reporting processes, reducing manual " +
-                "effort by 30%. Performed data cleaning, transformation, and exploratory data analysis (EDA) " +
-                "to support business decision-making."
+            description: "Owned the end-to-end data scrubbing and validation process " +
+                "for raw datasets, ensuring 100% data integrity before senior-level analysis."
         },
         {
             role: "Data Analyst",
             company: "Landmine Soft",
             location: "Hyderabad, India",
-            duration: "Nov 2025 – Present",
+            duration: "Oct 2024 – Present",
             type: "Full Time",
             metrics: [
                 { val: "10+", label: "Dashboards built" },
@@ -198,42 +196,42 @@ const portfolioData = {
             codeLink: "https://github.com/somenathsau/Crime_Report_in_India_2013",
             demoLink: "https://nbviewer.org/github/somenathsau/Crime_Report_in_India_2013/blob/main/Crime_Report_Analysis_2013.ipynb"
         },
-        {
-            title: "AI-Assisted Portfolio Website",
-            description: "Developed a responsive developer portfolio using AI-assisted development (Vibe Coding) and automated workflows.",
-            keyInsight: "AI tools reduced boilerplate coding time by 60%.",
-            problem: "Building a portfolio from scratch is time-consuming and requires managing complex deployment and contact workflows.",
-            dataset: "N/A - Software Engineering Project",
-            approach: [
-                "Utilized LLMs for rapid prototyping and CSS grid generation.",
-                "Implemented Google Forms backend to bypass need for custom email servers.",
-                "Focused on Semantic HTML and accessibility standard compliance."
-            ],
-            businessImpact: "Created a highly professional, zero-maintenance lead generation funnel for job opportunities.",
-            techStack: ["AI-Assisted Dev", "Automation", "HTML/CSS", "JavaScript"],
-            category: "AI",
-            image: "resources/assets/images/portfolio-home.webp",
-            codeLink: "https://github.com/somenathsau/somenathsau.github.io",
-            demoLink: "https://somenathsau.github.io"
-        },
-        {
-            title: "AWS EC2 Cloud Monitoring Tool",
-            description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage and automate alerts.",
-            keyInsight: "Automated alerts reduced incident response time by over 40%.",
-            problem: "Manual server monitoring leads to delayed responses to resource exhaustion, causing unexpected downtime.",
-            dataset: "Real-time system telemetry (CPU, RAM, Disk I/O).",
-            approach: [
-                "Wrote Bash scripts to capture system metrics every 5 minutes.",
-                "Configured Cron jobs for automated data extraction.",
-                "Integrated with AWS CloudWatch for persistent logging and threshold alerts."
-            ],
-            businessImpact: "Ensured 99.9% uptime by enabling proactive scaling before server crashes occur.",
-            techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular", "CloudWatch"],
-            category: "Cloud",
-            image: "resources/assets/images/AWS_monitoring.webp",
-            codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
-            demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
-        }
+        // {
+        //     title: "AI-Assisted Portfolio Website",
+        //     description: "Developed a responsive developer portfolio using AI-assisted development (Vibe Coding) and automated workflows.",
+        //     keyInsight: "AI tools reduced boilerplate coding time by 60%.",
+        //     problem: "Building a portfolio from scratch is time-consuming and requires managing complex deployment and contact workflows.",
+        //     dataset: "N/A - Software Engineering Project",
+        //     approach: [
+        //         "Utilized LLMs for rapid prototyping and CSS grid generation.",
+        //         "Implemented Google Forms backend to bypass need for custom email servers.",
+        //         "Focused on Semantic HTML and accessibility standard compliance."
+        //     ],
+        //     businessImpact: "Created a highly professional, zero-maintenance lead generation funnel for job opportunities.",
+        //     techStack: ["AI-Assisted Dev", "Automation", "HTML/CSS", "JavaScript"],
+        //     category: "AI",
+        //     image: "resources/assets/images/portfolio-home.webp",
+        //     codeLink: "https://github.com/somenathsau/somenathsau.github.io",
+        //     demoLink: "https://somenathsau.github.io"
+        // },
+        // {
+        //     title: "AWS EC2 Cloud Monitoring Tool",
+        //     description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage and automate alerts.",
+        //     keyInsight: "Automated alerts reduced incident response time by over 40%.",
+        //     problem: "Manual server monitoring leads to delayed responses to resource exhaustion, causing unexpected downtime.",
+        //     dataset: "Real-time system telemetry (CPU, RAM, Disk I/O).",
+        //     approach: [
+        //         "Wrote Bash scripts to capture system metrics every 5 minutes.",
+        //         "Configured Cron jobs for automated data extraction.",
+        //         "Integrated with AWS CloudWatch for persistent logging and threshold alerts."
+        //     ],
+        //     businessImpact: "Ensured 99.9% uptime by enabling proactive scaling before server crashes occur.",
+        //     techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular", "CloudWatch"],
+        //     category: "Cloud",
+        //     image: "resources/assets/images/AWS_monitoring.webp",
+        //     codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
+        //     demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
+        // }
         /*{
             title: "Speech Emotion Recognition",
             description: "Developed a Speech Emotion Recognition model using audio feature extraction, achieving 88%+ classification accuracy.",
