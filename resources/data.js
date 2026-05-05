@@ -128,7 +128,7 @@ const portfolioData = {
             role: "Data Analyst Intern",
             company: "Landmine Soft",
             location: "Hyderabad, India",
-            duration: "May 2024 – Oct 2024",
+            duration: "Mar 2024 – Oct 2024",
             type: "Internship",
             metrics: [
                 { val: "5+", label: "Ad-hoc reports delivered" },
@@ -142,7 +142,7 @@ const portfolioData = {
             role: "Data Analyst",
             company: "Landmine Soft",
             location: "Hyderabad, India",
-            duration: "Oct 2024 – Present",
+            duration: "Nov 2024 – Present",
             type: "Full Time",
             metrics: [
                 { val: "10+", label: "Dashboards built" },
