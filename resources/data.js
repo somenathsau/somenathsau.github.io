@@ -125,11 +125,11 @@ const portfolioData = {
                 "reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         },
         {
-            role: "Data Analyst Intern",
+            role: "Junior Data Analyst",
             company: "Landmine Soft",
             location: "Hyderabad, India",
-            duration: "Mar 2024 – Oct 2024",
-            type: "Internship",
+            duration: "Feb 2023 – Mar 2024",
+            type: "Full Time",
             metrics: [
                 { val: "5+", label: "Ad-hoc reports delivered" },
                 { val: "20%", label: "Reduction in query runtime" }
@@ -142,7 +142,7 @@ const portfolioData = {
             role: "Data Analyst",
             company: "Landmine Soft",
             location: "Hyderabad, India",
-            duration: "Nov 2024 – Present",
+            duration: "Apr 2024 – Present",
             type: "Full Time",
             metrics: [
                 { val: "10+", label: "Dashboards built" },
