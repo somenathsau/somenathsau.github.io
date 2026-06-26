@@ -1,8 +1,8 @@
 const portfolioData = {
     // Personal Details
     name: "SOMENATH SAU",
-    role: "Data Analyst @ Landmine Soft",
-    microline: "2+ years experience | Dashboarding | Automation | Gen AI",
+    role: "Data Analyst at Landmine Soft",
+    microline: "Power BI | Dashboard | Data Analysis | Generative AI | Prompt Engineering",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
     resumeLink: "resources/assets/docs/Somenath-Sau-DataAnalyst.pdf",
     email: "mailto:somenathsau@gmail.com",
@@ -86,7 +86,7 @@ const portfolioData = {
             score: "Passed",
             scoreLabel: "",
             tag: "Science",
-            description: "",
+            description: "Specializing in Mathematics, Statistics, and Computer Science with Physics and Chemistry.",
             logo: "resources/assets/icons/sai-logo.webp",
             website: "https://saihss.in/"
         }
@@ -199,33 +199,8 @@ const portfolioData = {
         //     image: "resources/assets/images/portfolio-home.webp",
         //     codeLink: "https://github.com/somenathsau/somenathsau.github.io",
         //     demoLink: "https://somenathsau.github.io"
-        // },
-        // {
-        //     title: "AWS EC2 Cloud Monitoring Tool",
-        //     description: "Developed a cloud-based monitoring solution on Amazon EC2 to track server resource usage and automate alerts.",
-        //     keyInsight: "Automated alerts reduced incident response time by over 40%.",
-        //     problem: "Manual server monitoring leads to delayed responses to resource exhaustion, causing unexpected downtime.",
-        //     dataset: "Real-time system telemetry (CPU, RAM, Disk I/O).",
-        //     approach: [
-        //         "Wrote Bash scripts to capture system metrics every 5 minutes.",
-        //         "Configured Cron jobs for automated data extraction.",
-        //         "Integrated with AWS CloudWatch for persistent logging and threshold alerts."
-        //     ],
-        //     businessImpact: "Ensured 99.9% uptime by enabling proactive scaling before server crashes occur.",
-        //     techStack: ["AWS EC2", "Bash Scripting", "Cron Schedular", "CloudWatch"],
-        //     category: "Cloud",
-        //     image: "resources/assets/images/AWS_monitoring.webp",
-        //     codeLink: "https://github.com/somenathsau/AWS-EC2-Cloud-Monitoring-Tool",
-        //     demoLink: "https://cloudwatch.amazonaws.com/dashboard.html?dashboard=ResourceUsage&context=eyJSIjoidXMtZWFzdC0xIiwiRCI6ImN3LWRiLTQ0MzUxMTA0OTQ2OCIsIlUiOiJ1cy1lYXN0LTFfcTJsRVB0cm5KIiwiQyI6IjIxZmw2bHE1b3VmdTBsZnIwdjQyM3ZidmJmIiwiSSI6InVzLWVhc3QtMTpiZTkyOTA5Ny00ZTYyLTQ3OWMtOWIzNi05ZmZmN2U1YmE5YzAiLCJNIjoiUHVibGljIn0="
         // }
-        /*{
-            title: "Speech Emotion Recognition",
-            description: "Developed a Speech Emotion Recognition model using audio feature extraction, achieving 88%+ classification accuracy.",
-            techStack: ["Python", "Matplotlib", "PyAudio"],
-            image: "resources/assets/images/speech_emotion.jpg",
-            codeLink: "#",
-            demoLink: "#"
-        }*/
+        
 
     ],
 
