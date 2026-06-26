@@ -210,11 +210,11 @@ const portfolioData = {
             category: "Data Analytics",
             tier: "primary",
             items: [
-                { name: "🐍 Python" },
-                { name: "🗄 SQL" },
-                { name: "🐼 Pandas" },
                 { name: "📈 Excel" },
+                { name: "🛢️ SQL" },
                 { name: "📊 Power BI" },
+                { name: "🐼 Pandas" },
+                { name: "🐍 Python" },
                 { name: "📉 Matplotlib" }
             ]
         },
