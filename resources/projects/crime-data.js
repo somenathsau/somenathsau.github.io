@@ -1,4 +1,7 @@
 const crimeDataProject = {
+    id: "crime-data",
+    slug: "crime-data",
+    aliases: ["crime-data-analysis", "crime-data-analysis-in-india"],
     title: "Crime Data Analysis in India",
     description: "Analyzed historical crime datasets to identify trends and patterns in criminal activities across different states.",
     keyInsight: "Property crimes constitute over 40% of reported incidents in urban centers.",

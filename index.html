@@ -33,9 +33,9 @@
                     var segments = path.split('/').filter(Boolean);
                     var lastSegment = segments.length > 0 ? segments[segments.length - 1] : '';
                     if (lastSegment && lastSegment !== 'index.html') {
-                        history.replaceState(null, null, '/' + lastSegment + url.hash);
+                        history.replaceState(null, null, '/' + lastSegment + url.search + url.hash);
                     } else if (url.hash) {
-                        history.replaceState(null, null, '/' + url.hash.replace('#', ''));
+                        history.replaceState(null, null, '/' + url.hash.replace('#', '') + url.search);
                     }
                 } catch (e) {
                     console.warn('Could not restore redirect history:', e);
@@ -423,12 +423,12 @@
 
 
 
-    <script src="resources/projects/blinkit-retail.js?v=21.0"></script>
-    <script src="resources/projects/california-retail.js?v=21.0"></script>
-    <script src="resources/projects/uber-analysis.js?v=21.0"></script>
-    <script src="resources/projects/crime-data.js?v=21.0"></script>
-    <script src="resources/data.js?v=21.0"></script>
-    <script src="resources/script.js?v=21.0"></script>
+    <script src="resources/projects/blinkit-retail.js?v=22.0"></script>
+    <script src="resources/projects/california-retail.js?v=22.0"></script>
+    <script src="resources/projects/uber-analysis.js?v=22.0"></script>
+    <script src="resources/projects/crime-data.js?v=22.0"></script>
+    <script src="resources/data.js?v=22.0"></script>
+    <script src="resources/script.js?v=22.0"></script>
     <script>
         if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>

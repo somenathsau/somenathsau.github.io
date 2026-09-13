@@ -224,12 +224,119 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Render Projects Section
 
-    window.showProjectDetails = function(index) {
+    // --- Project Slug & Lookup Utilities ---
+    function slugify(text) {
+        if (!text) return '';
+        return text
+            .toString()
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function getProjectSlug(project, fallbackIndex = null) {
+        if (!project) return fallbackIndex !== null ? `project-${fallbackIndex}` : '';
+        if (project.slug && typeof project.slug === 'string') return project.slug.trim().toLowerCase();
+        if (project.id && typeof project.id === 'string') return project.id.trim().toLowerCase();
+        if (project.title && typeof project.title === 'string') {
+            const genSlug = slugify(project.title);
+            if (genSlug) return genSlug;
+        }
+        return fallbackIndex !== null ? `project-${fallbackIndex}` : '';
+    }
+
+    function findProject(query) {
+        if (query === undefined || query === null || !portfolioData || !Array.isArray(portfolioData.projects)) return null;
+
+        const cleanQuery = query.toString().replace('#', '').trim().toLowerCase();
+        if (!cleanQuery) return null;
+
+        // Legacy format check: "project-0", "project-1", etc.
+        if (cleanQuery.startsWith('project-')) {
+            const idxStr = cleanQuery.replace('project-', '');
+            const parsedIdx = parseInt(idxStr, 10);
+            if (!isNaN(parsedIdx) && portfolioData.projects[parsedIdx]) {
+                const proj = portfolioData.projects[parsedIdx];
+                return {
+                    project: proj,
+                    index: parsedIdx,
+                    slug: getProjectSlug(proj, parsedIdx)
+                };
+            }
+        }
+
+        // Direct pure numeric index check
+        if (/^\d+$/.test(cleanQuery)) {
+            const parsedIdx = parseInt(cleanQuery, 10);
+            if (portfolioData.projects[parsedIdx]) {
+                const proj = portfolioData.projects[parsedIdx];
+                return {
+                    project: proj,
+                    index: parsedIdx,
+                    slug: getProjectSlug(proj, parsedIdx)
+                };
+            }
+        }
+
+        // Search by slug, id, alias, or slugified title
+        for (let i = 0; i < portfolioData.projects.length; i++) {
+            const proj = portfolioData.projects[i];
+            if (!proj) continue;
+
+            const primarySlug = getProjectSlug(proj, i);
+            const explicitId = (proj.id || '').toString().toLowerCase().trim();
+            const explicitSlug = (proj.slug || '').toString().toLowerCase().trim();
+            const titleSlug = slugify(proj.title);
+
+            if (cleanQuery === primarySlug || cleanQuery === explicitId || cleanQuery === explicitSlug || cleanQuery === titleSlug) {
+                return {
+                    project: proj,
+                    index: i,
+                    slug: primarySlug
+                };
+            }
+
+            // Check aliases array if present
+            if (Array.isArray(proj.aliases)) {
+                for (let a = 0; a < proj.aliases.length; a++) {
+                    const alias = proj.aliases[a];
+                    if (alias && alias.toString().toLowerCase().trim() === cleanQuery) {
+                        return {
+                            project: proj,
+                            index: i,
+                            slug: primarySlug
+                        };
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+    window.findProject = findProject;
+    window.getProjectSlug = getProjectSlug;
+
+    window.showProjectDetails = function(identifierOrIndex) {
         const listContainer = document.getElementById('projectsListContainer');
         const detailContainer = document.getElementById('projectDetailContainer');
-        if (!detailContainer || !portfolioData.projects || !portfolioData.projects[index]) return;
+        if (!detailContainer || !portfolioData || !portfolioData.projects) return;
 
-        const proj = portfolioData.projects[index];
+        let matched = findProject(identifierOrIndex);
+        if (!matched && typeof identifierOrIndex === 'number' && portfolioData.projects[identifierOrIndex]) {
+            matched = {
+                project: portfolioData.projects[identifierOrIndex],
+                index: identifierOrIndex,
+                slug: getProjectSlug(portfolioData.projects[identifierOrIndex], identifierOrIndex)
+            };
+        }
+        if (!matched || !matched.project) return;
+
+        const proj = matched.project;
+        if (proj.title) {
+            document.title = `${proj.title} | Somenath Sau`;
+        }
         const images = (proj.images && proj.images.length > 0) ? proj.images : (proj.image ? [proj.image] : []);
         const techPillsHtml = proj.techStack ? proj.techStack.map(t => `<span class="project-detail-tag">${t}</span>`).join('') : '';
         const techBadgesHtml = proj.techStack ? proj.techStack.map(t => `<span class="modal-tech-badge">${t}</span>`).join('') : '';
@@ -523,6 +630,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const detailContainer = document.getElementById('projectDetailContainer');
         if (detailContainer) detailContainer.style.display = 'none';
         if (listContainer) listContainer.style.display = 'block';
+        document.title = 'Somenath Sau | Portfolio';
         if (typeof lucide !== 'undefined') lucide.createIcons();
     };
 
@@ -535,7 +643,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const normalizedFilter = filter.toLowerCase().trim();
 
-        const filteredProjectsWithIndex = portfolioData.projects.map((proj, idx) => ({ proj, originalIndex: idx })).filter(({ proj }) => {
+        const filteredProjectsWithIndex = portfolioData.projects.map((proj, idx) => ({ 
+            proj, 
+            originalIndex: idx,
+            slug: getProjectSlug(proj, idx)
+        })).filter(({ proj }) => {
             if (normalizedFilter === 'all') return true;
 
             const techString = (proj.techStack ? proj.techStack.join(' ') : '').toLowerCase();
@@ -565,7 +677,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        filteredProjectsWithIndex.forEach(({ proj: project, originalIndex }, renderIdx) => {
+        filteredProjectsWithIndex.forEach(({ proj: project, originalIndex, slug }, renderIdx) => {
             const card = document.createElement('div');
             card.classList.add('project-card-v2', 'data-analyst-card', 'fade-up', 'visible');
             card.style.transitionDelay = `${renderIdx * 0.08}s`;
@@ -578,7 +690,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             card.innerHTML = `
                 <div class="project-card-image">
-                    <div class="project-image-wrapper open-project-btn" data-index="${originalIndex}" title="Click to view detailed analytics case study">
+                    <div class="project-image-wrapper open-project-btn" data-slug="${slug}" data-index="${originalIndex}" title="Click to view detailed analytics case study">
                         <img src="${project.image}" alt="${project.title}" loading="lazy">
                         <div class="project-image-overlay">
                             <span class="project-image-badge"><i data-lucide="bar-chart-3"></i> View Case Study</span>
@@ -590,7 +702,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="project-desc">${descriptionText}</p>
                     <div class="tech-stack-v2">${techPillsHtml}</div>
                     <div class="project-card-actions">
-                        <button class="btn-primary open-project-btn" data-index="${originalIndex}"><i data-lucide="bar-chart-2"></i> Case Study</button>
+                        <button class="btn-primary open-project-btn" data-slug="${slug}" data-index="${originalIndex}"><i data-lucide="bar-chart-2"></i> Case Study</button>
                         <a href="${project.codeLink}" class="btn-secondary" target="_blank"><i data-lucide="github"></i> Repository</a>
                     </div>
                 </div>
@@ -600,9 +712,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         projectsGrid.querySelectorAll('.open-project-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const idx = e.currentTarget.getAttribute('data-index');
-                setActiveSection(`project-${idx}`, false);
-                updateCleanUrl(`project-${idx}`, true);
+                const targetSlug = e.currentTarget.getAttribute('data-slug') || e.currentTarget.getAttribute('data-index');
+                setActiveSection(targetSlug, false);
+                updateCleanUrl(targetSlug, true);
             });
         });
 
@@ -1004,8 +1116,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         const validSections = ['home', 'about', 'projects', 'skills', 'experience', 'education', 'certifications', 'contact'];
-        if (lastSegment && (validSections.includes(lastSegment) || lastSegment.startsWith('project-'))) {
-            return lastSegment;
+        if (lastSegment) {
+            if (validSections.includes(lastSegment)) {
+                return lastSegment;
+            }
+            if (typeof findProject === 'function' && findProject(lastSegment)) {
+                return lastSegment;
+            }
         }
 
         return 'home';
@@ -1070,21 +1187,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function setActiveSection(targetRoute, shouldUpdateUrl = true, shouldScroll = true) {
-        let rawId = (targetRoute || getCurrentRoute()).replace('#', '');
+        let rawId = (targetRoute || getCurrentRoute()).replace('#', '').trim();
         
         let isProjectDetail = false;
-        let projectIndex = null;
+        let matchedProj = typeof findProject === 'function' ? findProject(rawId) : null;
         let routeForUrl = rawId;
 
-        if (rawId.startsWith('project-')) {
-            const idxStr = rawId.replace('project-', '');
-            const parsedIdx = parseInt(idxStr, 10);
-            if (!isNaN(parsedIdx) && portfolioData.projects && portfolioData.projects[parsedIdx]) {
-                isProjectDetail = true;
-                projectIndex = parsedIdx;
-                rawId = 'projects';
-                routeForUrl = `project-${parsedIdx}`;
-            }
+        if (matchedProj) {
+            isProjectDetail = true;
+            rawId = 'projects';
+            routeForUrl = matchedProj.slug;
         }
 
         const validSections = ['home', 'about', 'projects', 'skills', 'experience', 'education', 'certifications', 'contact'];
@@ -1119,15 +1231,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (activeId === 'projects') {
-                if (isProjectDetail && projectIndex !== null) {
+                if (isProjectDetail && matchedProj) {
                     if (typeof window.showProjectDetails === 'function') {
-                        window.showProjectDetails(projectIndex);
+                        window.showProjectDetails(matchedProj.slug);
                     }
                 } else {
                     if (typeof window.showProjectsList === 'function') {
                         window.showProjectsList();
                     }
                 }
+            } else {
+                document.title = 'Somenath Sau | Portfolio';
             }
 
             // Trigger animations for .fade-up inside active sections
@@ -1148,9 +1262,9 @@ document.addEventListener('DOMContentLoaded', () => {
             // ==============================================================
             // MOBILE VIEW (<= 992px): Continuous Single Scrollable Page Mode
             // ==============================================================
-            if (isProjectDetail && projectIndex !== null) {
+            if (isProjectDetail && matchedProj) {
                 if (typeof window.showProjectDetails === 'function') {
-                    window.showProjectDetails(projectIndex);
+                    window.showProjectDetails(matchedProj.slug);
                 }
                 const projSec = document.getElementById('projects');
                 if (projSec && shouldScroll) {
@@ -1162,6 +1276,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (typeof window.showProjectsList === 'function') {
                     window.showProjectsList();
                 }
+                document.title = 'Somenath Sau | Portfolio';
+            } else {
+                document.title = 'Somenath Sau | Portfolio';
             }
 
             if (!isProjectDetail && shouldScroll) {

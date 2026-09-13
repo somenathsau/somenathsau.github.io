@@ -1,4 +1,7 @@
 const californiaRetailProject = {
+    id: "california-retail",
+    slug: "california-retail",
+    aliases: ["california-retail-analysis", "california-retail-sales-analysis"],
     title: "California Retail Sales Analysis",
     description: "Interactive dashboard analyzing 99K+ transactions across 10 California malls to uncover sales and performance trends.",
     keyInsight: "Clothing led sales, with Del Amo Mall and LA generating peak revenue.",

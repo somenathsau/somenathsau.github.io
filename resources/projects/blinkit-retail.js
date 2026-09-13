@@ -1,5 +1,8 @@
 const blinkitAnalysis = {
-    title: "Blinkit Business and InventoryAnalysis",
+    id: "blinkit-analysis",
+    slug: "blinkit-analysis",
+    aliases: ["blinkit-analaysis", "blinkit-business-and-inventory-analysis"],
+    title: "Blinkit Business and Inventory Analysis",
     description: "Interactive 5-module Power BI executive dashboard analyzing ₹11.01M in revenue, 166K+ inventory movements, 5,000 deliveries, and marketing ROI across quick-commerce operations in India.",
     keyInsight: "Generated ₹11.01M revenue (54.8% margin) and identified ₹39.68M in inventory damage.",
     problem: "Quick-commerce delivery platforms operate on ultra-low latency and tight margins. Fragmented operational visibility across sales, high delivery delay rates (30.6% delayed orders averaging 4.4 min delays), severe inventory damage loss (49% damage rate totaling ₹39.68M), and customer dissatisfaction (41% negative sentiment, 30% CSAT) hindered scalable profitability.",

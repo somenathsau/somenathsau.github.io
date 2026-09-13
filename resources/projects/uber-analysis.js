@@ -1,4 +1,7 @@
 const uberAnalysisProject = {
+    id: "uber-analysis",
+    slug: "uber-analysis",
+    aliases: ["uber-data-analysis"],
     title: "Uber Data Analysis",
     description: "Analyzed 10K+ Uber ride records to uncover demand trends and peak-hour patterns.",
     keyInsight: "Peak ride demand increases by 35% during 6–9 PM.",
