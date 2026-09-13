@@ -1,5 +1,5 @@
 const blinkitAnalysis = {
-    title: "Blinkit Business Analysis",
+    title: "Blinkit Business and InventoryAnalysis",
     description: "Interactive 5-module Power BI executive dashboard analyzing ₹11.01M in revenue, 166K+ inventory movements, 5,000 deliveries, and marketing ROI across quick-commerce operations in India.",
     keyInsight: "Generated ₹11.01M revenue (54.8% margin) and identified ₹39.68M in inventory damage.",
     problem: "Quick-commerce delivery platforms operate on ultra-low latency and tight margins. Fragmented operational visibility across sales, high delivery delay rates (30.6% delayed orders averaging 4.4 min delays), severe inventory damage loss (49% damage rate totaling ₹39.68M), and customer dissatisfaction (41% negative sentiment, 30% CSAT) hindered scalable profitability.",
@@ -30,6 +30,6 @@ const blinkitAnalysis = {
         "resources/assets/images/blinkit-marketing.png",
         "resources/assets/images/blinkit-cs.png"
     ],
-    codeLink: "https://github.com/somenathsau/blinkit-business-analytics",
+    codeLink: "https://github.com/somenathsau/Blinkit-Business-and-Inventory-Analysis",
     demoLink: "https://1drv.ms/u/c/451F38CD7B3963F9/IQAq39KlnD3KTKylGqIEDqGqAWMY8zRC4kWALMLstFXOV-I?e=auxl6e"
 };
