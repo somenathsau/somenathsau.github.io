@@ -95,7 +95,7 @@ const portfolioData = {
     // Experience
     experience: [
         {
-            role: "Data Scientist Intern",
+            role: "Data Science Intern",
             company: "CodeClause",
             location: "Remote",
             duration: "Nov 2023 – Dec 2023",
