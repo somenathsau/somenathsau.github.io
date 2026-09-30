@@ -1,43 +1,44 @@
 :root {
-    /* Light Theme (Sunset Amber & Radiant Gold) */
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #FAFAF9;
-    --text-primary: #1C1917;
-    --text-secondary: #57534E;
-    --accent-blue: #D97706; /* Sunset Amber */
+    /* Light Theme (Warm Beige, Cream & Sunset Amber / Radiant Gold) */
+    --bg-primary: #F5F2EB; /* Warm Beige / Cream unified background */
+    --bg-secondary: #F5F2EB; /* Unified single light background across all sections */
+    --text-primary: #222624; /* Dark Charcoal / Soft Black */
+    --text-secondary: #56615B; /* Readable muted slate-charcoal */
+    --accent-blue: #D97706; /* Sunset Amber primary accent */
     --accent-blue-hover: #B45309;
     --accent-secondary: #F59E0B; /* Radiant Gold */
     --accent-secondary-hover: #D97706;
-    --soft-blue: #FFFBEB;
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(41, 37, 36, 0.08);
-    --card-bg: #FFFFFF;
-    --navbar-bg: rgba(255, 255, 255, 0.82);
-    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95);
-    --navbar-border: rgba(41, 37, 36, 0.08);
-    --social-pill-bg: rgba(0, 0, 0, 0.03);
-    --social-pill-border: rgba(0, 0, 0, 0.08);
+    --soft-blue: #FFFBEB; /* Pale Honey Tint */
+    --glass-bg: rgba(250, 247, 240, 0.88);
+    --glass-border: rgba(217, 119, 6, 0.15);
+    --card-bg: #FAF7F0; /* Warm Cream Content Box */
+    --navbar-bg: rgba(245, 242, 235, 0.88);
+    --navbar-bg-scrolled: rgba(245, 242, 235, 0.96);
+    --navbar-border: rgba(217, 119, 6, 0.14);
+    --social-pill-bg: rgba(217, 119, 6, 0.05);
+    --social-pill-border: rgba(217, 119, 6, 0.15);
     --social-github-hover-border: #24292e;
-    --social-github-hover-bg: rgba(36, 41, 46, 0.1);
+    --social-github-hover-bg: rgba(36, 41, 46, 0.08);
     --exp-header-bg: #FFFBEB;
-    --exp-header-border: rgba(217, 119, 6, 0.2);
-    --exp-badge-bg: #FFFFFF;
+    --exp-header-border: rgba(217, 119, 6, 0.18);
+    --exp-badge-bg: #FAF7F0;
     --exp-badge-border: var(--accent-blue);
     --exp-badge-text: #B45309;
-    --edu-cta-bg: rgba(217, 119, 6, 0.07);
+    --edu-cta-bg: rgba(217, 119, 6, 0.08);
     --edu-cta-text: #B45309;
-    --edu-cta-border: rgba(217, 119, 6, 0.2);
-    --edu-cta-hover-bg: rgba(217, 119, 6, 0.14);
+    --edu-cta-border: rgba(217, 119, 6, 0.22);
+    --edu-cta-hover-bg: rgba(217, 119, 6, 0.15);
     --edu-cta-hover-text: #92400E;
     --edu-cta-fallback-bg: #FFFBEB;
 
-    --btn-text-color: #FFFFFF; /* Light Mode Button Text */
+    --btn-text-color: #FAF7F0; /* Light Mode Button Text */
     --font-primary: 'Inter', sans-serif;
     --font-heading: 'Poppins', sans-serif;
     --font-code: 'JetBrains Mono', monospace;
     
-    /* RGB channels for filters/shadows (Amber 600) */
+    /* RGB channels for filters/shadows (Amber 217, 119, 6) */
     --accent-rgb: 217, 119, 6;
+    --footer-bg: #EAE4D8; /* Slightly deeper warm beige for footer */
 }
 
 [data-theme="dark"] {
@@ -77,6 +78,7 @@
 
     /* RGB channels for filters/shadows (Amber 500) */
     --accent-rgb: 245, 158, 11;
+    --footer-bg: #141210;
 }
 
 /* Import Fonts */
@@ -576,12 +578,13 @@ h6,
 
 /* Base Section Layout & Uniform Spacing */
 .section {
-    padding: 24px 0 60px;
+    padding: 44px 0 60px;
     min-height: calc(100vh - 76px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     box-sizing: border-box;
+    scroll-margin-top: 96px;
 }
 
 #skills.section,
@@ -591,16 +594,15 @@ h6,
 #certifications.section,
 #about.section,
 #contact.section {
-    padding-top: 24px;
+    padding-top: 44px;
+    scroll-margin-top: 96px;
 }
 
-/* Alternating Section Colors */
-section:nth-of-type(odd) {
-    background-color: var(--bg-primary);
-}
-
+/* Unified Section Background Colors */
+section,
+section:nth-of-type(odd),
 section:nth-of-type(even) {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 /* Hero Section */
@@ -622,7 +624,7 @@ section:nth-of-type(even) {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(var(--accent-rgb), 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
     mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
@@ -780,6 +782,9 @@ section:nth-of-type(even) {
     margin-top: 10px;
     letter-spacing: 0.5px;
     font-family: var(--font-primary);
+    min-height: 2.3rem;
+    display: inline-flex;
+    align-items: center;
 }
 
 .hero-microline {
@@ -1001,7 +1006,7 @@ section:nth-of-type(even) {
     height: 420px;
     border-radius: 150px;
     border: 1px solid var(--accent-blue);
-    box-shadow: 0 0 8px rgba(168, 85, 247, 0.08);
+    box-shadow: 0 0 14px rgba(var(--accent-rgb), 0.16);
     /* Tighter, softer glow */
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     background: transparent;
@@ -1350,7 +1355,7 @@ section:nth-of-type(even) {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: #ffffff;
+    background: var(--card-bg);
     border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
@@ -1653,7 +1658,7 @@ section:nth-of-type(even) {
 
 .refined-exp-badge {
     background: var(--exp-badge-bg);
-    color: var(--exp-badge-text); /* Amber text */
+    color: var(--exp-badge-text);
     padding: 4px 14px;
     border-radius: 999px;
     font-size: 0.75rem;
@@ -1676,7 +1681,8 @@ section:nth-of-type(even) {
 
 .refined-exp-date {
     font-size: 0.85rem;
-    color: #94A3B8;
+    color: var(--text-secondary);
+    opacity: 0.85;
     margin: 0;
     font-weight: 500;
 }
@@ -1698,7 +1704,7 @@ section:nth-of-type(even) {
     gap: 6px;
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--accent-blue-hover); /* Amber text */
+    color: var(--accent-blue-hover);
 }
 
 .metric-dot {
@@ -1732,7 +1738,7 @@ section:nth-of-type(even) {
     border-radius: 6px;
     font-size: 0.8rem;
     font-weight: 600;
-    border: 1px solid rgba(var(--accent-rgb), 0.4); /* Light amber border */
+    border: 1px solid rgba(var(--accent-rgb), 0.35);
 }
 
 
@@ -2965,6 +2971,9 @@ section:nth-of-type(even) {
     padding: 24px;
     border-radius: 16px;
     box-sizing: border-box;
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .contact-info h3 {
@@ -3128,7 +3137,7 @@ section:nth-of-type(even) {
 .footer {
     padding: 6px 0;
     border-top: 1px solid var(--glass-border);
-    background: var(--bg-secondary);
+    background: var(--footer-bg);
     position: relative;
     color: var(--text-secondary);
     font-size: 0.85rem;
@@ -3750,9 +3759,9 @@ section:nth-of-type(even) {
 
 /* Glass Card - Essential for Visibility */
 .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
     border-radius: 15px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -4560,9 +4569,10 @@ button.btn-primary:hover {
     #certifications.section,
     #about.section,
     #contact.section {
-        padding-top: 20px !important;
+        padding-top: 36px !important;
         padding-bottom: 40px !important;
         min-height: auto !important;
+        scroll-margin-top: 86px !important;
     }
 
     /* Mobile Global Container & Section Layout Centering */

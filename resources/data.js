@@ -1,10 +1,18 @@
 const portfolioData = {
     // Personal Details
     name: "SOMENATH SAU",
-    role: "Data Analyst at Landmine Soft",
-    microline: "Power BI | Dashboard | Data Analysis | Generative AI | Prompt Engineering",
+    role: "Data Analyst",
+    roles: [
+        "Data Analyst",
+        "Business Analyst",
+        "MIS Analyst",
+        "Power BI Analyst",
+        "BI Analyst"
+    ],
+    microline: "SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
-    resumeLink: "resources/assets/docs/SOMENATH-SAU-CV.docx",
+    resumeLink: "resources/assets/docs/SOMENATH-SAU-CV.pdf",
+    resumeDocx: "resources/assets/docs/SOMENATH-SAU-CV.docx",
     email: "somenathsau@gmail.com",
 
     bio: "✔ Transform complex data into insights that improve reporting efficiency. " +

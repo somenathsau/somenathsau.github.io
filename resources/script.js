@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroNameEl = document.getElementById('heroName');
     if (heroNameEl && portfolioData.name) heroNameEl.textContent = portfolioData.name;
 
-    const heroRoleDisplay = document.getElementById('heroRoleDisplay');
-    if (heroRoleDisplay && portfolioData.role) heroRoleDisplay.textContent = portfolioData.role;
+    // Initialize Role Typewriter Effect
+    initRoleTypewriter();
 
     const heroMicroline = document.getElementById('heroMicroline');
     if (heroMicroline && portfolioData.microline) {
@@ -44,7 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactResumeBtn = document.getElementById('contactResumeBtn');
     
     const downloadResumeBtn = document.getElementById('downloadResumeBtn');
-    if (downloadResumeBtn) downloadResumeBtn.href = portfolioData.resumeLink;
+    if (downloadResumeBtn) {
+        downloadResumeBtn.href = portfolioData.resumeLink;
+        downloadResumeBtn.setAttribute('download', 'SOMENATH-SAU-CV.pdf');
+    }
+    const openResumeNewTab = document.getElementById('openResumeNewTab');
+    if (openResumeNewTab) {
+        openResumeNewTab.href = portfolioData.resumeLink;
+    }
 
     // Render Hero Socials (Buttons)
     const heroSocials = document.getElementById('heroSocials');
@@ -741,7 +748,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open Resume Modal
     document.querySelectorAll('.open-resume-modal').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             if (resumeModal && resumeIframe) {
                 resumeIframe.src = portfolioData.resumeLink;
                 resumeModal.classList.add('active');
@@ -760,6 +768,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resumeModal.addEventListener('click', (e) => {
             if (e.target === resumeModal) {
+                resumeModal.classList.remove('active');
+                resumeIframe.src = '';
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
                 resumeModal.classList.remove('active');
                 resumeIframe.src = '';
                 document.body.style.overflow = '';
@@ -1133,10 +1149,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (window.location.protocol === 'file:') {
             try {
-                if (cleanRoute !== 'home') {
-                    window.location.hash = cleanRoute;
-                } else if (window.location.hash) {
-                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                const targetHash = (cleanRoute && cleanRoute !== 'home') ? ('#' + cleanRoute) : '';
+                const newUrl = window.location.pathname + window.location.search + targetHash;
+                if (isPush) {
+                    history.pushState(null, null, newUrl);
+                } else {
+                    history.replaceState(null, null, newUrl);
                 }
             } catch (e) {
                 console.warn('Could not update local url hash:', e);
@@ -1268,7 +1286,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 const projSec = document.getElementById('projects');
                 if (projSec && shouldScroll) {
-                    const navHeight = 66;
+                    const navHeight = 88;
                     const targetTop = projSec.getBoundingClientRect().top + window.pageYOffset - navHeight;
                     window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
                 }
@@ -1284,7 +1302,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isProjectDetail && shouldScroll) {
                 const targetElem = document.getElementById(activeId === 'about' ? 'about' : (activeId === 'home' ? 'home' : activeId));
                 if (targetElem) {
-                    const navHeight = 66;
+                    const navHeight = 88;
                     const targetTop = activeId === 'home' ? 0 : (targetElem.getBoundingClientRect().top + window.pageYOffset - navHeight);
                     window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
                 }
@@ -1425,11 +1443,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Typewriter Effect for Name
-// Typewriter Effect for Role (Headline)
-// Typewriter Effect REMOVED
+// --- TYPEWRITER EFFECT FOR HERO ROLES ---
+function initRoleTypewriter() {
+    const typewriterElem = document.getElementById('typewriterText');
+    if (!typewriterElem) return;
 
-// initTypewriter(); removed
+    const roles = (typeof portfolioData !== 'undefined' && portfolioData.roles && portfolioData.roles.length)
+        ? portfolioData.roles
+        : ['Data Analyst', 'Business Analyst', 'MIS Analyst', 'Power BI Analyst', 'BI Analyst'];
+
+    let roleIndex = 0;
+    let charIndex = roles[0].length;
+    let isDeleting = false;
+
+    function typeLoop() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            charIndex--;
+            typewriterElem.textContent = currentRole.substring(0, charIndex);
+        } else {
+            charIndex++;
+            typewriterElem.textContent = currentRole.substring(0, charIndex);
+        }
+
+        let speed = isDeleting ? 40 : 85;
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            // Full role typed: pause for 2.2 seconds before erasing
+            speed = 2200;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            // Role fully erased: pause briefly and advance to the next role
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            speed = 400;
+        }
+
+        setTimeout(typeLoop, speed);
+    }
+
+    // Begin erasing the initial role after 2.2s delay
+    setTimeout(() => {
+        isDeleting = true;
+        typeLoop();
+    }, 2200);
+}
 
 
 
