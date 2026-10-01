@@ -82,7 +82,7 @@
 }
 
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;700&family=Exo+2:wght@400;500;600;700&display=swap');
 
 
 * {
@@ -781,10 +781,29 @@ section:nth-of-type(even) {
     font-weight: 600;
     margin-top: 10px;
     letter-spacing: 0.5px;
-    font-family: var(--font-primary);
+    font-family: 'Biome', 'Biome Light', 'Biome W01', 'Biome Std', 'Biome Pro', 'Exo 2', 'Outfit', sans-serif;
     min-height: 2.3rem;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
+    row-gap: 4px;
+}
+
+.hero-role-prefix {
+    font-family: 'Biome', 'Biome Light', 'Biome W01', 'Biome Std', 'Biome Pro', 'Exo 2', 'Outfit', sans-serif;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-right: 0.5rem;
+    letter-spacing: 0.4px;
+    opacity: 0.92;
+}
+
+.hero-role-typewriter-wrap {
+    display: inline-flex;
+    align-items: center;
+    color: var(--accent-blue);
+    font-family: 'Biome', 'Biome Light', 'Biome W01', 'Biome Std', 'Biome Pro', 'Exo 2', 'Outfit', sans-serif;
+    font-weight: 600;
 }
 
 .hero-microline {
@@ -3395,6 +3414,7 @@ section:nth-of-type(even) {
     .hero-role {
         font-size: 1.3rem;
         margin-top: 5px;
+        justify-content: center;
     }
 
     .hero-microline {
@@ -3438,6 +3458,7 @@ section:nth-of-type(even) {
     .hero-role {
         font-size: 1.3rem;
         margin-top: 5px;
+        justify-content: center;
     }
 
     .hero-microline {

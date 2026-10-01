@@ -2,11 +2,11 @@ const portfolioData = {
     // Personal Details
     name: "SOMENATH SAU",
     role: "Data Analyst",
+    rolePrefix: "Focused on :",
     roles: [
         "Data Analyst",
         "Business Analyst",
         "MIS Analyst",
-        "Power BI Analyst",
         "BI Analyst"
     ],
     microline: "SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL",

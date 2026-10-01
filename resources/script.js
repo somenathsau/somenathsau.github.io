@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroNameEl = document.getElementById('heroName');
     if (heroNameEl && portfolioData.name) heroNameEl.textContent = portfolioData.name;
 
+    const heroRolePrefixEl = document.getElementById('heroRolePrefix');
+    if (heroRolePrefixEl && portfolioData.rolePrefix !== undefined) {
+        heroRolePrefixEl.textContent = portfolioData.rolePrefix;
+    }
+
     // Initialize Role Typewriter Effect
     initRoleTypewriter();
 
@@ -1450,7 +1455,7 @@ function initRoleTypewriter() {
 
     const roles = (typeof portfolioData !== 'undefined' && portfolioData.roles && portfolioData.roles.length)
         ? portfolioData.roles
-        : ['Data Analyst', 'Business Analyst', 'MIS Analyst', 'Power BI Analyst', 'BI Analyst'];
+        : ['Data Analyst', 'Business Analyst', 'MIS Analyst', 'BI Analyst'];
 
     let roleIndex = 0;
     let charIndex = roles[0].length;
