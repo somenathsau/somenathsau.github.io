@@ -220,20 +220,6 @@ const portfolioData = {
             credentialLink: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_cYkMuanGSYDTrvMry_1748362553606_completion_certificate.pdf"
         },
         {
-            title: "Commonwealth Bank - Introduction to Data Science Job Simulation",
-            issuer: "Forage",
-            year: "May 2025",
-            image: "resources/assets/certificate/ForageDA1.png",
-            credentialLink: "https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/smwfytX3mcLboA9bf_2sNmYuurxgpFYawco_cYkMuanGSYDTrvMry_1747032386986_completion_certificate.pdf"
-        },
-        {
-            title: "Cognizant - Artificial Intelligence Job Simulation",
-            issuer: "Forage",
-            year: "June 2024",
-            image: "resources/assets/certificate/CognizantDA.png",
-            credentialLink: "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Cognizant/5N2ygyhzMWjKQmgCK_Cognizant_cYkMuanGSYDTrvMry_1718646885974_completion_certificate.pdf"
-        },
-        {
             title: "AWS Academy Cloud Foundations",
             issuer: "Amazon Web Services (AWS)",
             year: "Sept 2023",
