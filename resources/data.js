@@ -131,23 +131,8 @@ const portfolioData = {
             description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended " +
                 "and structured prompts. Assessed outputs for instruction adherence, truthfulness, " +
                 "reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
-        },
-        // {
-        //     role: "Data Analyst",
-        //     company: "Landmine Soft",
-        //     location: "Hyderabad, India",
-        //     duration: "Feb 2024 – Present",
-        //     type: "Full Time",
-        //     metrics: [
-        //         { val: "10+", label: "Dashboards built" },
-        //         { val: "1M+", label: "Records analyzed" }
-        //     ],
-        //     techStack: ["Python", "SQL", "Power BI", "Excel", "Pandas", "NumPy", "Data Cleaning", "Data Visualization"],
-        //     description: "Analyzed large datasets using Python (Pandas, NumPy) and SQL to extract actionable insights. " +
-        //         "Built interactive Power BI dashboards and automated reporting processes, reducing manual " +
-        //         "effort by 30%. Performed data cleaning, transformation, and exploratory data analysis (EDA) " +
-        //         "to support business decision-making."
-        // }
+        }
+    
     ],
 
     // Projects
@@ -205,6 +190,13 @@ const portfolioData = {
 
     // Certifications
     certifications: [
+        {
+            title: "30 Days Power BI Micro Course",
+            issuer: "SkillCourse",
+            year: "Aug 2026",
+            image: "resources/assets/certificate/SC-G5N0MNQ4HR.png",
+            credentialLink: "https://drive.google.com/file/d/1YVsL0f3A75j3Uv_rIGD2uVEqaHGaT1NF/view?usp=sharing"
+        },
         {
             title: "Career Essentials in Data Analysis by Microsoft and LinkedIn",
             issuer: "LinkedIn Learning",
