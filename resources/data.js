@@ -11,8 +11,8 @@ const portfolioData = {
     ],
     microline: "SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
-    resumeLink: "resources/assets/docs/SOMENATH-SAU-CV.pdf",
-    resumeDocx: "resources/assets/docs/SOMENATH-SAU-CV.docx",
+    resumeLink: "resources/assets/docs/Somenath-Sau-dataAnalyst.pdf",
+    resumeDocx: "resources/assets/docs/SOMENATH SAU_data analyst.docx",
     email: "somenathsau@gmail.com",
 
     bio: "✔ Transform complex data into insights that improve reporting efficiency. " +
@@ -138,6 +138,7 @@ const portfolioData = {
     // Projects
     projects: [
         typeof blinkitAnalysis !== 'undefined' ? blinkitAnalysis : null,
+        typeof hrWorkforceProject !== 'undefined' ? hrWorkforceProject : null,
         typeof californiaRetailProject !== 'undefined' ? californiaRetailProject : null,
         typeof uberAnalysisProject !== 'undefined' ? uberAnalysisProject : null,
         typeof crimeDataProject !== 'undefined' ? crimeDataProject : null
