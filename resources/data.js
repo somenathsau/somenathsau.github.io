@@ -126,7 +126,7 @@ const portfolioData = {
             metrics: [
                 { val: "500+", label: "Tasks done" },
                 { val: "95%", label: "Accuracy" },
-                { label: "Contribute to", val: "4+ Projects" }
+                { val: "4+", label: "Projects Contributed" }
             ],
             techStack: ["RLHF", "SFT Annotation", "Response Evaluation", "AI safety", "Prompt Engineering", "LLM Assessment"],
             description: "Completed 500+ RLHF and SFT evaluation tasks, reviewing LLM responses across open-ended " +
