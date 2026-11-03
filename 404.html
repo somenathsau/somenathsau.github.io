@@ -6,10 +6,24 @@
     <title>Somenath Sau | Data Analyst Portfolio</title>
     <script>
         // Single Page App Redirect Handler for GitHub Pages Clean URLs
-        sessionStorage.redirect = location.href;
+        (function() {
+            var isIframe = window.top !== window.self;
+            var pathname = window.location.pathname;
+            var hasFileExtension = /\.[a-zA-Z0-9]{2,5}$/.test(pathname);
+
+            // Only redirect top-level navigations for clean SPA routes, never iframes or static assets
+            if (!isIframe && !hasFileExtension) {
+                sessionStorage.redirect = location.href;
+                window.location.replace('/');
+            }
+        })();
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'">
 </head>
-<body>
+<body style="font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #0f172a; color: #f8fafc; text-align: center;">
+    <div>
+        <h1 style="font-size: 2rem; margin-bottom: 8px;">Resource Not Found</h1>
+        <p style="color: #94a3b8; margin-bottom: 24px;">The requested file or page could not be located.</p>
+        <a href="/" style="display: inline-block; padding: 10px 20px; background: #3b82f6; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 500;">Return to Home</a>
+    </div>
 </body>
 </html>

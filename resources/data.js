@@ -11,7 +11,7 @@ const portfolioData = {
     ],
     microline: "SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
-    resumeLink: "resources/assets/docs/Somenath-Sau-dataAnalyst.pdf",
+    resumeLink: "resources/assets/docs/Somenath-Sau-DataAnalyst.pdf",
     resumeDocx: "resources/assets/docs/SOMENATH SAU_data analyst.docx",
     email: "somenathsau@gmail.com",
 

@@ -50,12 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const downloadResumeBtn = document.getElementById('downloadResumeBtn');
     if (downloadResumeBtn) {
-        downloadResumeBtn.href = portfolioData.resumeLink;
-        downloadResumeBtn.setAttribute('download', 'SOMENATH-SAU-CV.pdf');
+        const resumeResolvedUrl = (window.location.protocol !== 'file:' && portfolioData.resumeLink && !portfolioData.resumeLink.startsWith('http')) ? (window.location.origin + '/' + portfolioData.resumeLink.replace(/^\/+/, '')) : portfolioData.resumeLink;
+        downloadResumeBtn.href = resumeResolvedUrl;
+        downloadResumeBtn.setAttribute('download', 'Somenath-Sau-DataAnalyst.pdf');
     }
     const openResumeNewTab = document.getElementById('openResumeNewTab');
     if (openResumeNewTab) {
-        openResumeNewTab.href = portfolioData.resumeLink;
+        openResumeNewTab.href = (window.location.protocol !== 'file:' && portfolioData.resumeLink && !portfolioData.resumeLink.startsWith('http')) ? (window.location.origin + '/' + portfolioData.resumeLink.replace(/^\/+/, '')) : portfolioData.resumeLink;
     }
 
     // Render Hero Socials (Buttons)
@@ -756,7 +757,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             if (resumeModal && resumeIframe) {
-                resumeIframe.src = portfolioData.resumeLink;
+                const pdfUrl = (window.location.protocol !== 'file:' && portfolioData.resumeLink && !portfolioData.resumeLink.startsWith('http')) ? (window.location.origin + '/' + portfolioData.resumeLink.replace(/^\/+/, '')) : portfolioData.resumeLink;
+                resumeIframe.src = pdfUrl;
                 resumeModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
