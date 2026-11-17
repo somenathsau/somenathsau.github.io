@@ -23,7 +23,7 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
 
         // SPA Redirect Restore Handler for GitHub Pages Clean URLs
-        (function() {
+        (function () {
             var redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
@@ -53,11 +53,9 @@
             <!-- Brand / Profile -->
             <a href="#home" class="nav-brand" aria-label="Somenath Sau - Home">
                 <div class="nav-brand-avatar">
-                    <img src="resources/assets/hero/Somenath_Sau.webp" 
-                         srcset="resources/assets/hero/Somenath_Sau-small.webp 600w, resources/assets/hero/Somenath_Sau.webp 1200w" 
-                         sizes="38px" 
-                         alt="Somenath Sau"
-                         fetchpriority="high">
+                    <img src="resources/assets/hero/Somenath_Sau.webp"
+                        srcset="resources/assets/hero/Somenath_Sau-small.webp 600w, resources/assets/hero/Somenath_Sau.webp 1200w"
+                        sizes="38px" alt="Somenath Sau" fetchpriority="high">
                 </div>
                 <div class="nav-brand-text">
                     <span class="nav-name">SOMENATH SAU</span>
@@ -80,7 +78,8 @@
 
             <!-- Navigation Actions: Resume, Theme Toggle & Mobile Menu -->
             <div class="nav-actions">
-                <a href="javascript:void(0)" class="btn-primary nav-resume-btn open-resume-modal" title="Download Resume">
+                <a href="javascript:void(0)" class="btn-primary nav-resume-btn open-resume-modal"
+                    title="Download Resume">
                     <i data-lucide="download"></i>
                     <span>Resume</span>
                 </a>
@@ -123,202 +122,207 @@
     <!-- Main Content Area -->
     <main class="main-content-wrapper" id="mainContent">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section active-section">
-        <div class="hero-background"></div>
-        <div class="hero-content fade-up visible">
-            <div class="hero-text">
-                <div class="hero-header-info">
-                    <p class="greeting">Hello, I'm</p>
-                    <h1 class="hero-name gradient-text" id="heroName">SOMENATH SAU</h1>
-                    <p class="hero-role" id="heroRoleDisplay"><span class="hero-role-prefix" id="heroRolePrefix">Focused on :</span><span class="hero-role-typewriter-wrap"><span id="typewriterText">Data Analyst</span><span class="typewriter-cursor blink">|</span></span></p>
-                    <p class="hero-microline" id="heroMicroline">SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL</p>
-                </div>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section active-section">
+            <div class="hero-background"></div>
+            <div class="hero-content fade-up visible">
+                <div class="hero-text">
+                    <div class="hero-header-info">
+                        <p class="greeting">Hello, I'm</p>
+                        <h1 class="hero-name gradient-text" id="heroName">SOMENATH SAU</h1>
+                        <p class="hero-role" id="heroRoleDisplay"><span class="hero-role-prefix"
+                                id="heroRolePrefix">Focused on :</span><span class="hero-role-typewriter-wrap"><span
+                                    id="typewriterText">Data Analyst</span><span
+                                    class="typewriter-cursor blink">|</span></span></p>
+                        <p class="hero-microline" id="heroMicroline">SQL | Python | Power BI | Advanced Excel | Data
+                            Modeling | ETL</p>
+                    </div>
 
-                <div class="hero-visuals-wrapper">
-                    <div class="hero-image-container" id="heroImageContainer"></div>
+                    <div class="hero-visuals-wrapper">
+                        <div class="hero-image-container" id="heroImageContainer"></div>
 
-                    <div class="hero-actions-wrapper">
-                        <div class="hero-socials" id="heroSocials">
-                            <!-- Dynamic Social Icons -->
+                        <div class="hero-actions-wrapper">
+                            <div class="hero-socials" id="heroSocials">
+                                <!-- Dynamic Social Icons -->
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <p class="hero-bio fade-up visible" id="heroBio">
-                    ✔ Transform complex data into insights that improve reporting efficiency.<br>
-                    ✔ Build automated dashboards using Python, SQL, and Power BI.<br>
-                    ✔ Streamline analytical workflows using Gen AI.<br>
-                    ✔ Identify trends to support faster and smarter business decisions.
-                </p>
+                    <p class="hero-bio fade-up visible" id="heroBio">
+                        ✔ Transform complex data into insights that improve reporting efficiency.<br>
+                        ✔ Build automated dashboards using Python, SQL, and Power BI.<br>
+                        ✔ Streamline analytical workflows using Gen AI.<br>
+                        ✔ Identify trends to support faster and smarter business decisions.
+                    </p>
 
-                <div class="hero-buttons-container">
-                    <a href="#projects" class="btn-primary hero-btn-projects">Explore Projects</a>
-                    <a href="javascript:void(0)" class="btn-secondary hero-btn-resume open-resume-modal" id="heroResumeBtn">View Resume</a>
-                </div>
-
-
-                <div class="skills-ticker" id="heroSkillsTicker">
-                    <!-- Dynamic Content -->
-                </div>
-            </div>
-
-        </div>
+                    <div class="hero-buttons-container">
+                        <a href="#projects" class="btn-primary hero-btn-projects">Explore Projects</a>
+                        <a href="javascript:void(0)" class="btn-secondary hero-btn-resume open-resume-modal"
+                            id="heroResumeBtn">View Resume</a>
+                    </div>
 
 
-        <div class="scroll-arrows">
-            <span></span>
-            <span></span>
-        </div>
-    </section>
-
-
-
-
-
-    <!-- About Section Redesign -->
-    <section id="about" class="section about-redesign active-section">
-        <div class="container">
-            <h2 class="section-title fade-up">My <span class="accent">Expertise</span></h2>
-            <div id="knowledgeContainer" class="knowledge-container">
-                <!-- Dynamic Content: Knowledge Rows -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <div class="section-divider"></div>
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div id="projectsListContainer">
-                <h2 class="section-title fade-up">Projects</h2>
-
-                <!-- Project Category Slicers -->
-                <div class="project-slicer-container fade-up" id="projectSlicers">
-                    <button class="project-slicer-btn active" data-filter="all">
-                        <i data-lucide="layout-grid"></i>
-                        <span>All Projects</span>
-                    </button>
-                    <button class="project-slicer-btn" data-filter="excel">
-                        <i data-lucide="file-spreadsheet"></i>
-                        <span>Excel</span>
-                    </button>
-                    <button class="project-slicer-btn" data-filter="power-bi">
-                        <i data-lucide="bar-chart-3"></i>
-                        <span>Power BI</span>
-                    </button>
-                    <button class="project-slicer-btn" data-filter="sql">
-                        <i data-lucide="database"></i>
-                        <span>SQL</span>
-                    </button>
-                    <button class="project-slicer-btn" data-filter="python">
-                        <i data-lucide="code-2"></i>
-                        <span>Python</span>
-                    </button>
-                </div>
-
-                <div class="projects-grid" id="projectsGrid">
-                    <!-- Dynamic Content -->
-                </div>
-            </div>
-            <div id="projectDetailContainer" class="project-detail-wrapper" style="display: none;">
-                <!-- Dynamic Content for in-page project details -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <div class="section-divider"></div>
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title fade-up">Technical Skills</h2>
-
-            <div id="skillsContainer">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <div class="section-divider"></div>
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-title fade-up">Experience</h2>
-            <div class="experience-timeline" id="experienceTimeline">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <div class="section-divider"></div>
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h2 class="section-title fade-up">Education</h2>
-            <div class="education-grid" id="educationGrid">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <div class="section-divider"></div>
-    <!-- Certifications -->
-    <section id="certifications" class="section">
-        <div class="container">
-            <h2 class="section-title fade-up">Certifications</h2>
-            <div class="cert-grid" id="certGrid">
-                <!-- Dynamic Content -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-    <div class="section-divider"></div>
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title fade-up">Get In <span class="accent">Touch</span></h2>
-            <div class="contact-container">
-                <div class="contact-info fade-up">
-                    <h3>Let's Connect</h3>
-                    <p>Open to opportunities in Data Analysis and Cloud Support. Feel free to reach out via email or
-                        LinkedIn.</p>
-                    <div class="contact-links" id="contactLinks">
+                    <div class="skills-ticker" id="heroSkillsTicker">
                         <!-- Dynamic Content -->
                     </div>
-
-                    <div class="resume-wrapper">
-                        <a href="javascript:void(0)" class="btn-primary resume-btn open-resume-modal" id="contactResumeBtn"><i
-                                data-lucide="external-link"></i> View Resume</a>
-                    </div>
                 </div>
 
-                <!-- Hidden Iframe to prevent redirect -->
-                <script>var submitted = false;</script>
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted) {
+            </div>
+
+
+            <div class="scroll-arrows">
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- About Section Redesign -->
+        <section id="about" class="section about-redesign active-section">
+            <div class="container">
+                <h2 class="section-title fade-up">My <span class="accent">Expertise</span></h2>
+                <div id="knowledgeContainer" class="knowledge-container">
+                    <!-- Dynamic Content: Knowledge Rows -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <div class="section-divider"></div>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div id="projectsListContainer">
+                    <h2 class="section-title fade-up">Projects</h2>
+
+                    <!-- Project Category Slicers -->
+                    <div class="project-slicer-container fade-up" id="projectSlicers">
+                        <button class="project-slicer-btn active" data-filter="all">
+                            <i data-lucide="layout-grid"></i>
+                            <span>All Projects</span>
+                        </button>
+                        <button class="project-slicer-btn" data-filter="excel">
+                            <i data-lucide="file-spreadsheet"></i>
+                            <span>Excel</span>
+                        </button>
+                        <button class="project-slicer-btn" data-filter="power-bi">
+                            <i data-lucide="bar-chart-3"></i>
+                            <span>Power BI</span>
+                        </button>
+                        <button class="project-slicer-btn" data-filter="sql">
+                            <i data-lucide="database"></i>
+                            <span>SQL</span>
+                        </button>
+                        <button class="project-slicer-btn" data-filter="python">
+                            <i data-lucide="code-2"></i>
+                            <span>Python</span>
+                        </button>
+                    </div>
+
+                    <div class="projects-grid" id="projectsGrid">
+                        <!-- Dynamic Content -->
+                    </div>
+                </div>
+                <div id="projectDetailContainer" class="project-detail-wrapper" style="display: none;">
+                    <!-- Dynamic Content for in-page project details -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <div class="section-divider"></div>
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title fade-up">Technical Skills</h2>
+
+                <div id="skillsContainer">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <div class="section-divider"></div>
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title fade-up">Experience</h2>
+                <div class="experience-timeline" id="experienceTimeline">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <div class="section-divider"></div>
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title fade-up">Education</h2>
+                <div class="education-grid" id="educationGrid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <div class="section-divider"></div>
+        <!-- Certifications -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title fade-up">Certifications</h2>
+                <div class="cert-grid" id="certGrid">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <div class="section-divider"></div>
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title fade-up">Get In <span class="accent">Touch</span></h2>
+                <div class="contact-container">
+                    <div class="contact-info fade-up">
+                        <h3>Let's Connect</h3>
+                        <p>Open to opportunities in Data Analysis and Cloud Support. Feel free to reach out via email or
+                            LinkedIn.</p>
+                        <div class="contact-links" id="contactLinks">
+                            <!-- Dynamic Content -->
+                        </div>
+
+                        <div class="resume-wrapper">
+                            <a href="javascript:void(0)" class="btn-primary resume-btn open-resume-modal"
+                                id="contactResumeBtn"><i data-lucide="external-link"></i> View Resume</a>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Iframe to prevent redirect -->
+                    <script>var submitted = false;</script>
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted) {
                         const btn = document.querySelector('.contact-form button');
                         if (btn) {
                             btn.classList.remove('btn-loading');
@@ -334,48 +338,49 @@
                         }
                     }"></iframe>
 
-                <form
-                    action="https://docs.google.com/forms/d/e/1FAIpQLSfp-a_8jX7g4zAE1zK72U6KinNCWsyelOrdkgEaMngipDjdvA/formResponse"
-                    method="post" target="hidden_iframe" onsubmit="submitted=true; 
+                    <form
+                        action="https://docs.google.com/forms/d/e/1FAIpQLSfp-a_8jX7g4zAE1zK72U6KinNCWsyelOrdkgEaMngipDjdvA/formResponse"
+                        method="post" target="hidden_iframe" onsubmit="submitted=true; 
                                 const btn = this.querySelector('button');
                                 if (btn) {
                                     btn.classList.add('btn-loading');
                                     btn.textContent = '';
                                 }" class="contact-form glass-card fade-up">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="entry.149004916" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="entry.484126304" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="entry.2054534888" rows="5" placeholder="Your Message"
-                            required></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary">Submit</button>
-                </form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="entry.149004916" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="entry.484126304" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="entry.2054534888" rows="5" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Submit</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
 
 
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2026 somenath. All rights reserved.</p>
-            <div class="footer-actions">
-                <div class="footer-socials" id="footerSocials"></div>
-                <a href="#contact" class="btn-primary footer-connect-btn">Get in Touch</a>
-                <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to Top"><i data-lucide="arrow-up"></i></a>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container footer-container">
+                <p>&copy; 2026 somenath. All rights reserved.</p>
+                <div class="footer-actions">
+                    <div class="footer-socials" id="footerSocials"></div>
+                    <a href="#contact" class="btn-primary footer-connect-btn">Get in Touch</a>
+                    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to Top"><i
+                            data-lucide="arrow-up"></i></a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     </main>
 
     <!-- Resume Modal -->
@@ -386,11 +391,14 @@
                 <button id="resumeModalCloseBtn" class="modal-close-btn"><i data-lucide="x"></i></button>
             </div>
             <div class="modal-content" style="padding: 10px; height: 80vh; overflow: hidden;">
-                <iframe id="resumeIframe" src="" width="100%" height="100%" style="border: none; border-radius: 8px;"></iframe>
+                <iframe id="resumeIframe" src="" width="100%" height="100%"
+                    style="border: none; border-radius: 8px;"></iframe>
             </div>
             <div class="modal-footer">
-                <a href="resources/assets/docs/Somenath-Sau-DataAnalyst.pdf" target="_blank" id="openResumeNewTab" class="btn-secondary"><i data-lucide="external-link"></i> Open Fullscreen</a>
-                <a href="resources/assets/docs/Somenath-Sau-DataAnalyst.pdf" id="downloadResumeBtn" class="btn-primary" download="Somenath-Sau-DataAnalyst.pdf"><i data-lucide="download"></i> Download Resume</a>
+                <a href="resources/assets/docs/Somenath-Sau-DataAnalyst.pdf" target="_blank" id="openResumeNewTab"
+                    class="btn-secondary"><i data-lucide="external-link"></i> Open Fullscreen</a>
+                <a href="resources/assets/docs/Somenath-Sau-DataAnalyst.pdf" id="downloadResumeBtn" class="btn-primary"
+                    download="Somenath-Sau-DataAnalyst.pdf"><i data-lucide="download"></i> Download Resume</a>
             </div>
         </div>
     </div>
@@ -403,7 +411,8 @@
                     <h3 class="modal-title" id="imageZoomTitle">Project Preview</h3>
                     <span class="image-counter" id="imageZoomCounter">1 / 1</span>
                 </div>
-                <button id="imageZoomCloseBtn" class="modal-close-btn" aria-label="Close Preview"><i data-lucide="x"></i></button>
+                <button id="imageZoomCloseBtn" class="modal-close-btn" aria-label="Close Preview"><i
+                        data-lucide="x"></i></button>
             </div>
             <div class="image-zoom-body">
                 <button class="slider-btn prev-btn modal-slider-btn" id="imageZoomPrevBtn" aria-label="Previous Image">
@@ -429,8 +438,8 @@
     <script src="resources/projects/california-retail.js?v=22.0"></script>
     <script src="resources/projects/uber-analysis.js?v=22.0"></script>
     <script src="resources/projects/crime-data.js?v=22.0"></script>
-    <script src="resources/data.js?v=26.0"></script>
-    <script src="resources/script.js?v=26.0"></script>
+    <script src="resources/data.js?v=27.0"></script>
+    <script src="resources/script.js?v=27.0"></script>
     <script>
         if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>

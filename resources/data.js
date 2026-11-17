@@ -198,7 +198,7 @@ const portfolioData = {
             year: "Oct 2026",
             image: "resources/assets/certificate/FreeCodeCampDA.png",
             credentialLink: "https://drive.google.com/file/d/1NITEIUVV6bcSntV6AV7su-meiF3-fQ4A/view?usp=sharing"
-        }
+        },
         {
             title: "30 Days Power BI Micro Course",
             issuer: "SkillCourse",
