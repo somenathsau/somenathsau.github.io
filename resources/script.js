@@ -790,60 +790,144 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. Render Skills Section (Redesigned with Hierarchy)
+        // 6. Render Skills Section (Attractive Modern 2x2 Layout with Brand & Category Icons)
     const skillsContainer = document.getElementById('skillsContainer');
-    if (skillsContainer) {
-        skillsContainer.innerHTML = ''; // Clear initial content
-        
-        const redesignWrapper = document.createElement('div');
-        redesignWrapper.classList.add('skills-redesign-container');
+    if (skillsContainer && portfolioData.skills) {
+        skillsContainer.innerHTML = '';
 
-        portfolioData.skills.forEach(tier => {
-            const tierBlock = document.createElement('div');
-            tierBlock.classList.add('skill-tier-block', `tier-${tier.tier}`, 'fade-up');
+                const skillIcons = {
+            // Data Analytics
+            "Advanced Excel": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="4.5" fill="#107C41"/><rect x="4" y="4" width="16" height="16" rx="2.5" fill="#185C37" fill-opacity="0.25"/><path d="M8 7.5l3.5 5-3.5 5h2.5l2-3.3 2 3.3h2.5l-3.5-5 3.5-5h-2.5l-2 3.3-2-3.3H8z" fill="#FFFFFF"/></svg>`,
+            "Excel": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="4.5" fill="#107C41"/><rect x="4" y="4" width="16" height="16" rx="2.5" fill="#185C37" fill-opacity="0.25"/><path d="M8 7.5l3.5 5-3.5 5h2.5l2-3.3 2 3.3h2.5l-3.5-5 3.5-5h-2.5l-2 3.3-2-3.3H8z" fill="#FFFFFF"/></svg>`,
+            "SQL": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><ellipse cx="12" cy="5.5" rx="8" ry="3" fill="#38BDF8"/><path d="M4 5.5v4.5c0 1.65 3.58 3 8 3s8-1.35 8-3V5.5" fill="#0284C7"/><ellipse cx="12" cy="10" rx="8" ry="3" fill="#38BDF8" fill-opacity="0.3"/><path d="M4 10v4.5c0 1.65 3.58 3 8 3s8-1.35 8-3V10" fill="#0369A1"/><ellipse cx="12" cy="14.5" rx="8" ry="3" fill="#38BDF8" fill-opacity="0.3"/><path d="M4 14.5v4c0 1.65 3.58 3 8 3s8-1.35 8-3v-4" fill="#075985"/><ellipse cx="12" cy="5.5" rx="6" ry="2" fill="#E0F2FE"/></svg>`,
+            "Power BI": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="4" y="12" width="4" height="9" rx="1.5" fill="#FDE047"/><rect x="10" y="7" width="4" height="14" rx="1.5" fill="#F59E0B"/><rect x="16" y="3" width="4" height="18" rx="1.5" fill="#D97706"/></svg>`,
+            "PowerBI": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="4" y="12" width="4" height="9" rx="1.5" fill="#FDE047"/><rect x="10" y="7" width="4" height="14" rx="1.5" fill="#F59E0B"/><rect x="16" y="3" width="4" height="18" rx="1.5" fill="#D97706"/></svg>`,
+            "DAX & Power Query": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#8B5CF6" fill-opacity="0.15"/><path d="M7 17l4.5-10h2l-4.5 10H7z" fill="#7C3AED"/><path d="M12.5 10.5h4.5M12.5 13.5h4.5" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><path d="M17 6.5l3 5.5h-3.5l1.5 5.5-4-6.5h3.5L17 6.5z" fill="#F59E0B"/></svg>`,
+            "Python": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M11.9 2c-3.1 0-2.9 1.3-2.9 1.3l.01 1.4h3v.4H6.8s-1.8.2-1.8 2.8 1.6 2.7 1.6 2.7h1v-1.3c0-1.5 1.3-1.4 1.3-1.4h3.1c1.5 0 1.4-1.3 1.4-1.3V3.3c0-1.3-1.5-1.3-1.5-1.3zm-1.8 1a.6.6 0 1 1 0 1.2.6.6 0 0 1 0-1.2z" fill="#387EB8"/><path d="M12.1 22c3.1 0 2.9-1.3 2.9-1.3l-.01-1.4h-3v-.4h5.2s1.8-.2 1.8-2.8-1.6-2.7-1.6-2.7h-1v1.3c0 1.5-1.3 1.4-1.3 1.4h-3.1c-1.5 0-1.4 1.3-1.4 1.3v3.2c0 1.3 1.5 1.3 1.5 1.3zm1.8-1a.6.6 0 1 1 0-1.2.6.6 0 0 1 0 1.2z" fill="#FFE873"/></svg>`,
+            "Pandas": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="4" y="3" width="3.2" height="18" rx="1.6" fill="#150458"/><rect x="9.5" y="7" width="3.2" height="14" rx="1.6" fill="#FFCA00"/><rect x="15" y="3" width="3.2" height="18" rx="1.6" fill="#E70488"/><rect x="2" y="10.5" width="18" height="3.2" rx="1.6" fill="#150458"/></svg>`,
+            "NumPy": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#013243" fill-opacity="0.1"/><path d="M4.5 4h4.2v6.8l6.8-6.8h4.5v16h-4.2v-6.8L9 20H4.5V4z" fill="#4DABCF"/><path d="M8.7 4h6.8v3.5H8.7z" fill="#013243" fill-opacity="0.4"/><path d="M8.7 16.5h6.8V20H8.7z" fill="#013243" fill-opacity="0.4"/></svg>`,
+            "Pandas & NumPy": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="3" width="3.5" height="18" rx="1.5" fill="#150458"/><rect x="7" y="7" width="3.5" height="14" rx="1.5" fill="#FFCA00"/><rect x="12" y="3" width="3.5" height="18" rx="1.5" fill="#E70488"/><rect x="2" y="10" width="13.5" height="3.5" rx="1.5" fill="#150458"/><rect x="17.5" y="3" width="4.5" height="18" rx="1.5" fill="#0284C7"/><path d="M18 5l3.5 14" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+            "Matplotlib": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="4.5" fill="#11557C" fill-opacity="0.12"/><line x1="4.5" y1="19.5" x2="19.5" y2="19.5" stroke="#11557C" stroke-width="1.6" stroke-linecap="round"/><line x1="4.5" y1="4.5" x2="4.5" y2="19.5" stroke="#11557C" stroke-width="1.6" stroke-linecap="round"/><path d="M5 16c3-1 5-9 8-9s4 7 6 5" stroke="#1F77B4" stroke-width="2" stroke-linecap="round"/><path d="M5 11c3 0 5 7 8 7s4-11 6-9" stroke="#FF7F0E" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="7" r="1.5" fill="#1F77B4"/><circle cx="13" cy="18" r="1.5" fill="#FF7F0E"/></svg>`,
+            "Tableau": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M11 6.5h2v11h-2z" fill="#E85B27"/><path d="M6.5 11h11v2h-11z" fill="#E85B27"/><path d="M11.3 2.5h1.4v4h-1.4z" fill="#1C457A"/><path d="M10 3.8h4v1.4h-4z" fill="#1C457A"/><path d="M11.3 17.5h1.4v4h-1.4z" fill="#4B95A2"/><path d="M10 18.8h4v1.4h-4z" fill="#4B95A2"/><path d="M3.8 10h1.4v4H3.8z" fill="#C92A2C"/><path d="M2.5 11.3h4v1.4h-4z" fill="#C92A2C"/><path d="M18.8 10h1.4v4h-1.4z" fill="#6B283A"/><path d="M17.5 11.3h4v1.4h-4z" fill="#6B283A"/><path d="M16.8 5.5h1v2.5h-1z" fill="#E08B32"/><path d="M16 6.25h2.5v1H16z" fill="#E08B32"/><path d="M6.2 16h1v2.5h-1z" fill="#587D94"/><path d="M5.5 16.75h2.5v1H5.5z" fill="#587D94"/></svg>`,
+            "Data Visualisation": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="4.5" fill="#8B5CF6" fill-opacity="0.12"/><rect x="5" y="13" width="3" height="7" rx="1.2" fill="#3B82F6"/><rect x="9.5" y="8" width="3" height="12" rx="1.2" fill="#8B5CF6"/><rect x="14" y="4" width="3" height="16" rx="1.2" fill="#EC4899"/><path d="M5 11l4.5-5 4.5 4 5-6" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="4" r="1.5" fill="#F59E0B"/></svg>`,
+            "Data Visualization": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="2" y="2" width="20" height="20" rx="4.5" fill="#8B5CF6" fill-opacity="0.12"/><rect x="5" y="13" width="3" height="7" rx="1.2" fill="#3B82F6"/><rect x="9.5" y="8" width="3" height="12" rx="1.2" fill="#8B5CF6"/><rect x="14" y="4" width="3" height="16" rx="1.2" fill="#EC4899"/><path d="M5 11l4.5-5 4.5 4 5-6" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="4" r="1.5" fill="#F59E0B"/></svg>`,
+            "Data Modeling": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="6" rx="1.5" fill="#EEF2FF"/><rect x="14" y="3" width="7" height="6" rx="1.5" fill="#EEF2FF"/><rect x="8.5" y="15" width="7" height="6" rx="1.5" fill="#EEF2FF"/><path d="M6.5 9v3a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9"/><path d="M12 14v1"/></svg>`,
+            "ETL & Data Cleaning": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16l-6.5 7.5v6l-3 2v-8L4 4z" fill="#E0F2FE" fill-opacity="0.5"/><path d="M17 17l4 4m0-4l-4 4"/></svg>`,
+            "KPI Reporting": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="12" cy="12" r="9" stroke="#EC4899" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="#EC4899" stroke-width="2" fill="#FDF2F8"/><circle cx="12" cy="12" r="2" fill="#DB2777"/><path d="M16 8l5-5m-3 0h3v3" stroke="#D97706" stroke-width="2" stroke-linecap="round"/></svg>`,
 
-            const tierTitle = document.createElement('div');
-            tierTitle.classList.add('skill-tier-title');
-            tierTitle.textContent = tier.category;
-            tierBlock.appendChild(tierTitle);
+                        // Generative AI
+            "RLHF Evaluation": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="9" cy="8" r="3.5" stroke="#D97706" stroke-width="1.8" fill="#FFFBEB"/><path d="M3 18c0-3 3-4.5 6-4.5s6 1.5 6 4.5" stroke="#D97706" stroke-width="1.8" stroke-linecap="round"/><path d="M17 11.5l1.8 1.8 3.2-3.3" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+            "Prompt Engineering": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="4" width="18" height="16" rx="4" fill="#FAF5FF" stroke="#8B5CF6" stroke-width="1.8"/><path d="M7 9l3 3-3 3" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="15" x2="16" y2="15" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/><path d="M18 3l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2z" fill="#F59E0B"/></svg>`,
+            "Text-to-SQL Generation": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><ellipse cx="10" cy="6" rx="6" ry="2.5" fill="#38BDF8"/><path d="M4 6v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6" fill="#0284C7"/><path d="M4 11v5c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-5" fill="#0369A1"/><path d="M19 11l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1 1-2.2z" fill="#F59E0B"/></svg>`,
+            "Automated Insights & Summarization": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="3" width="14" height="18" rx="3" fill="#FAF5FF" stroke="#A855F7" stroke-width="1.8"/><line x1="6.5" y1="8" x2="11.5" y2="8" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round"/><line x1="6.5" y1="12" x2="13.5" y2="12" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round"/><line x1="6.5" y1="16" x2="11" y2="16" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round"/><path d="M18 4l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1 1-2.2z" fill="#EC4899"/></svg>`,
+            "Synthetic Data Generation": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="3" width="7" height="7" rx="2" fill="#06B6D4" fill-opacity="0.2" stroke="#0891B2" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="2" fill="#06B6D4" fill-opacity="0.2" stroke="#0891B2" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="2" fill="#06B6D4" fill-opacity="0.2" stroke="#0891B2" stroke-width="1.8"/><path d="M17.5 14l.8 1.8 1.8.8-1.8.8-.8 1.8-.8-1.8-1.8-.8 1.8-.8.8-1.8z" fill="#06B6D4"/><path d="M7 10v4M10 7h4" stroke="#0891B2" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+            "Response Evaluation": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2" stroke="#10B981" stroke-width="1.8"/><rect x="9" y="2" width="6" height="3" rx="1" fill="#10B981"/><path d="M8.5 12l2.5 2.5 5-5" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 16.5h7" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"/></svg>`,
+            "AI Quality & Safety": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 3L4 6.5v6c0 5 3.5 9 8 10.5 4.5-1.5 8-5.5 8-10.5v-6L12 3z" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.8"/><path d="M8.5 12.5l2.5 2.5 5-5" stroke="#2563EB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+            "Hallucination Detection": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="11" cy="11" r="7" stroke="#EF4444" stroke-width="1.8" fill="#FEF2F2"/><path d="M16 16l4.5 4.5" stroke="#DC2626" stroke-width="2" stroke-linecap="round"/><path d="M8.5 11l2 2 3.5-3.5" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+            "AI Workflow Automation": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="5" cy="12" r="3" fill="#6366F1"/><circle cx="19" cy="6" r="3" fill="#8B5CF6"/><circle cx="19" cy="18" r="3" fill="#EC4899"/><path d="M8 12h5l3-5M13 12l3 5" stroke="#6366F1" stroke-width="1.8" stroke-linecap="round"/><path d="M12 9l-1.5 3h3L12 15" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 
-            const itemsGrid = document.createElement('div');
-            itemsGrid.classList.add('skill-items-grid');
+            // Tools & Technologies
+            "SQL Server (SSMS)": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" fill="#CC292B" fill-opacity="0.12"/><ellipse cx="12" cy="7" rx="7" ry="2.5" fill="#CC292B"/><path d="M5 7v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V7" fill="#B91C1C"/><path d="M5 11v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4" fill="#991B1B"/><ellipse cx="12" cy="7" rx="5" ry="1.5" fill="#FCA5A5"/></svg>`,
+            "MySQL": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M19 12c-1.5-2.5-4-4-7-4-4.5 0-8 3.5-8 8h15c0-1.5-.5-2.8-1-4z" fill="#00758F" fill-opacity="0.2"/><path d="M4.5 15.5c2-4 6-6.5 10.5-5.5 2 .5 3.5 1.8 4 3.5-1.5-.5-3.5-.5-5 0-3 1-5.5 3-7 4.5-.8-.8-1.7-1.6-2.5-2.5z" fill="#00758F"/><circle cx="16.5" cy="11.5" r="1" fill="#F29111"/><path d="M18.5 14c1 2 2.5 3 4 3-1 1-3 1.5-4.5.5.3-1.2.5-2.3.5-3.5z" fill="#F29111"/></svg>`,
+            "Git & GitHub": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><circle cx="6" cy="6" r="2.5" fill="#F05032"/><circle cx="6" cy="18" r="2.5" fill="#F05032"/><circle cx="18" cy="9" r="2.5" fill="#F05032"/><path d="M6 8.5v7M8 7.5l8 2.5" stroke="#F05032" stroke-width="1.8" stroke-linecap="round"/></svg>`,
+            "Jupyter Notebook": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 4.5c4.5 0 8 1.8 8 4 0 1.2-1 2.2-2.5 3-1-1.3-3.2-2.2-5.5-2.2s-4.5.9-5.5 2.2C5 10.7 4 9.7 4 8.5c0-2.2 3.5-4 8-4z" fill="#F37626"/><path d="M12 19.5c-4.5 0-8-1.8-8-4 0-1.2 1-2.2 2.5-3 1 1.3 3.2 2.2 5.5 2.2s4.5-.9 5.5-2.2c1.5.8 2.5 1.8 2.5 3 0 2.2-3.5 4-8 4z" fill="#F37626"/><circle cx="18" cy="6.5" r="1.3" fill="#6E6E6E"/><circle cx="6" cy="17.5" r="1.3" fill="#6E6E6E"/><circle cx="19" cy="16.5" r="1.3" fill="#6E6E6E"/></svg>`,
+            "VS Code": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M17.5 2.5l4 2v15l-4 2-10-7.5-5 4V6l5 4 10-7.5z" fill="#007ACC" fill-opacity="0.2"/><path d="M17.5 2.5l4 2v15l-4 2-8.5-7.5 8.5-11.5z" fill="#007ACC"/><path d="M17.5 8.5l-6 3.5 6 3.5v-7z" fill="#1F9CF0"/><path d="M2.5 6l5 4-5 4V6z" fill="#0065A9"/><path d="M7.5 10l10-7.5v6L11 12l-3.5-2z" fill="#117CAD"/><path d="M7.5 14l10 7.5v-6L11 12l-3.5 2z" fill="#005A9E"/></svg>`,
 
-            tier.items.forEach(item => {
-                const itemEl = document.createElement('div');
-                
-                if (tier.tier === 'primary') {
-                    itemEl.classList.add('skill-card-primary');
-                    itemEl.innerHTML = `
-                        <span class="skill-name">${item.name}</span>
-                    `;
-                } else if (tier.tier === 'competitive') {
-                    itemEl.classList.add('skill-pill-competitive');
-                    itemEl.innerHTML = `
-                        <span class="skill-name">${item.name}</span>
-                    `;
-                } else if (tier.tier === 'supporting') {
-                    itemEl.classList.add('skill-pill-supporting');
-                    itemEl.innerHTML = `
-                        <span class="skill-name">${item.name}</span>
-                    `;
-                } else {
-                    itemEl.classList.add('skill-pill-basic');
-                    itemEl.innerHTML = `
-                        <span class="skill-name">${item.name}</span>
-                    `;
-                }
-                itemsGrid.appendChild(itemEl);
-            });
+            // Web
+            "HTML 5": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M4 3l1.5 16.5L12 21.5l6.5-2L20 3H4z" fill="#E34F26"/><path d="M12 4.5v15.5l5.2-1.6L18.5 4.5H12z" fill="#EF652A"/><path d="M8 8.5h8l-.3 3H9.5l.2 2.5h6l-.4 4.5-3.3 1-3.3-1-.2-2h-2l.3 3.5 5.2 1.5 5.2-1.5.7-8H7.7l.3-3z" fill="#FFFFFF"/></svg>`,
+            "CSS 3": `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M4 3l1.5 16.5L12 21.5l6.5-2L20 3H4z" fill="#1572B6"/><path d="M12 4.5v15.5l5.2-1.6L18.5 4.5H12z" fill="#33A9DC"/><path d="M8 8.5h8l-.3 3H9.5l.2 2.5h6l-.4 4.5-3.3 1-3.3-1-.2-2h-2l.3 3.5 5.2 1.5 5.2-1.5.7-8H7.7l.3-3z" fill="#FFFFFF"/></svg>`
+        };
 
-            tierBlock.appendChild(itemsGrid);
-            redesignWrapper.appendChild(tierBlock);
+        // Intelligent lookup helper so any naming variation or casing gets the correct brand icon
+        function getSkillIcon(rawName) {
+            const name = (rawName || '').trim();
+            if (skillIcons[name]) return skillIcons[name];
+            
+            const lower = name.toLowerCase();
+            for (const key in skillIcons) {
+                if (key.toLowerCase() === lower) return skillIcons[key];
+            }
+            if (lower.includes('pandas')) return skillIcons['Pandas'];
+            if (lower.includes('numpy')) return skillIcons['NumPy'];
+            if (lower.includes('matplotlib')) return skillIcons['Matplotlib'];
+            if (lower.includes('tableau')) return skillIcons['Tableau'];
+            if (lower.includes('visualis') || lower.includes('visualiz')) return skillIcons['Data Visualisation'];
+            if (lower.includes('excel')) return skillIcons['Advanced Excel'];
+            if (lower.includes('power bi') || lower.includes('powerbi')) return skillIcons['Power BI'];
+            if (lower.includes('sql server') || lower.includes('ssms')) return skillIcons['SQL Server (SSMS)'];
+            if (lower.includes('mysql')) return skillIcons['MySQL'];
+            if (lower.includes('python')) return skillIcons['Python'];
+            if (lower.includes('dax') || lower.includes('power query')) return skillIcons['DAX & Power Query'];
+            if (lower.includes('kpi')) return skillIcons['KPI Reporting'];
+            if (lower.includes('etl') || lower.includes('clean')) return skillIcons['ETL & Data Cleaning'];
+            if (lower.includes('model')) return skillIcons['Data Modeling'];
+            if (lower.includes('jupyter')) return skillIcons['Jupyter Notebook'];
+            if (lower.includes('vs code') || lower.includes('vscode')) return skillIcons['VS Code'];
+            if (lower.includes('git')) return skillIcons['Git & GitHub'];
+            if (lower.includes('html')) return skillIcons['HTML 5'];
+            if (lower.includes('css')) return skillIcons['CSS 3'];
+                        if (lower.includes('text-to-sql') || lower.includes('text to sql') || (lower.includes('sql') && lower.includes('gen'))) return skillIcons['Text-to-SQL Generation'];
+            if (lower.includes('insight') || lower.includes('summariz')) return skillIcons['Automated Insights & Summarization'];
+            if (lower.includes('synthetic')) return skillIcons['Synthetic Data Generation'];
+            if (lower.includes('hallucination')) return skillIcons['Hallucination Detection'];
+            if (lower.includes('workflow') && lower.includes('ai')) return skillIcons['AI Workflow Automation'];
+            if (lower.includes('rlhf')) return skillIcons['RLHF Evaluation'];
+            if (lower.includes('prompt')) return skillIcons['Prompt Engineering'];
+            if (lower.includes('response')) return skillIcons['Response Evaluation'];
+            if (lower.includes('safety')) return skillIcons['AI Quality & Safety'];
+            if (lower === 'sql') return skillIcons['SQL'];
+
+            return `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>`;
+        }
+
+        const categoryIcons = {
+            analytics: `<svg viewBox="0 0 28 28" width="24" height="24" fill="none"><rect x="4" y="14" width="4.5" height="10" rx="2" fill="#F59E0B"/><rect x="11.5" y="9" width="4.5" height="15" rx="2" fill="#D97706"/><rect x="19" y="4" width="4.5" height="20" rx="2" fill="#B45309"/><path d="M5 12l6.5-5 7-2 5-2" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"/><circle cx="23.5" cy="3" r="2" fill="#22C55E"/></svg>`,
+            genai: `<svg viewBox="0 0 28 28" width="24" height="24" fill="none"><path d="M14 2c.8 5.6 5.4 10.2 11 11-5.6.8-10.2 5.4-11 11-.8-5.6-5.4-10.2-11-11 5.6-.8 10.2-5.4 11-11z" fill="url(#genaiGrad)"/><circle cx="21" cy="6" r="2.5" fill="#F59E0B"/><circle cx="6" cy="20" r="1.5" fill="#EC4899"/><defs><linearGradient id="genaiGrad" x1="3" y1="2" x2="25" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#A855F7"/><stop offset="0.5" stop-color="#EC4899"/><stop offset="1" stop-color="#F59E0B"/></linearGradient></defs></svg>`,
+            tools: `<svg viewBox="0 0 28 28" width="24" height="24" fill="none"><rect x="3" y="4" width="22" height="18" rx="4.5" fill="#1E293B" stroke="#3B82F6" stroke-width="1.8"/><circle cx="6.5" cy="7.5" r="1" fill="#EF4444"/><circle cx="9.5" cy="7.5" r="1" fill="#F59E0B"/><circle cx="12.5" cy="7.5" r="1" fill="#10B981"/><path d="M7 14l3.5 2.5L7 19" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><line x1="13" y1="19" x2="18" y2="19" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round"/></svg>`,
+            web: `<svg viewBox="0 0 28 28" width="24" height="24" fill="none"><rect x="3" y="4" width="22" height="19" rx="4.5" fill="#0F172A" stroke="#10B981" stroke-width="1.8"/><circle cx="6.5" cy="7.5" r="1" fill="#EF4444"/><circle cx="9.5" cy="7.5" r="1" fill="#F59E0B"/><circle cx="12.5" cy="7.5" r="1" fill="#10B981"/><path d="M9 13.5l-2.5 2.5 2.5 2.5" stroke="#34D399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="15" y1="12" x2="13" y2="20" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/><path d="M19 13.5l2.5 2.5-2.5 2.5" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+        };
+
+        const gridWrapper = document.createElement('div');
+        gridWrapper.classList.add('skills-cards-grid');
+
+        portfolioData.skills.forEach(categoryData => {
+            const cardEl = document.createElement('div');
+            cardEl.classList.add('skill-category-card', 'fade-up');
+
+            const iconHtml = categoryIcons[categoryData.iconKey] || categoryIcons.analytics;
+
+            const pillsHtml = (categoryData.items || []).map(item => {
+                const name = typeof item === 'string' ? item : (item.name || '');
+                const cleanName = name.replace(/^[\p{Emoji}\s\uFE0F\u200D]+/gu, '').trim();
+                const skillSvg = getSkillIcon(cleanName || name);
+                return `
+                    <span class="skill-tag-pill">
+                        <span class="skill-pill-icon">${skillSvg}</span>
+                        <span class="skill-pill-label">${cleanName || name}</span>
+                    </span>
+                `;
+            }).join('');
+
+            cardEl.innerHTML = `
+                <div class="skill-card-header">
+                    <div class="skill-icon-badge skill-badge-${categoryData.iconKey || 'analytics'}">
+                        ${iconHtml}
+                    </div>
+                    <div class="skill-header-meta">
+                        <h3 class="skill-category-title">${categoryData.category}</h3>
+                        <span class="skill-category-count">${(categoryData.items || []).length} Skills</span>
+                    </div>
+                </div>
+                <p class="skill-category-desc">${categoryData.description || ''}</p>
+                <div class="skill-pills-wrap">
+                    ${pillsHtml}
+                </div>
+            `;
+
+            gridWrapper.appendChild(cardEl);
         });
 
-        skillsContainer.appendChild(redesignWrapper);
-        
-        // Re-run lucide icons for the new elements
+        skillsContainer.appendChild(gridWrapper);
         if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 

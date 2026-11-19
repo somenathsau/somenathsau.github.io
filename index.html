@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@0.477.0"></script>
 
-    <link rel="stylesheet" href="resources/styles.css?v=42.0">
+    <link rel="stylesheet" href="resources/styles.css?v=55.0">
     <script>
         // Inline theme initialization to prevent flash
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -131,28 +131,106 @@
                         <p class="greeting">Hello, I'm</p>
                         <h1 class="hero-name gradient-text" id="heroName">SOMENATH SAU</h1>
                         <p class="hero-role" id="heroRoleDisplay"><span class="hero-role-prefix"
-                                id="heroRolePrefix">Focused on :</span><span class="hero-role-typewriter-wrap"><span
+                                id="heroRolePrefix">Specializing in :</span><span class="hero-role-typewriter-wrap"><span
                                     id="typewriterText">Data Analyst</span><span
                                     class="typewriter-cursor blink">|</span></span></p>
                         <p class="hero-microline" id="heroMicroline">SQL | Python | Power BI | Advanced Excel | Data
                             Modeling | ETL</p>
                     </div>
 
-                    <div class="hero-visuals-wrapper">
+                    <div class="hero-profile-column">
                         <div class="hero-image-container" id="heroImageContainer"></div>
 
-                        <div class="hero-actions-wrapper">
-                            <div class="hero-socials" id="heroSocials">
-                                <!-- Dynamic Social Icons -->
+                        <!-- Tech Stack Showcase (Cards Style directly below Profile Image) -->
+                        <div class="hero-tech-showcase fade-up visible" id="heroTechShowcase">
+                            <div class="tech-showcase-header">
+                                <span class="tech-showcase-title">SKILLS & TOOLS</span>
+                            </div>
+                            <div class="tech-cards-row">
+                                <!-- Power BI -->
+                                <div class="tech-card" title="Power BI">
+                                    <div class="tech-card-icon">
+                                        <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+                                            <rect x="8" y="24" width="8" height="18" rx="4" fill="#F6D743"/>
+                                            <rect x="19.5" y="14" width="8" height="28" rx="4" fill="#EAAA08"/>
+                                            <rect x="31" y="6" width="8" height="36" rx="4" fill="#D97706"/>
+                                        </svg>
+                                    </div>
+                                    <span class="tech-card-name">Power BI</span>
+                                </div>
+
+                                <!-- SQL -->
+                                <div class="tech-card" title="SQL">
+                                    <div class="tech-card-icon">
+                                        <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+                                            <ellipse cx="24" cy="11" rx="16" ry="6" fill="#38BDF8"/>
+                                            <path d="M8 11v9c0 3.3 7.2 6 16 6s16-2.7 16-6v-9" fill="#0284C7"/>
+                                            <ellipse cx="24" cy="20" rx="16" ry="6" fill="#38BDF8" fill-opacity="0.35"/>
+                                            <path d="M8 20v9c0 3.3 7.2 6 16 6s16-2.7 16-6v-9" fill="#0369A1"/>
+                                            <ellipse cx="24" cy="29" rx="16" ry="6" fill="#38BDF8" fill-opacity="0.35"/>
+                                            <path d="M8 29v9c0 3.3 7.2 6 16 6s16-2.7 16-6v-9" fill="#075985"/>
+                                            <ellipse cx="24" cy="11" rx="12" ry="4" fill="#E0F2FE"/>
+                                            <text x="24" y="27" font-family="'JetBrains Mono', 'Poppins', sans-serif" font-size="8.5" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">SQL</text>
+                                        </svg>
+                                    </div>
+                                    <span class="tech-card-name">SQL</span>
+                                </div>
+
+                                <!-- Python -->
+                                <div class="tech-card" title="Python">
+                                    <div class="tech-card-icon">
+                                        <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+                                            <path d="M23.8 4c-6.2 0-10 2.8-10 6.6v4.4h10.2v1.4H9.8C6.2 16.4 4 19.8 4 24.6c0 4.4 2.6 7.6 6.4 8.2v-4.6c0-3.4 2.8-6.2 6.2-6.2h10.2c2.6 0 4.8-2.2 4.8-4.8v-6.6C31.6 7.8 27.8 4 23.8 4zm-3.6 3.4c1.2 0 2 .8 2 2s-.8 2-2 2-2-.8-2-2 .8-2 2-2z" fill="#387EB8"/>
+                                            <path d="M24.2 44c6.2 0 10-2.8 10-6.6v-4.4H24v-1.4h14.2c3.6 0 5.8-3.4 5.8-8.2 0-4.4-2.6-7.6-6.4-8.2v4.6c0 3.4-2.8 6.2-6.2 6.2H21.2c-2.6 0-4.8 2.2-4.8 4.8v6.6c0 2.8 3.8 6.6 7.8 6.6zm3.6-3.4c-1.2 0-2-.8-2-2s.8-2 2-2 2 .8 2 2-.8 2-2 2z" fill="#FFE052"/>
+                                        </svg>
+                                    </div>
+                                    <span class="tech-card-name">Python</span>
+                                </div>
+
+                                <!-- NumPy -->
+                                <div class="tech-card" title="NumPy">
+                                    <div class="tech-card-icon">
+                                        <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#013243" fill-opacity="0.08"/>
+                                            <path d="M9 8h8.5v13.5l13.5-13.5h9v32h-8.5V26.5L18 40H9V8z" fill="#4DABCF"/>
+                                            <path d="M17.5 8h13.5v7H17.5z" fill="#013243" fill-opacity="0.35"/>
+                                            <path d="M17.5 33h13.5v7H17.5z" fill="#013243" fill-opacity="0.35"/>
+                                        </svg>
+                                    </div>
+                                    <span class="tech-card-name">NumPy</span>
+                                </div>
+
+                                <!-- Pandas -->
+                                <div class="tech-card" title="Pandas">
+                                    <div class="tech-card-icon">
+                                        <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+                                            <rect x="8" y="6" width="6.5" height="36" rx="3.25" fill="#150458" class="pandas-dark-bar"/>
+                                            <rect x="19" y="14" width="6.5" height="28" rx="3.25" fill="#FFCA00"/>
+                                            <rect x="30" y="6" width="6.5" height="36" rx="3.25" fill="#E70488"/>
+                                            <rect x="4" y="21" width="36" height="6.5" rx="3.25" fill="#150458" class="pandas-dark-bar"/>
+                                        </svg>
+                                    </div>
+                                    <span class="tech-card-name">Pandas</span>
+                                </div>
+
+                                <!-- Excel -->
+                                <div class="tech-card" title="Excel">
+                                    <div class="tech-card-icon">
+                                        <svg viewBox="0 0 48 48" width="26" height="26" fill="none">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#107C41"/>
+                                            <rect x="8" y="8" width="32" height="32" rx="6" fill="#185C37" fill-opacity="0.3"/>
+                                            <path d="M16 14l7 10-7 10h5.5l4.5-7.5 4.5 7.5H36L29 24l7-10h-5.5L26 21.5 21.5 14H16z" fill="#FFFFFF"/>
+                                        </svg>
+                                    </div>
+                                    <span class="tech-card-name">Excel</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <p class="hero-bio fade-up visible" id="heroBio">
-                        ✔ Transform complex data into insights that improve reporting efficiency.<br>
-                        ✔ Build automated dashboards using Python, SQL, and Power BI.<br>
-                        ✔ Streamline analytical workflows using Gen AI.<br>
-                        ✔ Identify trends to support faster and smarter business decisions.
+
+                        Results-driven Data Analyst dedicated to transforming complex datasets into clear, actionable business insights. Experienced in building automated dashboards, optimizing reporting workflows, and leveraging SQL, Python, and Power BI to empower data-driven decisions.
                     </p>
 
                     <div class="hero-buttons-container">
@@ -165,10 +243,14 @@
                     <div class="skills-ticker" id="heroSkillsTicker">
                         <!-- Dynamic Content -->
                     </div>
+
+                    <div class="hero-actions-wrapper">
+                        <div class="hero-socials" id="heroSocials">
+                            <!-- Dynamic Social Icons -->
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
 
             <div class="scroll-arrows">
                 <span></span>
@@ -308,8 +390,7 @@
                 <div class="contact-container">
                     <div class="contact-info fade-up">
                         <h3>Let's Connect</h3>
-                        <p>Open to opportunities in Data Analysis and Cloud Support. Feel free to reach out via email or
-                            LinkedIn.</p>
+                        <p>Open to entry-level opportunities in Data Analytics, MIS Reporting, and Business Intelligence. Feel free to reach out via email or LinkedIn.</p>
                         <div class="contact-links" id="contactLinks">
                             <!-- Dynamic Content -->
                         </div>
@@ -437,9 +518,9 @@
     <script src="resources/projects/hr-workforce.js?v=1.1"></script>
     <script src="resources/projects/california-retail.js?v=22.0"></script>
     <script src="resources/projects/uber-analysis.js?v=22.0"></script>
-    <script src="resources/projects/crime-data.js?v=22.0"></script>
-    <script src="resources/data.js?v=27.0"></script>
-    <script src="resources/script.js?v=27.0"></script>
+    <script src="resources/projects/crime-data.js?v=37.0"></script>
+    <script src="resources/data.js?v=37.0"></script>
+    <script src="resources/script.js?v=37.0"></script>
     <script>
         if (typeof lucide !== 'undefined') lucide.createIcons();
     </script>

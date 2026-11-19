@@ -2,23 +2,20 @@ const portfolioData = {
     // Personal Details
     name: "SOMENATH SAU",
     role: "Data Analyst",
-    rolePrefix: "Focused on :",
+    rolePrefix: "Specializing in :",
     roles: [
-        "Data Analyst",
-        "Business Analyst",
-        "MIS Analyst",
-        "BI Analyst"
+        "Business Intelligence & Reporting",
+        "Automated Dashboards & KPI Tracking",
+        "SQL & Python Data Analytics",
+        "Data Modeling & Quality Assurance"
     ],
     microline: "SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
-    resumeLink: "resources/assets/docs/Somenath-Sau-DataAnalyst.pdf",
-    resumeDocx: "resources/assets/docs/SOMENATH SAU_data analyst.docx",
+    resumeLink: "resources/assets/docs/Somenath-Sau-dataAnalyst.pdf",
+    resumeDocx: "resources/assets/docs/Somenath-Sau-dataAnalyst.docx",
     email: "somenathsau@gmail.com",
 
-    bio: "✔ Transform complex data into insights that improve reporting efficiency. " +
-        "<br>✔ Build automated dashboards using Python, SQL, and Power BI. " +
-        "<br>✔ Streamline analytical workflows using Gen AI. " +
-        "<br>✔ Identify trends to support faster and smarter business decisions. ",
+    bio: "Results-driven Data Analyst dedicated to transforming complex datasets into clear, actionable business insights. Experienced in building automated dashboards, optimizing reporting workflows, and leveraging SQL, Python, and Power BI to empower data-driven decisions.",
 
     // Social Links
     socialLinks: {
@@ -133,7 +130,7 @@ const portfolioData = {
                 "and structured prompts. Assessed outputs for instruction adherence, truthfulness, " +
                 "reasoning quality, and safety compliance, maintaining 95%+ quality accuracy."
         }
-    
+
     ],
 
     // Projects
@@ -145,47 +142,60 @@ const portfolioData = {
         typeof crimeDataProject !== 'undefined' ? crimeDataProject : null
     ].filter(Boolean),
 
-    // Skills Section
+    // Skills Section (2x2 Category Cards)
     skills: [
         {
             category: "Data Analytics",
-            tier: "primary",
+            iconKey: "analytics",
+            description: "Turning raw data into clean models, dashboards and reports.",
             items: [
-                { name: "📈 Excel" },
-                { name: "🛢️ SQL" },
-                { name: "📊 Power BI" },
-                { name: "🐼 Pandas" },
-                { name: "🐍 Python" },
-                { name: "📉 Matplotlib" },
-                { name: "💹 Data Visualization" },
+                "Advanced Excel",
+                "Power BI",
+                "SQL",
+                "DAX & Power Query",
+                "Python",
+                "Data Modeling",
+                "Pandas",
+                "KPI Reporting",
+                "NumPy",
+                "Matplotlib",
+                "ETL & Data Cleaning",
+                "Tableau", "Data Visualisation"
             ]
         },
         {
             category: "Generative AI",
-            tier: "competitive",
+            iconKey: "genai",
+            description: "Leveraging LLMs for automated analytics, query generation, and model evaluation.",
             items: [
-                { name: "🤖 RLHF Evaluation" },
-                { name: "🧠 Prompt Engineering" },
-                { name: "🎯 Response Evaluation" },
-                { name: "🛡️ Safety Review" }
+                "Prompt Engineering",
+                "RLHF & SFT Evaluation",
+                "Text-to-SQL Generation",
+                "Automated Insights & Summarization",
+                "AI Quality & Safety",
+                "Hallucination Detection",
+                "AI Workflow Automation"
             ]
         },
         {
             category: "Tools & Technologies",
-            tier: "supporting",
+            iconKey: "tools",
+            description: "Databases, version control and development environments.",
             items: [
-                { name: "🌿 Git & GitHub" },
-                { name: "📓 Jupyter Notebook" },
-                { name: "💻 VS Code" },
-                { name: "🐬 MySQL" }
+                "SQL Server (SSMS)",
+                "MySQL",
+                "Git & GitHub",
+                "Jupyter Notebook",
+                "VS Code"
             ]
         },
         {
-            category: "Additional Skills",
-            tier: "basic",
+            category: "Web",
+            iconKey: "web",
+            description: "Front-end basics for building and styling pages.",
             items: [
-                { name: "🌐 HTML 5" },
-                { name: "🎨 CSS 3" }
+                "HTML 5",
+                "CSS 3"
             ]
         }
     ],
