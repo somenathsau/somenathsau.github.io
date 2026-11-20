@@ -11,8 +11,8 @@ const portfolioData = {
     ],
     microline: "SQL | Python | Power BI | Advanced Excel | Data Modeling | ETL",
     heroImage: "resources/assets/hero/Somenath_Sau.webp",
-    resumeLink: "resources/assets/docs/Somenath-Sau-dataAnalyst.pdf",
-    resumeDocx: "resources/assets/docs/Somenath-Sau-dataAnalyst.docx",
+    resumeLink: "resources/assets/docs/Somenath-Sau-DataAnalyst.pdf",
+    resumeDocx: "resources/assets/docs/Somenath-Sau-DataAnalyst.docx",
     email: "somenathsau@gmail.com",
 
     bio: "Results-driven Data Analyst dedicated to transforming complex datasets into clear, actionable business insights. Experienced in building automated dashboards, optimizing reporting workflows, and leveraging SQL, Python, and Power BI to empower data-driven decisions.",

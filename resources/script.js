@@ -48,15 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroResumeBtn = document.getElementById('heroResumeBtn');
     const contactResumeBtn = document.getElementById('contactResumeBtn');
     
+    function getResumeUrl() {
+        if (!portfolioData.resumeLink) return '';
+        if (portfolioData.resumeLink.startsWith('http://') || portfolioData.resumeLink.startsWith('https://')) {
+            return portfolioData.resumeLink;
+        }
+        try {
+            return new URL(portfolioData.resumeLink, window.location.href).href;
+        } catch (e) {
+            return portfolioData.resumeLink;
+        }
+    }
+
     const downloadResumeBtn = document.getElementById('downloadResumeBtn');
     if (downloadResumeBtn) {
-        const resumeResolvedUrl = (window.location.protocol !== 'file:' && portfolioData.resumeLink && !portfolioData.resumeLink.startsWith('http')) ? (window.location.origin + '/' + portfolioData.resumeLink.replace(/^\/+/, '')) : portfolioData.resumeLink;
-        downloadResumeBtn.href = resumeResolvedUrl;
+        downloadResumeBtn.href = getResumeUrl();
         downloadResumeBtn.setAttribute('download', 'Somenath-Sau-DataAnalyst.pdf');
     }
     const openResumeNewTab = document.getElementById('openResumeNewTab');
     if (openResumeNewTab) {
-        openResumeNewTab.href = (window.location.protocol !== 'file:' && portfolioData.resumeLink && !portfolioData.resumeLink.startsWith('http')) ? (window.location.origin + '/' + portfolioData.resumeLink.replace(/^\/+/, '')) : portfolioData.resumeLink;
+        openResumeNewTab.href = getResumeUrl();
     }
 
     // Render Hero Socials (Buttons)
@@ -757,7 +768,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             if (resumeModal && resumeIframe) {
-                const pdfUrl = (window.location.protocol !== 'file:' && portfolioData.resumeLink && !portfolioData.resumeLink.startsWith('http')) ? (window.location.origin + '/' + portfolioData.resumeLink.replace(/^\/+/, '')) : portfolioData.resumeLink;
+                const pdfUrl = getResumeUrl();
                 resumeIframe.src = pdfUrl;
                 resumeModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
